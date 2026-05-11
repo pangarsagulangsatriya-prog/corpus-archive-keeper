@@ -130,52 +130,6 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
     setShowEditBack(false);
   }, [row]);
 
-  useEffect(() => {
-    if (activeTab !== "google-books" || !googleBooksUrl) return;
-    
-    const getBookId = (url: string) => {
-      try {
-        const urlObj = new URL(url);
-        return urlObj.searchParams.get("id");
-      } catch (e) {
-        return null;
-      }
-    };
-
-    const bookId = getBookId(googleBooksUrl);
-    if (!bookId) return;
-
-    // Load script
-    const script = document.createElement('script');
-    script.src = 'https://www.google.com/books/jsapi.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      // @ts-ignore
-      if (window.google && window.google.books) {
-        // @ts-ignore
-        window.google.books.load();
-        // @ts-ignore
-        window.google.books.setOnLoadCallback(() => {
-          const viewerCanvas = document.getElementById('viewerCanvas');
-          if (viewerCanvas) {
-            // @ts-ignore
-            const viewer = new window.google.books.DefaultViewer(viewerCanvas);
-            viewer.load(bookId);
-          }
-        });
-      }
-    };
-
-    return () => {
-      try {
-        document.body.removeChild(script);
-      } catch (e) {
-        // Ignore if already removed
-      }
-    };
-  }, [googleBooksUrl, activeTab]);
 
   const { data: corpusList = [] } = useQuery({
     queryKey: ['corpus', row.corpus],
@@ -556,11 +510,25 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                     </Button>
                   </div>
                   
-                  <div className="flex-1 border border-border bg-card p-2 flex items-center justify-center min-h-[500px] relative">
+                  <div className="flex-1 border border-border bg-card flex items-stretch justify-center min-h-[500px] relative">
                     {googleBooksUrl ? (
-                      <div id="viewerCanvas" className="w-full h-full min-h-[500px]"></div>
+                      <iframe 
+                        key={googleBooksUrl}
+                        src={(() => {
+                          try {
+                            const u = new URL(googleBooksUrl);
+                            const id = u.searchParams.get("id");
+                            return id 
+                              ? `https://books.google.com/books?id=${id}&output=embed`
+                              : googleBooksUrl;
+                          } catch { return googleBooksUrl; }
+                        })()}
+                        className="w-full min-h-[500px] border-0"
+                        allowFullScreen
+                        title="Google Books Preview"
+                      />
                     ) : (
-                      <div className="text-xs text-muted-foreground">Input Google Books URL to preview.</div>
+                      <div className="flex items-center justify-center w-full text-xs text-muted-foreground">Input Google Books URL to preview.</div>
                     )}
                     
                     {showEditUrl && (
