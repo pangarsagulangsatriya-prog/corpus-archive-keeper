@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -7,9 +7,11 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { AnyRow, CoverFile } from "@/lib/corpus-data";
 import { fetchCorpusData, sampleDKJ, sampleKSK, sampleTempo } from "@/lib/corpus-data";
+import { supabase } from "@/lib/supabase";
 import { 
   Search, Filter, ChevronLeft, ChevronRight, Book, FolderOpen, 
-  Download, Copy, ExternalLink, Check, AlertTriangle, ZoomIn, ZoomOut, Maximize2
+  Download, Copy, ExternalLink, Check, AlertTriangle, ZoomIn, ZoomOut, Maximize2,
+  Upload, Link as LinkIcon
 } from "lucide-react";
 
 // Helper components
@@ -37,7 +39,14 @@ function MetadataCard({ title, children }: { title: string; children: React.Reac
 
 export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string }) {
   const [row, setRow] = useState(initialRow);
+  const [frontUrl, setFrontUrl] = useState(row.frontCover?.imageUrl || "");
+  const [backUrl, setBackUrl] = useState(row.backCover?.imageUrl || "");
   
+  useEffect(() => {
+    setFrontUrl(row.frontCover?.imageUrl || "");
+    setBackUrl(row.backCover?.imageUrl || "");
+  }, [row]);
+
   const { data: corpusList = [] } = useQuery({
     queryKey: ['corpus', row.corpus],
     queryFn: () => fetchCorpusData(row.corpus as any)
@@ -53,6 +62,36 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
   };
   const handleNext = () => {
     if (currentIndex < list.length - 1) setRow(list[currentIndex + 1]);
+  };
+
+  const handleSaveCover = async (type: 'front' | 'back', url: string) => {
+    const key = type === 'front' ? 'frontcover' : 'backcover';
+    const currentCover = type === 'front' ? row.frontCover : row.backCover;
+    const updatedCover = { ...currentCover, imageUrl: url };
+    
+    const { error } = await supabase
+      .from('books')
+      .update({ [key]: updatedCover })
+      .eq('id', row.id);
+      
+    if (!error) {
+      setRow({ ...row, [type === 'front' ? 'frontCover' : 'backCover']: updatedCover });
+      alert("Saved!");
+    } else {
+      alert("Error: " + error.message);
+    }
+  };
+
+  const handleFileUpload = (type: 'front' | 'back', e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64 = reader.result as string;
+      handleSaveCover(type, base64);
+    };
+    reader.readAsDataURL(file);
   };
 
   const title = "judulBuku" in row ? row.judulBuku : row.judulNaskah;
@@ -205,32 +244,78 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                 <TabsContent value="front" className="mt-0 h-full flex flex-col items-center justify-center space-y-4">
                   <div className="border border-border bg-card p-2 max-w-[300px] shadow-sm">
                     <div className="aspect-[3/4] bg-muted flex items-center justify-center text-muted-foreground text-xs border border-dashed border-border">
-                      {row.frontCover.imageUrl ? (
+                      {row.frontCover?.imageUrl ? (
                         <img src={row.frontCover.imageUrl} alt="Front Cover" className="object-contain w-full h-full" />
                       ) : (
                         "No Front Cover Image"
                       )}
                     </div>
                   </div>
+                  
+                  <div className="w-full max-w-[300px] space-y-2">
+                    <div className="flex gap-2">
+                      <Input 
+                        placeholder="Input image URL..." 
+                        className="text-xs h-8 flex-1" 
+                        value={frontUrl}
+                        onChange={(e) => setFrontUrl(e.target.value)}
+                      />
+                      <Button size="sm" className="text-xs h-8" onClick={() => handleSaveCover('front', frontUrl)}>
+                        <LinkIcon className="w-3 h-3 mr-1" /> Save
+                      </Button>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Input 
+                        type="file" 
+                        className="text-xs h-8 flex-1" 
+                        accept="image/*"
+                        onChange={(e) => handleFileUpload('front', e)}
+                      />
+                    </div>
+                  </div>
+
                   <div className="text-xs text-muted-foreground text-center">
-                    <div>Source: {row.frontCover.sourceType}</div>
-                    <div className="truncate max-w-[400px]">{row.frontCover.sourceUrl}</div>
+                    <div>Source: {row.frontCover?.sourceType || "—"}</div>
+                    <div className="truncate max-w-[400px]">{row.frontCover?.sourceUrl || "—"}</div>
                   </div>
                 </TabsContent>
                 
                 <TabsContent value="back" className="mt-0 h-full flex flex-col items-center justify-center space-y-4">
                   <div className="border border-border bg-card p-2 max-w-[300px] shadow-sm">
                     <div className="aspect-[3/4] bg-muted flex items-center justify-center text-muted-foreground text-xs border border-dashed border-border">
-                      {row.backCover.imageUrl ? (
+                      {row.backCover?.imageUrl ? (
                         <img src={row.backCover.imageUrl} alt="Back Cover" className="object-contain w-full h-full" />
                       ) : (
                         "No Back Cover Image"
                       )}
                     </div>
                   </div>
+                  
+                  <div className="w-full max-w-[300px] space-y-2">
+                    <div className="flex gap-2">
+                      <Input 
+                        placeholder="Input image URL..." 
+                        className="text-xs h-8 flex-1" 
+                        value={backUrl}
+                        onChange={(e) => setBackUrl(e.target.value)}
+                      />
+                      <Button size="sm" className="text-xs h-8" onClick={() => handleSaveCover('back', backUrl)}>
+                        <LinkIcon className="w-3 h-3 mr-1" /> Save
+                      </Button>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Input 
+                        type="file" 
+                        className="text-xs h-8 flex-1" 
+                        accept="image/*"
+                        onChange={(e) => handleFileUpload('back', e)}
+                      />
+                    </div>
+                  </div>
+
                   <div className="text-xs text-muted-foreground text-center">
-                    <div>Source: {row.backCover.sourceType}</div>
-                    <div className="truncate max-w-[400px]">{row.backCover.sourceUrl}</div>
+                    <div>Source: {row.backCover?.sourceType || "—"}</div>
+                    <div className="truncate max-w-[400px]">{row.backCover?.sourceUrl || "—"}</div>
                   </div>
                 </TabsContent>
 
