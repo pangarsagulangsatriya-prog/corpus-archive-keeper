@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { AnyRow, CoverFile } from "@/lib/corpus-data";
-import { sampleDKJ, sampleKSK, sampleTempo } from "@/lib/corpus-data";
+import { fetchCorpusData, sampleDKJ, sampleKSK, sampleTempo } from "@/lib/corpus-data";
 import { 
   Search, Filter, ChevronLeft, ChevronRight, Book, FolderOpen, 
   Download, Copy, ExternalLink, Check, AlertTriangle, ZoomIn, ZoomOut, Maximize2
@@ -37,7 +38,14 @@ function MetadataCard({ title, children }: { title: string; children: React.Reac
 export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string }) {
   const [row, setRow] = useState(initialRow);
   
-  const list = row.corpus === "DKJ" ? sampleDKJ : row.corpus === "KSK" ? sampleKSK : sampleTempo;
+  const { data: corpusList = [] } = useQuery({
+    queryKey: ['corpus', row.corpus],
+    queryFn: () => fetchCorpusData(row.corpus as any)
+  });
+
+  const fallbackList = row.corpus === "DKJ" ? sampleDKJ : row.corpus === "KSK" ? sampleKSK : sampleTempo;
+  const list = corpusList.length > 0 ? corpusList : fallbackList;
+  
   const currentIndex = list.findIndex(r => r.id === row.id);
   
   const handlePrev = () => {

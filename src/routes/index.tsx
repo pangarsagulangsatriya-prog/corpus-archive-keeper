@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CorpusTable, SampleBadge } from "@/components/CorpusTable";
-import { sampleDKJ, sampleKSK, sampleTempo } from "@/lib/corpus-data";
+import { fetchCorpusData } from "@/lib/corpus-data";
 import type { DKJRow, KSKRow, TempoRow } from "@/lib/corpus-data";
 
 export const Route = createFileRoute("/")({
@@ -43,6 +44,21 @@ function Index() {
     { key: "pengarang", label: "Pengarang", render: (r: TempoRow) => r.pengarang },
   ];
 
+  const { data: dkjData = [], isLoading: isDkjLoading } = useQuery({
+    queryKey: ['corpus', 'DKJ'],
+    queryFn: () => fetchCorpusData('DKJ')
+  });
+
+  const { data: kskData = [], isLoading: isKskLoading } = useQuery({
+    queryKey: ['corpus', 'KSK'],
+    queryFn: () => fetchCorpusData('KSK')
+  });
+
+  const { data: tempoData = [], isLoading: isTempoLoading } = useQuery({
+    queryKey: ['corpus', 'Tempo'],
+    queryFn: () => fetchCorpusData('Tempo')
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border bg-card">
@@ -66,13 +82,13 @@ function Index() {
             <TabsTrigger value="tempo">Korpus Tempo</TabsTrigger>
           </TabsList>
           <TabsContent value="dkj">
-            <CorpusTable<DKJRow> rows={sampleDKJ} corpusPath="dkj" extraColumns={dkjCols} />
+            {isDkjLoading ? <div className="p-4 text-sm text-muted-foreground">Loading...</div> : <CorpusTable<DKJRow> rows={dkjData as DKJRow[]} corpusPath="dkj" extraColumns={dkjCols} />}
           </TabsContent>
           <TabsContent value="ksk">
-            <CorpusTable<KSKRow> rows={sampleKSK} corpusPath="ksk" extraColumns={kskCols} />
+            {isKskLoading ? <div className="p-4 text-sm text-muted-foreground">Loading...</div> : <CorpusTable<KSKRow> rows={kskData as KSKRow[]} corpusPath="ksk" extraColumns={kskCols} />}
           </TabsContent>
           <TabsContent value="tempo">
-            <CorpusTable<TempoRow> rows={sampleTempo} corpusPath="tempo" extraColumns={tempoCols} />
+            {isTempoLoading ? <div className="p-4 text-sm text-muted-foreground">Loading...</div> : <CorpusTable<TempoRow> rows={tempoData as TempoRow[]} corpusPath="tempo" extraColumns={tempoCols} />}
           </TabsContent>
         </Tabs>
       </main>

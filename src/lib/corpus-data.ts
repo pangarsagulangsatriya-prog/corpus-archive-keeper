@@ -420,7 +420,59 @@ export const sampleTempo: TempoRow[] = [
 
 export type AnyRow = DKJRow | KSKRow | TempoRow;
 
+import { supabase } from './supabase';
+
+export const fetchCorpusData = async (corpus: "DKJ" | "KSK" | "Tempo"): Promise<AnyRow[]> => {
+  try {
+    // Attempt to fetch from Supabase table 'books'
+    const { data, error } = await supabase
+      .from('books')
+      .select('*')
+      .eq('corpus', corpus);
+
+    if (error) {
+      console.warn(`Supabase fetch failed for ${corpus}, falling back to static data. Error:`, error.message);
+      throw error;
+    }
+
+    if (data && data.length > 0) {
+      return data as AnyRow[];
+    }
+    
+    // If no data, fallback to static
+    console.log(`No data in Supabase for ${corpus}, using static fallback.`);
+  } catch (e) {
+    // Fallback on error
+  }
+
+  const list: AnyRow[] =
+    corpus === "DKJ" ? sampleDKJ : corpus === "KSK" ? sampleKSK : sampleTempo;
+  return list;
+};
+
+export const fetchRow = async (corpus: "DKJ" | "KSK" | "Tempo", id: string): Promise<AnyRow | undefined> => {
+  try {
+    const { data, error } = await supabase
+      .from('books')
+      .select('*')
+      .eq('corpus', corpus)
+      .eq('id', id)
+      .single();
+
+    if (!error && data) {
+      return data as AnyRow;
+    }
+  } catch (e) {
+    // Fallback on error
+  }
+
+  const list: AnyRow[] =
+    corpus === "DKJ" ? sampleDKJ : corpus === "KSK" ? sampleKSK : sampleTempo;
+  return list.find((r) => r.id === id);
+};
+
 export const findRow = (corpus: "DKJ" | "KSK" | "Tempo", id: string): AnyRow | undefined => {
+  // Legacy sync version for existing code that hasn't been migrated
   const list: AnyRow[] =
     corpus === "DKJ" ? sampleDKJ : corpus === "KSK" ? sampleKSK : sampleTempo;
   return list.find((r) => r.id === id);
