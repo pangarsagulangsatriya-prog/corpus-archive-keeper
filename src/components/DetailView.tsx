@@ -11,7 +11,7 @@ import { supabase } from "@/lib/supabase";
 import { 
   Search, Filter, ChevronLeft, ChevronRight, Book, FolderOpen, 
   Download, Copy, ExternalLink, Check, AlertTriangle, ZoomIn, ZoomOut, Maximize2,
-  Upload, Link as LinkIcon
+  Upload, Link as LinkIcon, X
 } from "lucide-react";
 
 // Helper components
@@ -37,7 +37,7 @@ function MetadataCard({ title, children }: { title: string; children: React.Reac
   );
 }
 
-function ImageViewer({ src, alt, onEditToggle, isEditing }: { src?: string; alt: string; onEditToggle?: () => void; isEditing?: boolean }) {
+function ImageViewer({ src, alt, onEditToggle, isEditing, children }: { src?: string; alt: string; onEditToggle?: () => void; isEditing?: boolean; children?: React.ReactNode }) {
   const [scale, setScale] = useState(1);
   const [translate, setTranslate] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -101,6 +101,8 @@ function ImageViewer({ src, alt, onEditToggle, isEditing }: { src?: string; alt:
             `No ${alt} Image`
           )}
         </div>
+        
+        {children}
       </div>
     </div>
   );
@@ -110,12 +112,16 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
   const [row, setRow] = useState(initialRow);
   const [frontUrl, setFrontUrl] = useState(row.frontCover?.imageUrl || "");
   const [backUrl, setBackUrl] = useState(row.backCover?.imageUrl || "");
+  const [frontSourceUrl, setFrontSourceUrl] = useState(row.frontCover?.sourceUrl || "");
+  const [backSourceUrl, setBackSourceUrl] = useState(row.backCover?.sourceUrl || "");
   const [showEditFront, setShowEditFront] = useState(false);
   const [showEditBack, setShowEditBack] = useState(false);
   
   useEffect(() => {
     setFrontUrl(row.frontCover?.imageUrl || "");
     setBackUrl(row.backCover?.imageUrl || "");
+    setFrontSourceUrl(row.frontCover?.sourceUrl || "");
+    setBackSourceUrl(row.backCover?.sourceUrl || "");
     setShowEditFront(false);
     setShowEditBack(false);
   }, [row]);
@@ -137,10 +143,10 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
     if (currentIndex < list.length - 1) setRow(list[currentIndex + 1]);
   };
 
-  const handleSaveCover = async (type: 'front' | 'back', url: string) => {
+  const handleSaveCover = async (type: 'front' | 'back', url: string, sourceUrl?: string) => {
     const key = type === 'front' ? 'frontcover' : 'backcover';
     const currentCover = type === 'front' ? row.frontCover : row.backCover;
-    const updatedCover = { ...currentCover, imageUrl: url };
+    const updatedCover = { ...currentCover, imageUrl: url, sourceUrl: sourceUrl || currentCover?.sourceUrl };
     
     const { error } = await supabase
       .from('books')
@@ -314,90 +320,138 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
               </TabsList>
               
               <div className="flex-1 overflow-auto p-4 h-full">
-                <TabsContent value="front" className="mt-0 h-full flex flex-col items-center justify-center space-y-4 p-4">
+                <TabsContent value="front" className="mt-0 h-full flex flex-col items-center justify-center p-4">
                   <ImageViewer 
                     src={row.frontCover?.imageUrl} 
                     alt="Front Cover" 
                     onEditToggle={() => setShowEditFront(!showEditFront)}
                     isEditing={showEditFront}
-                  />
-                  
-                  {showEditFront && (
-                    <div className="w-full max-w-[500px] space-y-2 p-3 bg-secondary/50 border border-border">
-                      <div className="space-y-1">
-                        <label className="text-xs text-muted-foreground">Image URL</label>
-                        <div className="flex gap-1">
-                          <Input 
-                            placeholder="URL..." 
-                            className="text-xs h-8 flex-1" 
-                            value={frontUrl} 
-                            onChange={(e) => setFrontUrl(e.target.value)} 
-                          />
-                          <Button size="sm" className="text-xs h-8" onClick={() => handleSaveCover('front', frontUrl)}>
-                            <LinkIcon className="w-3 h-3" />
-                          </Button>
+                  >
+                    {showEditFront && (
+                      <div className="absolute inset-0 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4 z-10">
+                        <div className="w-full max-w-[350px] space-y-4 p-4 bg-card border border-border shadow-lg">
+                          <div className="flex justify-between items-center border-b border-border pb-2">
+                            <h3 className="text-xs font-semibold uppercase">Update Front Cover</h3>
+                            <Button size="icon" variant="ghost" className="w-6 h-6" onClick={() => setShowEditFront(false)}>
+                              <X className="w-4 h-4" />
+                            </Button>
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Image URL</label>
+                            <div className="flex gap-1">
+                              <Input 
+                                placeholder="URL..." 
+                                className="text-xs h-8 flex-1" 
+                                value={frontUrl} 
+                                onChange={(e) => setFrontUrl(e.target.value)} 
+                              />
+                              <Button size="sm" className="text-xs h-8" onClick={() => handleSaveCover('front', frontUrl, frontSourceUrl)}>
+                                <LinkIcon className="w-3 h-3" />
+                              </Button>
+                            </div>
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Source URL</label>
+                            <Input 
+                              placeholder="Source URL (e.g. Google Books)..." 
+                              className="text-xs h-8" 
+                              value={frontSourceUrl} 
+                              onChange={(e) => setFrontSourceUrl(e.target.value)} 
+                            />
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Upload File</label>
+                            <Input 
+                              type="file" 
+                              className="text-xs h-8" 
+                              accept="image/*" 
+                              onChange={(e) => handleFileUpload('front', e)} 
+                            />
+                          </div>
                         </div>
                       </div>
-                      
-                      <div className="space-y-1">
-                        <label className="text-xs text-muted-foreground">Upload File</label>
-                        <Input 
-                          type="file" 
-                          className="text-xs h-8" 
-                          accept="image/*" 
-                          onChange={(e) => handleFileUpload('front', e)} 
-                        />
-                      </div>
+                    )}
+                    
+                    {/* Elegant Source Display */}
+                    <div className="absolute bottom-2 left-2 right-2 flex justify-between text-xs text-muted-foreground/80 bg-background/50 backdrop-blur-sm px-2 py-1 rounded-sm">
+                      <span>Source: {row.frontCover?.sourceType || "—"}</span>
+                      {row.frontCover?.sourceUrl && (
+                        <a href={row.frontCover.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+                          Link
+                        </a>
+                      )}
                     </div>
-                  )}
-
-                  <div className="text-xs text-muted-foreground text-center">
-                    <div>Source: {row.frontCover?.sourceType || "—"}</div>
-                    <div className="truncate max-w-[400px]">{row.frontCover?.sourceUrl || "—"}</div>
-                  </div>
+                  </ImageViewer>
                 </TabsContent>
                 
-                <TabsContent value="back" className="mt-0 h-full flex flex-col items-center justify-center space-y-4 p-4">
+                <TabsContent value="back" className="mt-0 h-full flex flex-col items-center justify-center p-4">
                   <ImageViewer 
                     src={row.backCover?.imageUrl} 
                     alt="Back Cover" 
                     onEditToggle={() => setShowEditBack(!showEditBack)}
                     isEditing={showEditBack}
-                  />
-                  
-                  {showEditBack && (
-                    <div className="w-full max-w-[500px] space-y-2 p-3 bg-secondary/50 border border-border">
-                      <div className="space-y-1">
-                        <label className="text-xs text-muted-foreground">Image URL</label>
-                        <div className="flex gap-1">
-                          <Input 
-                            placeholder="URL..." 
-                            className="text-xs h-8 flex-1" 
-                            value={backUrl} 
-                            onChange={(e) => setBackUrl(e.target.value)} 
-                          />
-                          <Button size="sm" className="text-xs h-8" onClick={() => handleSaveCover('back', backUrl)}>
-                            <LinkIcon className="w-3 h-3" />
-                          </Button>
+                  >
+                    {showEditBack && (
+                      <div className="absolute inset-0 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4 z-10">
+                        <div className="w-full max-w-[350px] space-y-4 p-4 bg-card border border-border shadow-lg">
+                          <div className="flex justify-between items-center border-b border-border pb-2">
+                            <h3 className="text-xs font-semibold uppercase">Update Back Cover</h3>
+                            <Button size="icon" variant="ghost" className="w-6 h-6" onClick={() => setShowEditBack(false)}>
+                              <X className="w-4 h-4" />
+                            </Button>
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Image URL</label>
+                            <div className="flex gap-1">
+                              <Input 
+                                placeholder="URL..." 
+                                className="text-xs h-8 flex-1" 
+                                value={backUrl} 
+                                onChange={(e) => setBackUrl(e.target.value)} 
+                              />
+                              <Button size="sm" className="text-xs h-8" onClick={() => handleSaveCover('back', backUrl, backSourceUrl)}>
+                                <LinkIcon className="w-3 h-3" />
+                              </Button>
+                            </div>
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Source URL</label>
+                            <Input 
+                              placeholder="Source URL (e.g. Google Books)..." 
+                              className="text-xs h-8" 
+                              value={backSourceUrl} 
+                              onChange={(e) => setBackSourceUrl(e.target.value)} 
+                            />
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Upload File</label>
+                            <Input 
+                              type="file" 
+                              className="text-xs h-8" 
+                              accept="image/*" 
+                              onChange={(e) => handleFileUpload('back', e)} 
+                            />
+                          </div>
                         </div>
                       </div>
-                      
-                      <div className="space-y-1">
-                        <label className="text-xs text-muted-foreground">Upload File</label>
-                        <Input 
-                          type="file" 
-                          className="text-xs h-8" 
-                          accept="image/*" 
-                          onChange={(e) => handleFileUpload('back', e)} 
-                        />
-                      </div>
+                    )}
+                    
+                    {/* Elegant Source Display */}
+                    <div className="absolute bottom-2 left-2 right-2 flex justify-between text-xs text-muted-foreground/80 bg-background/50 backdrop-blur-sm px-2 py-1 rounded-sm">
+                      <span>Source: {row.backCover?.sourceType || "—"}</span>
+                      {row.backCover?.sourceUrl && (
+                        <a href={row.backCover.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+                          Link
+                        </a>
+                      )}
                     </div>
-                  )}
-
-                  <div className="text-xs text-muted-foreground text-center">
-                    <div>Source: {row.backCover?.sourceType || "—"}</div>
-                    <div className="truncate max-w-[400px]">{row.backCover?.sourceUrl || "—"}</div>
-                  </div>
+                  </ImageViewer>
                 </TabsContent>
 
                 <TabsContent value="paratext" className="mt-0 h-full space-y-4">
