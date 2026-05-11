@@ -78,12 +78,9 @@ function Index() {
             <ImportMarkdownDialog />
           </div>
           <p className="text-xs uppercase tracking-[0.2em] text-primary">Research Database</p>
-          <h1 className="mt-1 text-3xl font-semibold tracking-tight">
-            Pabrik Keindahan <span className="text-muted-foreground">— Corpus Tables</span>
-          </h1>
-          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-            Research database for DKJ, KSK, and Tempo literary corpora, focused on award status,
-            publication metadata, paratext evidence, cover files, and verification notes.
+          <h1 className="mt-1 text-3xl font-semibold tracking-tight">Corpus Tables</h1>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            Research database for DKJ, KSK, and Tempo literary corpora.
           </p>
         </div>
       </header>

@@ -343,7 +343,7 @@ export function CorpusTable<T extends AnyRow>({
           Upload XLSX / CSV to start building this corpus table.
         </div>
       ) : (
-        <div className="overflow-auto border border-border bg-card max-h-[calc(100vh-350px)]">
+        <div className="overflow-auto border border-border bg-card max-h-[calc(100vh-450px)]">
           <Table>
             <TableHeader className="sticky top-0 bg-secondary z-10">
               <TableRow className="bg-secondary">
