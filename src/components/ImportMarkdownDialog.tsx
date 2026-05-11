@@ -188,9 +188,9 @@ export function ImportMarkdownDialog() {
       // Try with original camelCase
       let { error } = await supabase.from('books').upsert(parsedData, { onConflict: 'id' });
 
-      // If there is an error regarding missing columns, fallback to lowercase
-      if (error && error.message.includes('column') && error.message.includes('does not exist')) {
-        console.log("CamelCase insert failed, trying lowercase mapping fallback...");
+      // If there is an error, fallback to lowercase mapping
+      if (error) {
+        console.warn("CamelCase insert failed, trying lowercase mapping fallback... Error was:", error.message);
         const fallbackData = mapToFallbackColumns(parsedData);
         const fallbackResult = await supabase.from('books').upsert(fallbackData, { onConflict: 'id' });
         error = fallbackResult.error;
