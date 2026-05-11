@@ -245,16 +245,27 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
     }
   };
 
-  const handleFileUpload = (type: 'front' | 'back', e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (type: 'front' | 'back', e: React.ChangeEvent<HTMLInputElement>, isEd2 = false) => {
     const file = e.target.files?.[0];
     if (!file) return;
     
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      const base64 = reader.result as string;
-      handleSaveCover(type, base64);
-    };
-    reader.readAsDataURL(file);
+    const fileName = `${row.id}/${type}${isEd2 ? '_ed2' : ''}_${Date.now()}.${file.name.split('.').pop()}`;
+    const { data, error } = await supabase
+      .storage
+      .from('covers')
+      .upload(fileName, file);
+      
+    if (error) {
+      alert("Gagal upload ke storage: " + error.message + "\nPastikan bucket 'covers' sudah dibuat di Supabase.");
+      return;
+    }
+    
+    const { data: { publicUrl } } = supabase
+      .storage
+      .from('covers')
+      .getPublicUrl(data.path);
+      
+    handleSaveCover(type, publicUrl, undefined, isEd2 ? (type === 'front' ? {...frontEd2, imageUrl: publicUrl} : {...backEd2, imageUrl: publicUrl}) : undefined);
   };
 
   const title = "judulBuku" in row ? row.judulBuku : row.judulNaskah;
@@ -459,6 +470,14 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                             />
                           </div>
                           <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Atau Upload File</label>
+                            <Input 
+                              type="file" 
+                              className="text-xs h-8" 
+                              onChange={(e) => handleFileUpload('front', e)} 
+                            />
+                          </div>
+                          <div className="space-y-1">
                             <label className="text-xs text-muted-foreground">Source URL</label>
                             <Input 
                               placeholder="Source URL..." 
@@ -479,6 +498,14 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                               className="text-xs h-8" 
                               value={frontEd2.imageUrl} 
                               onChange={(e) => setFrontEd2({...frontEd2, imageUrl: e.target.value})} 
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Atau Upload File</label>
+                            <Input 
+                              type="file" 
+                              className="text-xs h-8" 
+                              onChange={(e) => handleFileUpload('front', e, true)} 
                             />
                           </div>
                           <div className="space-y-1">
@@ -593,6 +620,14 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                             />
                           </div>
                           <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Atau Upload File</label>
+                            <Input 
+                              type="file" 
+                              className="text-xs h-8" 
+                              onChange={(e) => handleFileUpload('back', e)} 
+                            />
+                          </div>
+                          <div className="space-y-1">
                             <label className="text-xs text-muted-foreground">Source URL</label>
                             <Input 
                               placeholder="Source URL..." 
@@ -613,6 +648,14 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                               className="text-xs h-8" 
                               value={backEd2.imageUrl} 
                               onChange={(e) => setBackEd2({...backEd2, imageUrl: e.target.value})} 
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Atau Upload File</label>
+                            <Input 
+                              type="file" 
+                              className="text-xs h-8" 
+                              onChange={(e) => handleFileUpload('back', e, true)} 
                             />
                           </div>
                           <div className="space-y-1">
