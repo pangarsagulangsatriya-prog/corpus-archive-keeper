@@ -410,7 +410,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
               </TabsList>
               
               <div className="flex-1 overflow-auto p-4 h-full">
-                <TabsContent value="front" className="mt-0 h-full flex flex-col p-4">
+                <TabsContent value="front" className="mt-0 h-full flex flex-col p-4 relative">
                   <Tabs key={row.id} defaultValue={row.frontCover?.edition2?.imageUrl ? "ed2" : "ed1"} className="w-full h-full flex flex-col">
                     <div className="flex justify-between items-center mb-2">
                       <TabsList className="h-8 bg-muted/50 border border-border">
@@ -423,7 +423,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                     </div>
 
                     {showEditFront && (
-                      <div className="w-full space-y-4 p-4 bg-card border border-border shadow-sm mb-4">
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[450px] space-y-4 p-6 bg-card border border-border shadow-2xl z-20">
                         <div className="flex justify-between items-center border-b border-border pb-2">
                           <h3 className="text-xs font-semibold uppercase">Update Front Cover</h3>
                           <Button size="icon" variant="ghost" className="w-6 h-6" onClick={() => setShowEditFront(false)}>
@@ -497,7 +497,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                           </div>
                         </div>
                         
-                        <Button size="sm" className="w-full text-xs" onClick={() => {
+                        <Button size="sm" className="w-full text-xs bg-[#2D4C3E] hover:bg-[#1e3a2f] text-white" onClick={() => {
                           handleSaveCover('front', frontUrl, frontSourceUrl, frontEd2);
                           setShowEditFront(false);
                         }}>
@@ -544,7 +544,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                   </Tabs>
                 </TabsContent>
                 
-                <TabsContent value="back" className="mt-0 h-full flex flex-col p-4">
+                <TabsContent value="back" className="mt-0 h-full flex flex-col p-4 relative">
                   <Tabs key={row.id} defaultValue={row.backCover?.edition2?.imageUrl ? "ed2" : "ed1"} className="w-full h-full flex flex-col">
                     <div className="flex justify-between items-center mb-2">
                       <TabsList className="h-8 bg-muted/50 border border-border">
@@ -557,7 +557,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                     </div>
 
                     {showEditBack && (
-                      <div className="w-full space-y-4 p-4 bg-card border border-border shadow-sm mb-4">
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[450px] space-y-4 p-6 bg-card border border-border shadow-2xl z-20">
                         <div className="flex justify-between items-center border-b border-border pb-2">
                           <h3 className="text-xs font-semibold uppercase">Update Back Cover</h3>
                           <Button size="icon" variant="ghost" className="w-6 h-6" onClick={() => setShowEditBack(false)}>
@@ -631,7 +631,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                           </div>
                         </div>
                         
-                        <Button size="sm" className="w-full text-xs" onClick={() => {
+                        <Button size="sm" className="w-full text-xs bg-[#2D4C3E] hover:bg-[#1e3a2f] text-white" onClick={() => {
                           handleSaveCover('back', backUrl, backSourceUrl, backEd2);
                           setShowEditBack(false);
                         }}>
