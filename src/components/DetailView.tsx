@@ -37,7 +37,7 @@ function MetadataCard({ title, children }: { title: string; children: React.Reac
   );
 }
 
-function ImageViewer({ src, alt }: { src?: string; alt: string }) {
+function ImageViewer({ src, alt, onEditToggle, isEditing }: { src?: string; alt: string; onEditToggle?: () => void; isEditing?: boolean }) {
   const [scale, setScale] = useState(1);
   const [translate, setTranslate] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -64,7 +64,20 @@ function ImageViewer({ src, alt }: { src?: string; alt: string }) {
   const handleMouseUp = () => setIsDragging(false);
 
   return (
-    <div className="flex flex-col items-center space-y-2 w-full h-full">
+    <div className="flex flex-col items-center space-y-2 w-full h-full max-w-[500px]">
+      <div className="flex justify-between w-full">
+        <div className="flex gap-1">
+          <Button size="icon" variant="outline" className="w-7 h-7" onClick={handleZoomOut} disabled={scale <= 0.5}><ZoomOut className="w-4 h-4" /></Button>
+          <Button size="icon" variant="outline" className="w-7 h-7" onClick={handleZoomIn} disabled={scale >= 3}><ZoomIn className="w-4 h-4" /></Button>
+          <Button size="icon" variant="outline" className="w-7 h-7" onClick={handleReset}><Maximize2 className="w-4 h-4" /></Button>
+        </div>
+        {onEditToggle && (
+          <Button size="sm" variant="outline" className="text-xs h-7" onClick={onEditToggle}>
+            {isEditing ? "Hide Edit" : "Edit Cover"}
+          </Button>
+        )}
+      </div>
+
       <div 
         className="relative border border-border bg-card p-2 w-full flex-1 shadow-sm overflow-hidden"
         onMouseDown={handleMouseDown}
@@ -89,12 +102,6 @@ function ImageViewer({ src, alt }: { src?: string; alt: string }) {
           )}
         </div>
       </div>
-      
-      <div className="flex gap-1">
-        <Button size="icon" variant="outline" className="w-7 h-7" onClick={handleZoomOut} disabled={scale <= 0.5}><ZoomOut className="w-4 h-4" /></Button>
-        <Button size="icon" variant="outline" className="w-7 h-7" onClick={handleZoomIn} disabled={scale >= 3}><ZoomIn className="w-4 h-4" /></Button>
-        <Button size="icon" variant="outline" className="w-7 h-7" onClick={handleReset}><Maximize2 className="w-4 h-4" /></Button>
-      </div>
     </div>
   );
 }
@@ -103,10 +110,14 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
   const [row, setRow] = useState(initialRow);
   const [frontUrl, setFrontUrl] = useState(row.frontCover?.imageUrl || "");
   const [backUrl, setBackUrl] = useState(row.backCover?.imageUrl || "");
+  const [showEditFront, setShowEditFront] = useState(false);
+  const [showEditBack, setShowEditBack] = useState(false);
   
   useEffect(() => {
     setFrontUrl(row.frontCover?.imageUrl || "");
     setBackUrl(row.backCover?.imageUrl || "");
+    setShowEditFront(false);
+    setShowEditBack(false);
   }, [row]);
 
   const { data: corpusList = [] } = useQuery({
@@ -303,95 +314,89 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
               </TabsList>
               
               <div className="flex-1 overflow-auto p-4 h-full">
-                <TabsContent value="front" className="mt-0 h-full">
-                  <div className="flex gap-4 h-full">
-                    {/* Left: Image Preview */}
-                    <div className="flex-1 flex flex-col items-center justify-center border border-border bg-muted/10 p-4">
-                      <ImageViewer src={row.frontCover?.imageUrl} alt="Front Cover" />
-                    </div>
-                    
-                    {/* Right: Controls & Info */}
-                    <div className="w-[250px] space-y-4 flex flex-col justify-between p-4 bg-card border border-border">
-                      <div className="space-y-4">
-                        <h3 className="text-xs font-semibold uppercase text-muted-foreground">Update Cover</h3>
-                        
-                        <div className="space-y-1">
-                          <label className="text-xs text-muted-foreground">Image URL</label>
-                          <div className="flex gap-1">
-                            <Input 
-                              placeholder="URL..." 
-                              className="text-xs h-8 flex-1" 
-                              value={frontUrl} 
-                              onChange={(e) => setFrontUrl(e.target.value)} 
-                            />
-                            <Button size="sm" className="text-xs h-8" onClick={() => handleSaveCover('front', frontUrl)}>
-                              <LinkIcon className="w-3 h-3" />
-                            </Button>
-                          </div>
-                        </div>
-                        
-                        <div className="space-y-1">
-                          <label className="text-xs text-muted-foreground">Upload File</label>
+                <TabsContent value="front" className="mt-0 h-full flex flex-col items-center justify-center space-y-4 p-4">
+                  <ImageViewer 
+                    src={row.frontCover?.imageUrl} 
+                    alt="Front Cover" 
+                    onEditToggle={() => setShowEditFront(!showEditFront)}
+                    isEditing={showEditFront}
+                  />
+                  
+                  {showEditFront && (
+                    <div className="w-full max-w-[500px] space-y-2 p-3 bg-secondary/50 border border-border">
+                      <div className="space-y-1">
+                        <label className="text-xs text-muted-foreground">Image URL</label>
+                        <div className="flex gap-1">
                           <Input 
-                            type="file" 
-                            className="text-xs h-8" 
-                            accept="image/*" 
-                            onChange={(e) => handleFileUpload('front', e)} 
+                            placeholder="URL..." 
+                            className="text-xs h-8 flex-1" 
+                            value={frontUrl} 
+                            onChange={(e) => setFrontUrl(e.target.value)} 
                           />
+                          <Button size="sm" className="text-xs h-8" onClick={() => handleSaveCover('front', frontUrl)}>
+                            <LinkIcon className="w-3 h-3" />
+                          </Button>
                         </div>
                       </div>
                       
-                      <div className="text-xs text-muted-foreground border-t border-border pt-2">
-                        <div>Source: {row.frontCover?.sourceType || "—"}</div>
-                        <div className="truncate">{row.frontCover?.sourceUrl || "—"}</div>
+                      <div className="space-y-1">
+                        <label className="text-xs text-muted-foreground">Upload File</label>
+                        <Input 
+                          type="file" 
+                          className="text-xs h-8" 
+                          accept="image/*" 
+                          onChange={(e) => handleFileUpload('front', e)} 
+                        />
                       </div>
                     </div>
+                  )}
+
+                  <div className="text-xs text-muted-foreground text-center">
+                    <div>Source: {row.frontCover?.sourceType || "—"}</div>
+                    <div className="truncate max-w-[400px]">{row.frontCover?.sourceUrl || "—"}</div>
                   </div>
                 </TabsContent>
                 
-                <TabsContent value="back" className="mt-0 h-full">
-                  <div className="flex gap-4 h-full">
-                    {/* Left: Image Preview */}
-                    <div className="flex-1 flex flex-col items-center justify-center border border-border bg-muted/10 p-4">
-                      <ImageViewer src={row.backCover?.imageUrl} alt="Back Cover" />
-                    </div>
-                    
-                    {/* Right: Controls & Info */}
-                    <div className="w-[250px] space-y-4 flex flex-col justify-between p-4 bg-card border border-border">
-                      <div className="space-y-4">
-                        <h3 className="text-xs font-semibold uppercase text-muted-foreground">Update Cover</h3>
-                        
-                        <div className="space-y-1">
-                          <label className="text-xs text-muted-foreground">Image URL</label>
-                          <div className="flex gap-1">
-                            <Input 
-                              placeholder="URL..." 
-                              className="text-xs h-8 flex-1" 
-                              value={backUrl} 
-                              onChange={(e) => setBackUrl(e.target.value)} 
-                            />
-                            <Button size="sm" className="text-xs h-8" onClick={() => handleSaveCover('back', backUrl)}>
-                              <LinkIcon className="w-3 h-3" />
-                            </Button>
-                          </div>
-                        </div>
-                        
-                        <div className="space-y-1">
-                          <label className="text-xs text-muted-foreground">Upload File</label>
+                <TabsContent value="back" className="mt-0 h-full flex flex-col items-center justify-center space-y-4 p-4">
+                  <ImageViewer 
+                    src={row.backCover?.imageUrl} 
+                    alt="Back Cover" 
+                    onEditToggle={() => setShowEditBack(!showEditBack)}
+                    isEditing={showEditBack}
+                  />
+                  
+                  {showEditBack && (
+                    <div className="w-full max-w-[500px] space-y-2 p-3 bg-secondary/50 border border-border">
+                      <div className="space-y-1">
+                        <label className="text-xs text-muted-foreground">Image URL</label>
+                        <div className="flex gap-1">
                           <Input 
-                            type="file" 
-                            className="text-xs h-8" 
-                            accept="image/*" 
-                            onChange={(e) => handleFileUpload('back', e)} 
+                            placeholder="URL..." 
+                            className="text-xs h-8 flex-1" 
+                            value={backUrl} 
+                            onChange={(e) => setBackUrl(e.target.value)} 
                           />
+                          <Button size="sm" className="text-xs h-8" onClick={() => handleSaveCover('back', backUrl)}>
+                            <LinkIcon className="w-3 h-3" />
+                          </Button>
                         </div>
                       </div>
                       
-                      <div className="text-xs text-muted-foreground border-t border-border pt-2">
-                        <div>Source: {row.backCover?.sourceType || "—"}</div>
-                        <div className="truncate">{row.backCover?.sourceUrl || "—"}</div>
+                      <div className="space-y-1">
+                        <label className="text-xs text-muted-foreground">Upload File</label>
+                        <Input 
+                          type="file" 
+                          className="text-xs h-8" 
+                          accept="image/*" 
+                          onChange={(e) => handleFileUpload('back', e)} 
+                        />
                       </div>
                     </div>
+                  )}
+
+                  <div className="text-xs text-muted-foreground text-center">
+                    <div>Source: {row.backCover?.sourceType || "—"}</div>
+                    <div className="truncate max-w-[400px]">{row.backCover?.sourceUrl || "—"}</div>
                   </div>
                 </TabsContent>
 
