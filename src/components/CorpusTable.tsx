@@ -180,7 +180,10 @@ export function CorpusTable<T extends AnyRow>({
     },
   ];
 
-  const allCols = [...extraColumns, ...buttonCols, ...trailingCols];
+  const allCols = [
+    ...extraColumns,
+    ...trailingCols.filter((c) => c.key === "detail"),
+  ];
 
   return (
     <div className="space-y-4">

@@ -3,19 +3,15 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { AnyRow, CoverFile } from "@/lib/corpus-data";
+import { sampleDKJ, sampleKSK, sampleTempo } from "@/lib/corpus-data";
+import { 
+  Search, Filter, ChevronLeft, ChevronRight, Book, FolderOpen, 
+  Download, Copy, ExternalLink, Check, AlertTriangle, ZoomIn, ZoomOut, Maximize2
+} from "lucide-react";
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <section className="border border-border bg-card">
-      <h2 className="border-b border-border bg-secondary px-4 py-2 text-xs font-semibold uppercase tracking-wider">
-        {title}
-      </h2>
-      <div className="p-4">{children}</div>
-    </section>
-  );
-}
-
+// Helper components
 function Field({ label, value }: { label: string; value?: string }) {
   return (
     <div className="border-b border-border/60 py-1.5 last:border-b-0">
@@ -25,245 +21,279 @@ function Field({ label, value }: { label: string; value?: string }) {
   );
 }
 
-function CoverCard({ title, cover }: { title: string; cover: CoverFile }) {
+function MetadataCard({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="border border-border">
-      <div className="border-b border-border bg-secondary px-3 py-2 text-sm font-semibold">{title}</div>
-      <div className="p-3 space-y-3">
-        <div className="flex aspect-[3/4] w-full items-center justify-center border border-dashed border-border bg-muted text-sm text-muted-foreground">
-          {cover.imageUrl ? (
-            <img src={cover.imageUrl} alt={title} className="h-full w-full object-contain" />
-          ) : (
-            "No image attached"
-          )}
-        </div>
-        <dl>
-          <Field label="Source type" value={cover.sourceType} />
-          <Field label="Source URL" value={cover.sourceUrl} />
-          <Field label="Direct image URL" value={cover.directImageUrl} />
-          <Field label="Resolution" value={cover.resolutionQuality} />
-          <Field label="Award label visible" value={cover.awardLabelVisible} />
-          <Field label="Visual notes" value={cover.visualNotes} />
-          <Field label="Verification status" value={cover.verificationStatus} />
-        </dl>
+    <div className="border border-border bg-card">
+      <div className="border-b border-border bg-secondary px-3 py-1.5 text-xs font-semibold uppercase">
+        {title}
+      </div>
+      <div className="p-3 space-y-1">
+        {children}
       </div>
     </div>
   );
 }
 
-function CollapsibleText({ label, text }: { label: string; text: string }) {
-  const [open, setOpen] = useState(false);
-  const long = text.length > 140;
-  return (
-    <div className="border-b border-border/60 py-2 last:border-b-0">
-      <div className="flex items-center justify-between">
-        <span className="text-xs uppercase tracking-wide text-muted-foreground">{label}</span>
-        <button
-          className="text-xs underline hover:no-underline"
-          onClick={() => navigator.clipboard.writeText(text)}
-        >
-          Copy Text
-        </button>
-      </div>
-      <p className="text-sm whitespace-pre-wrap">
-        {long && !open ? text.slice(0, 140) + "…" : text || "—"}
-      </p>
-      {long && (
-        <button
-          className="mt-1 text-xs text-primary underline"
-          onClick={() => setOpen((o) => !o)}
-        >
-          {open ? "Collapse" : "Expand"}
-        </button>
-      )}
-    </div>
-  );
-}
+export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string }) {
+  const [row, setRow] = useState(initialRow);
+  
+  const list = row.corpus === "DKJ" ? sampleDKJ : row.corpus === "KSK" ? sampleKSK : sampleTempo;
+  const currentIndex = list.findIndex(r => r.id === row.id);
+  
+  const handlePrev = () => {
+    if (currentIndex > 0) setRow(list[currentIndex - 1]);
+  };
+  const handleNext = () => {
+    if (currentIndex < list.length - 1) setRow(list[currentIndex + 1]);
+  };
 
-export function DetailView({ row, backTo }: { row: AnyRow; backTo: string }) {
+  const title = "judulBuku" in row ? row.judulBuku : row.judulNaskah;
+
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border bg-card">
-        <div className="mx-auto max-w-[1200px] px-6 py-6">
-          <Link to="/" className="text-xs uppercase tracking-wider text-primary hover:underline">
-            ← Back to {backTo}
-          </Link>
-          <div className="mt-3 flex flex-wrap items-center gap-3">
-            <span className="rounded-sm border border-border bg-secondary px-2 py-0.5 text-xs font-semibold uppercase tracking-wider">
-              {row.corpus}
-            </span>
-            <h1 className="text-2xl font-semibold tracking-tight">
-              {"judulBuku" in row ? row.judulBuku : row.judulBukuSetelahTerbit}
-            </h1>
+    <div className="flex h-screen bg-background text-foreground text-sm font-sans overflow-hidden">
+      {/* 2. LEFT RECORD LIST PANEL */}
+      <div className="w-[320px] border-r border-border bg-card flex flex-col h-full">
+        {/* Search & Filter */}
+        <div className="p-3 border-b border-border space-y-2">
+          <div className="relative">
+            <Search className="w-4 h-4 absolute left-2 top-2.5 text-muted-foreground" />
+            <Input placeholder="Cari judul / pengarang / penerbit..." className="pl-8 text-xs h-9" />
           </div>
-          <p className="mt-1 text-sm text-muted-foreground">
-            {row.pengarang} ·{" "}
-            {row.corpus === "DKJ"
-              ? `${row.tahunMenang} · ${row.posisi}`
-              : row.corpus === "KSK"
-                ? `${row.tahunKSK} · ${row.statusKSK}`
-                : `${row.tahunTempo} · ${row.statusTempo}`}{" "}
-            · {row.published.penerbit} · {row.published.tahunTerbit}
-          </p>
-          <div className="mt-2">
-            <span className="rounded-sm border border-border bg-secondary px-2 py-0.5 text-xs">
-              Verification: {row.verificationStatus}
-            </span>
-          </div>
+          <Button variant="outline" size="sm" className="w-full text-xs h-9">
+            <Filter className="w-3 h-3 mr-1" /> Filter
+          </Button>
         </div>
-      </header>
-
-      <main className="mx-auto max-w-[1200px] space-y-6 px-6 py-6">
-        <Section title="Section 1 — Award / Corpus Identity">
-          <dl className="grid grid-cols-1 gap-x-8 md:grid-cols-2">
-            {row.corpus === "DKJ" && (
-              <>
-                <Field label="Jenis Sayembara" value={row.jenisSayembara} />
-                <Field label="Tahun Menang" value={row.tahunMenang} />
-                <Field label="Posisi" value={row.posisi} />
-                <Field label="Judul Naskah Saat Menang" value={row.judulNaskah} />
-                <Field label="Judul Buku Setelah Terbit" value={row.judulBukuSetelahTerbit} />
-                <Field label="Judul Berubah?" value={row.judulBerubah} />
-                <Field label="Pengarang" value={row.pengarang} />
-                <Field label="Nama Juri" value={row.juri} />
-                <Field label="Pertanggungjawaban Juri" value={row.pertanggungjawabanJuri} />
-                <Field label="Kutipan Penilaian Juri" value={row.kutipanJuri} />
-                <Field label="Link Pengumuman Resmi" value={row.linkPengumuman} />
-              </>
-            )}
-            {row.corpus === "KSK" && (
-              <>
-                <Field label="Tahun KSK" value={row.tahunKSK} />
-                <Field label="Kategori" value={row.kategori} />
-                <Field label="Status KSK" value={row.statusKSK} />
-                <Field label="Judul Buku" value={row.judulBuku} />
-                <Field label="Pengarang" value={row.pengarang} />
-                <Field label="Juri / Catatan Kurasi" value={row.juriCatatan} />
-                <Field label="Link Pengumuman / Source" value={row.linkPengumuman} />
-              </>
-            )}
-            {row.corpus === "Tempo" && (
-              <>
-                <Field label="Tahun Tempo" value={row.tahunTempo} />
-                <Field label="Kategori" value={row.kategori} />
-                <Field label="Status Tempo" value={row.statusTempo} />
-                <Field label="Judul Buku" value={row.judulBuku} />
-                <Field label="Pengarang" value={row.pengarang} />
-                <Field label="Artikel Tempo" value={row.artikelTempo} />
-                <Field label="Kutipan Penilaian Tempo" value={row.kutipanTempo} />
-                <Field label="Link Artikel / Source" value={row.linkArtikel} />
-              </>
-            )}
-          </dl>
-        </Section>
-
-        <Section title="Section 2 — Published Book Metadata">
-          <dl className="grid grid-cols-1 gap-x-8 md:grid-cols-2">
-            <Field label="Judul Buku Setelah Terbit" value={row.published.judulBuku} />
-            <Field label="Penerbit" value={row.published.penerbit} />
-            <Field label="Imprint" value={row.published.imprint} />
-            <Field label="Tahun Terbit" value={row.published.tahunTerbit} />
-            <Field label="ISBN" value={row.published.isbn} />
-            <Field label="Harga" value={row.published.harga} />
-            <Field label="Jumlah Halaman" value={row.published.jumlahHalaman} />
-            <Field label="Cetakan Pertama / Cetak Ulang" value={row.published.cetakan} />
-            <Field label="Editor" value={row.published.editor} />
-            <Field label="Penyunting" value={row.published.penyunting} />
-            <Field label="Proofreader" value={row.published.proofreader} />
-            <Field label="Desainer Sampul" value={row.published.desainerSampul} />
-            <Field label="Ilustrator" value={row.published.ilustrator} />
-            <Field label="Layout Designer" value={row.published.layoutDesigner} />
-          </dl>
-        </Section>
-
-        <Section title="Section 3 — Cover Files">
-          <div className="grid gap-4 md:grid-cols-2">
-            <CoverCard title="Front Cover" cover={row.frontCover} />
-            <CoverCard title="Back Cover" cover={row.backCover} />
-          </div>
-        </Section>
-
-        <Section title="Section 4 — Paratext">
-          <dl>
-            <CollapsibleText label="Sinopsis penerbit" text={row.paratext.sinopsisPenerbit} />
-            <CollapsibleText label="Sinopsis toko" text={row.paratext.sinopsisToko} />
-            <CollapsibleText label="Sinopsis Google Books" text={row.paratext.sinopsisGoogleBooks} />
-            <CollapsibleText label="Sinopsis Goodreads" text={row.paratext.sinopsisGoodreads} />
-            <CollapsibleText label="Sinopsis marketplace" text={row.paratext.sinopsisMarketplace} />
-            <CollapsibleText label="Teks sampul belakang" text={row.paratext.teksSampulBelakang} />
-            <Field label="Blurb 1" value={row.paratext.blurb1} />
-            <Field label="Pemberi blurb 1" value={row.paratext.pemberiBlurb1} />
-            <Field label="Blurb 2" value={row.paratext.blurb2} />
-            <Field label="Pemberi blurb 2" value={row.paratext.pemberiBlurb2} />
-            <Field label="Barcode / ISBN visible" value={row.paratext.barcodeVisible} />
-            <Field label="Harga visible" value={row.paratext.hargaVisible} />
-            <Field label="Logo penerbit visible" value={row.paratext.logoPenerbitVisible} />
-            <Field label="Label genre" value={row.paratext.labelGenre} />
-            <Field label="Teks promosi" value={row.paratext.teksPromosi} />
-          </dl>
-        </Section>
-
-        <Section title="Section 5 — Research Coding">
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-            <Input defaultValue={row.research.kataPromosiDominan} placeholder="Kata promosi dominan" />
-            <Input defaultValue={row.research.labelGenre} placeholder="Label genre" />
-            <Input defaultValue={row.research.klaimEstetika} placeholder="Klaim estetika" />
-            <Input defaultValue={row.research.warnaDominan} placeholder="Warna dominan" />
-            <Input defaultValue={row.research.objekDominan} placeholder="Objek dominan" />
-            <Input defaultValue={row.research.nuansaVisual} placeholder="Nuansa visual" />
-            {(["keywordTrauma", "keywordDistopia", "keywordMuram", "keywordMaterialitas"] as const).map(
-              (k) => (
-                <div key={k} className="flex items-center gap-2">
-                  <label className="w-44 text-sm capitalize text-muted-foreground">
-                    {k.replace("keyword", "Keyword ")}
-                  </label>
-                  <select
-                    defaultValue={row.research[k]}
-                    className="h-9 flex-1 rounded-sm border border-border bg-background px-2 text-sm"
-                  >
-                    <option>Ya</option>
-                    <option>Tidak</option>
-                    <option>Tidak jelas</option>
-                  </select>
-                </div>
-              ),
-            )}
-            <Textarea
-              className="md:col-span-2"
-              defaultValue={row.research.catatanPeneliti}
-              placeholder="Catatan peneliti"
-            />
-          </div>
-        </Section>
-
-        <Section title="Section 6 — Evidence Log">
-          <div className="space-y-3">
-            {row.evidence.map((e, i) => (
-              <div key={i} className="space-y-2 border border-border bg-secondary/40 p-3 text-sm">
-                <div className="flex flex-wrap gap-3">
-                  <span><span className="text-muted-foreground">Source type:</span> {e.sourceType}</span>
-                  <span><span className="text-muted-foreground">Confidence:</span> {e.confidence}</span>
-                  <span><span className="text-muted-foreground">Accessed:</span> {e.accessDate}</span>
-                </div>
-                <div className="italic">{e.excerpt}</div>
-                <div><span className="text-muted-foreground">Reason:</span> {e.reason}</div>
-                <div><span className="text-muted-foreground">Notes:</span> {e.notes}</div>
-                <div><span className="text-muted-foreground">Next action:</span> {e.nextAction}</div>
-                <div className="flex flex-wrap gap-2 pt-1">
-                  <Button size="sm" variant="outline" onClick={() => navigator.clipboard.writeText(e.excerpt)}>
-                    Copy Evidence
-                  </Button>
-                  <a href={e.sourceUrl} target="_blank" rel="noreferrer">
-                    <Button size="sm" variant="outline">Open Source</Button>
-                  </a>
-                  <Button size="sm" variant="default">Mark as Verified</Button>
-                  <Button size="sm" variant="outline">Mark as Needs Manual Check</Button>
-                </div>
+        
+        {/* Corpus Title */}
+        <div className="px-3 py-2 border-b border-border bg-secondary text-xs font-semibold uppercase">
+          Korpus {row.corpus}
+        </div>
+        
+        {/* List of Records */}
+        <div className="flex-1 overflow-auto">
+          {list.map(r => (
+            <div 
+              key={r.id} 
+              className={`p-3 border-b border-border cursor-pointer hover:bg-secondary/50 flex flex-col space-y-1 ${r.id === row.id ? 'bg-[oklch(0.95_0.02_150)] border-l-4 border-l-[oklch(0.4_0.1_150)]' : ''}`}
+              onClick={() => setRow(r)}
+            >
+              <div className="flex items-center justify-between text-xs text-muted-foreground">
+                <span className="font-semibold">{r.corpus}</span>
+                <span className={`px-1 rounded-sm text-[10px] ${r.verificationStatus === 'Verified' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
+                  {r.verificationStatus}
+                </span>
               </div>
-            ))}
+              <div className="font-semibold text-xs truncate">{"judulBuku" in r ? r.judulBuku : r.judulNaskah}</div>
+              <div className="text-xs text-muted-foreground truncate">{r.pengarang}</div>
+              <div className="text-xs text-muted-foreground flex justify-between">
+                <span>{r.published.penerbit}</span>
+                <span>{r.published.tahunTerbit}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Pagination */}
+        <div className="p-2 border-t border-border flex items-center justify-between text-xs bg-card">
+          <span>Total: {list.length}</span>
+          <div className="flex gap-1">
+            <Button size="icon" variant="outline" className="w-7 h-7" disabled><ChevronLeft className="w-4 h-4" /></Button>
+            <Button size="icon" variant="outline" className="w-7 h-7" disabled><ChevronRight className="w-4 h-4" /></Button>
           </div>
-        </Section>
-      </main>
+        </div>
+      </div>
+
+      {/* MAIN AREA */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        {/* 3. TOP BREADCRUMB + NAVIGATION BAR */}
+        <div className="border-b border-border bg-card p-4 flex items-center justify-between">
+          <div>
+            <div className="text-xs text-muted-foreground mb-1">
+              Korpus {row.corpus} &gt; Detail Buku
+            </div>
+            <div className="flex items-center gap-2">
+              <Link to="/" className="text-xs text-primary hover:underline flex items-center gap-1">
+                <ChevronLeft className="w-3 h-3" /> Back
+              </Link>
+              <h1 className="text-xl font-semibold">{title}</h1>
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">
+              {row.pengarang} · {row.published.tahunTerbit} · {row.published.penerbit}
+            </p>
+          </div>
+          <div className="flex items-center gap-2 text-xs">
+            <span>{currentIndex + 1} of {list.length}</span>
+            <Button size="icon" variant="outline" onClick={handlePrev} disabled={currentIndex === 0} className="w-7 h-7"><ChevronLeft className="w-4 h-4" /></Button>
+            <Button size="icon" variant="outline" onClick={handleNext} disabled={currentIndex === list.length - 1} className="w-7 h-7"><ChevronRight className="w-4 h-4" /></Button>
+            <Button variant="outline" size="sm" className="text-xs h-8"><FolderOpen className="w-3 h-3 mr-1" /> Open Source</Button>
+            <Button variant="outline" size="sm" className="text-xs h-8"><Download className="w-3 h-3 mr-1" /> Export</Button>
+          </div>
+        </div>
+
+        {/* 4. MAIN DETAIL WORKSPACE */}
+        <div className="flex-1 flex overflow-hidden">
+          
+          {/* A. CENTER-LEFT METADATA CARDS */}
+          <div className="w-[300px] border-r border-border bg-card p-4 overflow-auto space-y-4 h-full">
+            <MetadataCard title="Award / Corpus Identity">
+              <dl>
+                {row.corpus === "DKJ" && (
+                  <>
+                    <Field label="Jenis Sayembara" value={row.jenisSayembara} />
+                    <Field label="Tahun Menang" value={row.tahunMenang} />
+                    <Field label="Posisi" value={row.posisi} />
+                    <Field label="Judul Naskah" value={row.judulNaskah} />
+                    <Field label="Judul Setelah Terbit" value={row.judulBukuSetelahTerbit} />
+                    <Field label="Judul Berubah?" value={row.judulBerubah} />
+                    <Field label="Pengarang" value={row.pengarang} />
+                    <Field label="Juri" value={row.juri} />
+                    <Field label="Link" value={row.linkPengumuman} />
+                  </>
+                )}
+                {row.corpus === "KSK" && (
+                  <>
+                    <Field label="Tahun KSK" value={row.tahunKSK} />
+                    <Field label="Kategori" value={row.kategori} />
+                    <Field label="Status KSK" value={row.statusKSK} />
+                    <Field label="Judul Buku" value={row.judulBuku} />
+                    <Field label="Pengarang" value={row.pengarang} />
+                    <Field label="Link" value={row.linkPengumuman} />
+                  </>
+                )}
+                {row.corpus === "Tempo" && (
+                  <>
+                    <Field label="Tahun Tempo" value={row.tahunTempo} />
+                    <Field label="Kategori" value={row.kategori} />
+                    <Field label="Status Tempo" value={row.statusTempo} />
+                    <Field label="Judul Buku" value={row.judulBuku} />
+                    <Field label="Pengarang" value={row.pengarang} />
+                    <Field label="Link" value={row.linkArtikel} />
+                  </>
+                )}
+              </dl>
+            </MetadataCard>
+
+            <MetadataCard title="Published Book Metadata">
+              <dl>
+                <Field label="Penerbit" value={row.published.penerbit} />
+                <Field label="Tahun Terbit" value={row.published.tahunTerbit} />
+                <Field label="ISBN" value={row.published.isbn} />
+                <Field label="Harga" value={row.published.harga} />
+                <Field label="Halaman" value={row.published.jumlahHalaman} />
+                <Field label="Editor" value={row.published.editor} />
+                <Field label="Desainer Sampul" value={row.published.desainerSampul} />
+              </dl>
+            </MetadataCard>
+          </div>
+
+          {/* B. CENTER PREVIEW WORKSPACE */}
+          <div className="flex-1 flex flex-col bg-muted/20 h-full overflow-hidden">
+            <Tabs defaultValue="front" className="flex-1 flex flex-col h-full overflow-hidden">
+              <TabsList className="border-b border-border bg-card rounded-none h-10 px-4 justify-start space-x-2">
+                <TabsTrigger value="front" className="text-xs h-10 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">Front Cover</TabsTrigger>
+                <TabsTrigger value="back" className="text-xs h-10 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">Back Cover</TabsTrigger>
+                <TabsTrigger value="paratext" className="text-xs h-10 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">Paratext</TabsTrigger>
+                <TabsTrigger value="credit" className="text-xs h-10 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">Credit Page</TabsTrigger>
+              </TabsList>
+              
+              <div className="flex-1 overflow-auto p-4 h-full">
+                <TabsContent value="front" className="mt-0 h-full flex flex-col items-center justify-center space-y-4">
+                  <div className="border border-border bg-card p-2 max-w-[300px] shadow-sm">
+                    <div className="aspect-[3/4] bg-muted flex items-center justify-center text-muted-foreground text-xs border border-dashed border-border">
+                      {row.frontCover.imageUrl ? (
+                        <img src={row.frontCover.imageUrl} alt="Front Cover" className="object-contain w-full h-full" />
+                      ) : (
+                        "No Front Cover Image"
+                      )}
+                    </div>
+                  </div>
+                  <div className="text-xs text-muted-foreground text-center">
+                    <div>Source: {row.frontCover.sourceType}</div>
+                    <div className="truncate max-w-[400px]">{row.frontCover.sourceUrl}</div>
+                  </div>
+                </TabsContent>
+                
+                <TabsContent value="back" className="mt-0 h-full flex flex-col items-center justify-center space-y-4">
+                  <div className="border border-border bg-card p-2 max-w-[300px] shadow-sm">
+                    <div className="aspect-[3/4] bg-muted flex items-center justify-center text-muted-foreground text-xs border border-dashed border-border">
+                      {row.backCover.imageUrl ? (
+                        <img src={row.backCover.imageUrl} alt="Back Cover" className="object-contain w-full h-full" />
+                      ) : (
+                        "No Back Cover Image"
+                      )}
+                    </div>
+                  </div>
+                  <div className="text-xs text-muted-foreground text-center">
+                    <div>Source: {row.backCover.sourceType}</div>
+                    <div className="truncate max-w-[400px]">{row.backCover.sourceUrl}</div>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="paratext" className="mt-0 h-full space-y-4">
+                  <div className="border border-border bg-card p-4 space-y-3">
+                    <h3 className="text-xs font-semibold uppercase text-muted-foreground">Sinopsis Penerbit</h3>
+                    <p className="text-sm leading-relaxed">{row.paratext.sinopsisPenerbit || "Tidak ada sinopsis."}</p>
+                  </div>
+                  <div className="border border-border bg-card p-4 space-y-3">
+                    <h3 className="text-xs font-semibold uppercase text-muted-foreground">Blurb</h3>
+                    <p className="text-sm leading-relaxed italic">"{row.paratext.blurb1}"</p>
+                    <p className="text-xs text-right text-muted-foreground">— {row.paratext.pemberiBlurb1}</p>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="credit" className="mt-0 h-full flex items-center justify-center">
+                  <div className="text-xs text-muted-foreground">Credit page image or text goes here.</div>
+                </TabsContent>
+              </div>
+            </Tabs>
+          </div>
+
+          {/* C. RIGHT ANALYSIS / EVIDENCE PANEL */}
+          <div className="w-[360px] border-l border-border bg-card p-4 overflow-auto space-y-4 h-full">
+            <h2 className="text-sm font-semibold uppercase border-b border-border pb-2">Research Analysis</h2>
+            
+            <div className="border border-border bg-card p-3 space-y-2">
+              <h3 className="text-xs font-semibold uppercase text-muted-foreground">Verification Status</h3>
+              <div className="flex items-center justify-between">
+                <span>Overall:</span>
+                <span className={`px-2 py-0.5 rounded-sm text-xs font-semibold ${row.verificationStatus === 'Verified' ? 'bg-[oklch(0.92_0.05_155)] text-[oklch(0.3_0.06_155)]' : 'bg-[oklch(0.95_0.06_55)] text-[oklch(0.4_0.12_55)]'}`}>
+                  {row.verificationStatus}
+                </span>
+              </div>
+            </div>
+
+            <div className="border border-border bg-card p-3 space-y-2">
+              <h3 className="text-xs font-semibold uppercase text-muted-foreground">Paratext Coding</h3>
+              <div className="space-y-1 text-xs">
+                <div><span className="text-muted-foreground">Kata Promosi:</span> {row.research.kataPromosiDominan}</div>
+                <div><span className="text-muted-foreground">Label Genre:</span> {row.research.labelGenre}</div>
+                <div><span className="text-muted-foreground">Klaim Estetika:</span> {row.research.klaimEstetika}</div>
+              </div>
+            </div>
+
+            <div className="border border-border bg-card p-3 space-y-2">
+              <h3 className="text-xs font-semibold uppercase text-muted-foreground">Evidence Log</h3>
+              <div className="space-y-2">
+                {row.evidence.map((e, i) => (
+                  <div key={i} className="text-xs border-b border-border/60 pb-2 last:border-b-0 last:pb-0">
+                    <div className="flex justify-between font-semibold mb-1">
+                      <span>{e.sourceType}</span>
+                      <span className="text-primary">{e.confidence}</span>
+                    </div>
+                    <p className="italic text-muted-foreground mb-1">"{e.excerpt}"</p>
+                    <p className="text-[10px] text-muted-foreground">Accessed: {e.accessDate}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="border border-border bg-card p-3 space-y-2">
+              <h3 className="text-xs font-semibold uppercase text-muted-foreground">Next Action</h3>
+              <p className="text-xs text-muted-foreground">{row.nextAction || "No action required."}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

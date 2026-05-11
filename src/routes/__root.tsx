@@ -7,6 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { Database, Upload, Settings as SettingsIcon, BookOpen } from "lucide-react";
 
 import appCss from "../styles.css?url";
 
@@ -117,7 +118,39 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <div className="flex h-screen bg-background text-foreground">
+        {/* Far-Left Vertical Corpus Sidebar (Layer 1) */}
+        <div className="w-16 flex flex-col items-center border-r border-border bg-card py-4 space-y-6">
+          <div className="flex flex-col items-center space-y-4">
+            <Link to="/" className="flex flex-col items-center p-2 rounded bg-[oklch(0.3_0.05_150)] text-white">
+              <Database className="w-5 h-5" />
+              <span className="text-[10px] mt-1">DKJ</span>
+            </Link>
+            <Link to="/" className="flex flex-col items-center p-2 rounded hover:bg-secondary text-muted-foreground hover:text-foreground">
+              <BookOpen className="w-5 h-5" />
+              <span className="text-[10px] mt-1">KSK</span>
+            </Link>
+            <Link to="/" className="flex flex-col items-center p-2 rounded hover:bg-secondary text-muted-foreground hover:text-foreground">
+              <Database className="w-5 h-5" />
+              <span className="text-[10px] mt-1">Tempo</span>
+            </Link>
+          </div>
+          <div className="mt-auto flex flex-col items-center space-y-4">
+            <button className="flex flex-col items-center p-2 rounded hover:bg-secondary text-muted-foreground hover:text-foreground">
+              <Upload className="w-5 h-5" />
+              <span className="text-[10px] mt-1">Import</span>
+            </button>
+            <button className="flex flex-col items-center p-2 rounded hover:bg-secondary text-muted-foreground hover:text-foreground">
+              <SettingsIcon className="w-5 h-5" />
+              <span className="text-[10px] mt-1">Settings</span>
+            </button>
+          </div>
+        </div>
+        {/* Main Area */}
+        <div className="flex-1 overflow-hidden flex flex-col">
+          <Outlet />
+        </div>
+      </div>
     </QueryClientProvider>
   );
 }
