@@ -162,13 +162,21 @@ export function CorpusTable<T extends AnyRow>({
     {
       key: "detail",
       label: "Detail",
-      render: (r) => (
-        <Link to={`/${corpusPath}/$id`} params={{ id: r.id }}>
-          <Button variant="default" size="sm">
-            Open Detail
-          </Button>
-        </Link>
-      ),
+      render: (r) => {
+        const to =
+          corpusPath === "dkj"
+            ? "/dkj/$id"
+            : corpusPath === "ksk"
+              ? "/ksk/$id"
+              : "/tempo/$id";
+        return (
+          <Link to={to} params={{ id: r.id }}>
+            <Button variant="default" size="sm">
+              Open Detail
+            </Button>
+          </Link>
+        );
+      },
     },
   ];
 
