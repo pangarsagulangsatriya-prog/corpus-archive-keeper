@@ -28,6 +28,9 @@ function Index() {
     { key: "tahunMenang", label: "Tahun", render: (r: DKJRow) => r.tahunMenang || (r as any).tahunmenang },
     { key: "posisi", label: "Posisi", render: (r: DKJRow) => r.posisi },
     { key: "pengarang", label: "Pengarang", render: (r: DKJRow) => r.pengarang },
+    { key: "frontCover", label: "FC", render: (r: DKJRow) => r.frontCover?.imageUrl ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "backCover", label: "BC", render: (r: DKJRow) => r.backCover?.imageUrl ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "creditPage", label: "CP", render: (r: DKJRow) => (r.published?.editor || r.published?.desainerSampul) ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
   ];
 
   const kskCols = [
@@ -36,6 +39,9 @@ function Index() {
     { key: "tahun", label: "Tahun", render: (r: KSKRow) => r.tahunKSK || (r as any).tahunksk },
     { key: "status", label: "Posisi", render: (r: KSKRow) => r.statusKSK || (r as any).statusksk },
     { key: "pengarang", label: "Pengarang", render: (r: KSKRow) => r.pengarang },
+    { key: "frontCover", label: "FC", render: (r: KSKRow) => r.frontCover?.imageUrl ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "backCover", label: "BC", render: (r: KSKRow) => r.backCover?.imageUrl ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "creditPage", label: "CP", render: (r: KSKRow) => (r.published?.editor || r.published?.desainerSampul) ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
   ];
 
   const tempoCols = [
@@ -44,6 +50,9 @@ function Index() {
     { key: "tahun", label: "Tahun", render: (r: TempoRow) => r.tahunTempo || (r as any).tahuntempo },
     { key: "status", label: "Posisi", render: (r: TempoRow) => r.statusTempo || (r as any).statustempo },
     { key: "pengarang", label: "Pengarang", render: (r: TempoRow) => r.pengarang },
+    { key: "frontCover", label: "FC", render: (r: TempoRow) => r.frontCover?.imageUrl ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "backCover", label: "BC", render: (r: TempoRow) => r.backCover?.imageUrl ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "creditPage", label: "CP", render: (r: TempoRow) => (r.published?.editor || r.published?.desainerSampul) ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
   ];
 
   const { data: dkjData = [], isLoading: isDkjLoading } = useQuery({
