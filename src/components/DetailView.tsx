@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -163,7 +163,21 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
   const fallbackList = row.corpus === "DKJ" ? sampleDKJ : row.corpus === "KSK" ? sampleKSK : sampleTempo;
   const list = corpusList.length > 0 ? corpusList : fallbackList;
   
-  const currentIndex = list.findIndex(r => r.id === row.id);
+  const [listSortOrder, setListSortOrder] = useState<"asc" | "desc">("desc");
+
+  const sortedList = useMemo(() => {
+    const getYear = (r: any) => {
+      const y = r.tahunMenang || r.tahunKSK || r.tahunTempo || r.tahunmenang || r.tahunksk || r.tahuntempo;
+      return parseInt(y, 10) || 0;
+    };
+    return [...list].sort((a, b) => {
+      const ya = getYear(a);
+      const yb = getYear(b);
+      return listSortOrder === "desc" ? yb - ya : ya - yb;
+    });
+  }, [list, listSortOrder]);
+
+  const currentIndex = sortedList.findIndex(r => r.id === row.id);
   
   const handlePrev = () => {
     if (currentIndex > 0) setRow(list[currentIndex - 1]);
@@ -245,9 +259,19 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
             <Search className="w-4 h-4 absolute left-2 top-2.5 text-muted-foreground" />
             <Input placeholder="Cari judul / pengarang / penerbit..." className="pl-8 text-xs h-9" />
           </div>
-          <Button variant="outline" size="sm" className="w-full text-xs h-9">
-            <Filter className="w-3 h-3 mr-1" /> Filter
-          </Button>
+          <div className="flex gap-1">
+            <Button variant="outline" size="sm" className="flex-1 text-xs h-9">
+              <Filter className="w-3 h-3 mr-1" /> Filter
+            </Button>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="flex-1 text-xs h-9"
+              onClick={() => setListSortOrder(listSortOrder === "asc" ? "desc" : "asc")}
+            >
+              Sort: {listSortOrder === "desc" ? "Terbaru" : "Terlama"}
+            </Button>
+          </div>
         </div>
         
         {/* Corpus Title */}
@@ -257,23 +281,26 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
         
         {/* List of Records */}
         <div className="flex-1 overflow-auto">
-          {list.map(r => (
-            <div 
-              key={r.id} 
-              className={`p-3 border-b border-border cursor-pointer hover:bg-secondary/50 flex flex-col space-y-1 ${r.id === row.id ? 'bg-[oklch(0.95_0.02_150)] border-l-4 border-l-[oklch(0.4_0.1_150)]' : ''}`}
-              onClick={() => setRow(r)}
-            >
-              <div className="flex items-center justify-between text-xs text-muted-foreground">
-                <span className="font-semibold">{r.corpus}</span>
+          {sortedList.map(r => {
+            const winYear = r.tahunMenang || r.tahunKSK || r.tahunTempo || r.tahunmenang || r.tahunksk || r.tahuntempo;
+            return (
+              <div 
+                key={r.id} 
+                className={`p-3 border-b border-border cursor-pointer hover:bg-secondary/50 flex flex-col space-y-1 ${r.id === row.id ? 'bg-[oklch(0.95_0.02_150)] border-l-4 border-l-[oklch(0.4_0.1_150)]' : ''}`}
+                onClick={() => setRow(r)}
+              >
+                <div className="flex items-center justify-between text-xs text-muted-foreground">
+                  <span className="font-semibold">{r.corpus} ({winYear || "—"})</span>
+                </div>
+                <div className="font-semibold text-xs truncate">{"judulBuku" in r ? r.judulBuku : r.judulNaskah}</div>
+                <div className="text-xs text-muted-foreground truncate">{r.pengarang}</div>
+                <div className="text-xs text-muted-foreground flex justify-between">
+                  <span>{r.published?.penerbit || "—"}</span>
+                  <span>{r.published?.tahunTerbit || "—"}</span>
+                </div>
               </div>
-              <div className="font-semibold text-xs truncate">{"judulBuku" in r ? r.judulBuku : r.judulNaskah}</div>
-              <div className="text-xs text-muted-foreground truncate">{r.pengarang}</div>
-              <div className="text-xs text-muted-foreground flex justify-between">
-                <span>{r.published.penerbit}</span>
-                <span>{r.published.tahunTerbit}</span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         
         {/* Pagination */}
