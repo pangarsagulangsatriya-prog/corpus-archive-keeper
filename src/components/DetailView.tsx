@@ -72,12 +72,12 @@ function ImageViewer({ src, alt }: { src?: string; alt: string }) {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
       >
-        <div className="aspect-[3/4] bg-muted flex items-center justify-center text-muted-foreground text-xs border border-dashed border-border overflow-hidden">
+        <div className="h-[500px] bg-muted flex items-center justify-center text-muted-foreground text-xs border border-dashed border-border overflow-hidden">
           {src ? (
             <img 
               src={src} 
               alt={alt} 
-              className="object-contain w-full h-full" 
+              className="object-contain max-w-full max-h-full" 
               style={{ 
                 transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`,
                 cursor: isDragging ? 'grabbing' : (scale > 1 ? 'grab' : 'default')
