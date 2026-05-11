@@ -128,6 +128,53 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
     setShowEditBack(false);
   }, [row]);
 
+  useEffect(() => {
+    if (!googleBooksUrl) return;
+    
+    const getBookId = (url: string) => {
+      try {
+        const urlObj = new URL(url);
+        return urlObj.searchParams.get("id");
+      } catch (e) {
+        return null;
+      }
+    };
+
+    const bookId = getBookId(googleBooksUrl);
+    if (!bookId) return;
+
+    // Load script
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/books/jsapi.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      // @ts-ignore
+      if (window.google && window.google.books) {
+        // @ts-ignore
+        window.google.books.load();
+        // @ts-ignore
+        window.google.books.setOnLoadCallback(() => {
+          const viewerCanvas = document.getElementById('viewerCanvas');
+          if (viewerCanvas) {
+            // @ts-ignore
+            const viewer = new window.google.books.DefaultViewer(viewerCanvas);
+            viewer.load(bookId);
+          }
+        });
+      }
+    };
+
+    return () => {
+      try {
+        document.body.removeChild(script);
+      } catch (e) {
+        // Ignore if already removed
+      }
+    };
+  }, [googleBooksUrl]);
+
   const { data: corpusList = [] } = useQuery({
     queryKey: ['corpus', row.corpus],
     queryFn: () => fetchCorpusData(row.corpus as any)
@@ -514,11 +561,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                   
                   <div className="flex-1 border border-border bg-card p-2 flex items-center justify-center min-h-[500px]">
                     {googleBooksUrl ? (
-                      <iframe 
-                        src={getEmbedUrl(googleBooksUrl)} 
-                        className="w-full h-full border-0" 
-                        allowFullScreen
-                      />
+                      <div id="viewerCanvas" className="w-full h-full min-h-[500px]"></div>
                     ) : (
                       <div className="text-xs text-muted-foreground">Input Google Books URL to preview.</div>
                     )}
