@@ -114,6 +114,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
   const [backUrl, setBackUrl] = useState(row.backCover?.imageUrl || "");
   const [frontSourceUrl, setFrontSourceUrl] = useState(row.frontCover?.sourceUrl || "");
   const [backSourceUrl, setBackSourceUrl] = useState(row.backCover?.sourceUrl || "");
+  const [googleBooksUrl, setGoogleBooksUrl] = useState(row.published?.googleBooksUrl || "");
   const [showEditFront, setShowEditFront] = useState(false);
   const [showEditBack, setShowEditBack] = useState(false);
   
@@ -122,6 +123,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
     setBackUrl(row.backCover?.imageUrl || "");
     setFrontSourceUrl(row.frontCover?.sourceUrl || "");
     setBackSourceUrl(row.backCover?.sourceUrl || "");
+    setGoogleBooksUrl(row.published?.googleBooksUrl || "");
     setShowEditFront(false);
     setShowEditBack(false);
   }, [row]);
@@ -155,6 +157,32 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
       
     if (!error) {
       setRow({ ...row, [type === 'front' ? 'frontCover' : 'backCover']: updatedCover });
+      alert("Saved!");
+    } else {
+      alert("Error: " + error.message);
+    }
+  };
+
+  const getEmbedUrl = (url: string) => {
+    if (!url) return "";
+    try {
+      const urlObj = new URL(url);
+      urlObj.searchParams.set("output", "embed");
+      return urlObj.toString();
+    } catch (e) {
+      return url;
+    }
+  };
+
+  const handleSaveGoogleBooksUrl = async () => {
+    const updatedPublished = { ...row.published, googleBooksUrl };
+    const { error } = await supabase
+      .from('books')
+      .update({ published: updatedPublished })
+      .eq('id', row.id);
+      
+    if (!error) {
+      setRow({ ...row, published: updatedPublished });
       alert("Saved!");
     } else {
       alert("Error: " + error.message);
@@ -317,6 +345,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                 <TabsTrigger value="back" className="text-xs h-10 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">Back Cover</TabsTrigger>
                 <TabsTrigger value="paratext" className="text-xs h-10 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">Paratext</TabsTrigger>
                 <TabsTrigger value="credit" className="text-xs h-10 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">Credit Page</TabsTrigger>
+                <TabsTrigger value="google-books" className="text-xs h-10 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">Google Books</TabsTrigger>
               </TabsList>
               
               <div className="flex-1 overflow-auto p-4 h-full">
@@ -468,6 +497,32 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
 
                 <TabsContent value="credit" className="mt-0 h-full flex items-center justify-center">
                   <div className="text-xs text-muted-foreground">Credit page image or text goes here.</div>
+                </TabsContent>
+
+                <TabsContent value="google-books" className="mt-0 h-full flex flex-col space-y-4 p-4">
+                  <div className="flex gap-2 items-center">
+                    <Input 
+                      placeholder="Google Books URL..." 
+                      className="text-xs h-8 flex-1" 
+                      value={googleBooksUrl} 
+                      onChange={(e) => setGoogleBooksUrl(e.target.value)} 
+                    />
+                    <Button size="sm" className="text-xs h-8" onClick={handleSaveGoogleBooksUrl}>
+                      Save
+                    </Button>
+                  </div>
+                  
+                  <div className="flex-1 border border-border bg-card p-2 flex items-center justify-center min-h-[500px]">
+                    {googleBooksUrl ? (
+                      <iframe 
+                        src={getEmbedUrl(googleBooksUrl)} 
+                        className="w-full h-full border-0" 
+                        allowFullScreen
+                      />
+                    ) : (
+                      <div className="text-xs text-muted-foreground">Input Google Books URL to preview.</div>
+                    )}
+                  </div>
                 </TabsContent>
               </div>
             </Tabs>
