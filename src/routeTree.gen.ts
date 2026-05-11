@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TempoIdRouteImport } from './routes/tempo.$id'
 import { Route as KskIdRouteImport } from './routes/ksk.$id'
 import { Route as DkjIdRouteImport } from './routes/dkj.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TempoIdRoute = TempoIdRouteImport.update({
+  id: '/tempo/$id',
+  path: '/tempo/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KskIdRoute = KskIdRouteImport.update({
@@ -33,30 +39,34 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dkj/$id': typeof DkjIdRoute
   '/ksk/$id': typeof KskIdRoute
+  '/tempo/$id': typeof TempoIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dkj/$id': typeof DkjIdRoute
   '/ksk/$id': typeof KskIdRoute
+  '/tempo/$id': typeof TempoIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dkj/$id': typeof DkjIdRoute
   '/ksk/$id': typeof KskIdRoute
+  '/tempo/$id': typeof TempoIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dkj/$id' | '/ksk/$id'
+  fullPaths: '/' | '/dkj/$id' | '/ksk/$id' | '/tempo/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dkj/$id' | '/ksk/$id'
-  id: '__root__' | '/' | '/dkj/$id' | '/ksk/$id'
+  to: '/' | '/dkj/$id' | '/ksk/$id' | '/tempo/$id'
+  id: '__root__' | '/' | '/dkj/$id' | '/ksk/$id' | '/tempo/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DkjIdRoute: typeof DkjIdRoute
   KskIdRoute: typeof KskIdRoute
+  TempoIdRoute: typeof TempoIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tempo/$id': {
+      id: '/tempo/$id'
+      path: '/tempo/$id'
+      fullPath: '/tempo/$id'
+      preLoaderRoute: typeof TempoIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ksk/$id': {
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DkjIdRoute: DkjIdRoute,
   KskIdRoute: KskIdRoute,
+  TempoIdRoute: TempoIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
