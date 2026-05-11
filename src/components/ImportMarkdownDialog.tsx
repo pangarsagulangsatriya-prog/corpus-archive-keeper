@@ -167,11 +167,7 @@ export function ImportMarkdownDialog() {
     return rows.map(row => {
       const mapped: any = {};
       for (const [key, value] of Object.entries(row)) {
-        if (dbColumnMap[key]) {
-          mapped[dbColumnMap[key]] = value;
-        } else {
-          mapped[key] = value;
-        }
+        mapped[key.toLowerCase()] = value;
       }
       return mapped;
     });
