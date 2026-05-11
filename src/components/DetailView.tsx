@@ -37,6 +37,68 @@ function MetadataCard({ title, children }: { title: string; children: React.Reac
   );
 }
 
+function ImageViewer({ src, alt }: { src?: string; alt: string }) {
+  const [scale, setScale] = useState(1);
+  const [translate, setTranslate] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [startPos, setStartPos] = useState({ x: 0, y: 0 });
+
+  const handleZoomIn = () => setScale(s => Math.min(s + 0.2, 3));
+  const handleZoomOut = () => setScale(s => Math.max(s - 0.2, 0.5));
+  const handleReset = () => { setScale(1); setTranslate({ x: 0, y: 0 }); };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (scale === 1) return;
+    setIsDragging(true);
+    setStartPos({ x: e.clientX - translate.x, y: e.clientY - translate.y });
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    setTranslate({
+      x: e.clientX - startPos.x,
+      y: e.clientY - startPos.y
+    });
+  };
+
+  const handleMouseUp = () => setIsDragging(false);
+
+  return (
+    <div className="flex flex-col items-center space-y-2 w-full max-w-[500px]">
+      <div 
+        className="relative border border-border bg-card p-2 w-full shadow-sm overflow-hidden"
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+      >
+        <div className="aspect-[3/4] bg-muted flex items-center justify-center text-muted-foreground text-xs border border-dashed border-border overflow-hidden">
+          {src ? (
+            <img 
+              src={src} 
+              alt={alt} 
+              className="object-contain w-full h-full" 
+              style={{ 
+                transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`,
+                cursor: isDragging ? 'grabbing' : (scale > 1 ? 'grab' : 'default')
+              }}
+              draggable={false}
+            />
+          ) : (
+            `No ${alt} Image`
+          )}
+        </div>
+      </div>
+      
+      <div className="flex gap-1">
+        <Button size="icon" variant="outline" className="w-7 h-7" onClick={handleZoomOut} disabled={scale <= 0.5}><ZoomOut className="w-4 h-4" /></Button>
+        <Button size="icon" variant="outline" className="w-7 h-7" onClick={handleZoomIn} disabled={scale >= 3}><ZoomIn className="w-4 h-4" /></Button>
+        <Button size="icon" variant="outline" className="w-7 h-7" onClick={handleReset}><Maximize2 className="w-4 h-4" /></Button>
+      </div>
+    </div>
+  );
+}
+
 export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string }) {
   const [row, setRow] = useState(initialRow);
   const [frontUrl, setFrontUrl] = useState(row.frontCover?.imageUrl || "");
@@ -242,15 +304,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
               
               <div className="flex-1 overflow-auto p-4 h-full">
                 <TabsContent value="front" className="mt-0 h-full flex flex-col items-center justify-center space-y-4">
-                  <div className="border border-border bg-card p-2 max-w-[300px] shadow-sm">
-                    <div className="aspect-[3/4] bg-muted flex items-center justify-center text-muted-foreground text-xs border border-dashed border-border">
-                      {row.frontCover?.imageUrl ? (
-                        <img src={row.frontCover.imageUrl} alt="Front Cover" className="object-contain w-full h-full" />
-                      ) : (
-                        "No Front Cover Image"
-                      )}
-                    </div>
-                  </div>
+                  <ImageViewer src={row.frontCover?.imageUrl} alt="Front Cover" />
                   
                   <div className="w-full max-w-[300px] space-y-2">
                     <div className="flex gap-2">
@@ -281,15 +335,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                 </TabsContent>
                 
                 <TabsContent value="back" className="mt-0 h-full flex flex-col items-center justify-center space-y-4">
-                  <div className="border border-border bg-card p-2 max-w-[300px] shadow-sm">
-                    <div className="aspect-[3/4] bg-muted flex items-center justify-center text-muted-foreground text-xs border border-dashed border-border">
-                      {row.backCover?.imageUrl ? (
-                        <img src={row.backCover.imageUrl} alt="Back Cover" className="object-contain w-full h-full" />
-                      ) : (
-                        "No Back Cover Image"
-                      )}
-                    </div>
-                  </div>
+                  <ImageViewer src={row.backCover?.imageUrl} alt="Back Cover" />
                   
                   <div className="w-full max-w-[300px] space-y-2">
                     <div className="flex gap-2">
