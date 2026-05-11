@@ -5,6 +5,8 @@ import { CorpusTable, SampleBadge } from "@/components/CorpusTable";
 import { fetchCorpusData } from "@/lib/corpus-data";
 import type { DKJRow, KSKRow, TempoRow } from "@/lib/corpus-data";
 
+import { ImportMarkdownDialog } from "@/components/ImportMarkdownDialog";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -62,7 +64,10 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border bg-card">
-        <div className="mx-auto max-w-[1400px] px-6 py-8">
+        <div className="mx-auto max-w-[1400px] px-6 py-8 relative">
+          <div className="absolute top-8 right-6">
+            <ImportMarkdownDialog />
+          </div>
           <p className="text-xs uppercase tracking-[0.2em] text-primary">Research Database</p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight">
             Pabrik Keindahan <span className="text-muted-foreground">— Corpus Tables</span>
