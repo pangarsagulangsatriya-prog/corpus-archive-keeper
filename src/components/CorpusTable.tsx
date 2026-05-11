@@ -28,7 +28,7 @@ import { useQueryClient } from "@tanstack/react-query";
 type Col<T> = {
   key: string;
   label: string;
-  render: (row: T) => React.ReactNode;
+  render: (row: T, index: number) => React.ReactNode;
   className?: string;
 };
 
@@ -207,7 +207,13 @@ export function CorpusTable<T extends AnyRow>({
     },
   ];
 
-  const allCols = [
+  const allCols: Col<T>[] = [
+    {
+      key: "no",
+      label: "No",
+      render: (_, index: number) => <span className="text-muted-foreground">{index + 1}</span>,
+      className: "w-[40px] text-center",
+    },
     ...extraColumns,
     ...trailingCols.filter((c) => c.key === "detail"),
   ];
@@ -267,11 +273,11 @@ export function CorpusTable<T extends AnyRow>({
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filtered.map((r) => (
+              {filtered.map((r, index) => (
                 <TableRow key={r.id}>
                   {allCols.map((c) => (
                     <TableCell key={c.key} className={`align-top text-sm ${c.className ?? ""}`}>
-                      {c.render(r)}
+                      {c.render(r, index)}
                     </TableCell>
                   ))}
                 </TableRow>
