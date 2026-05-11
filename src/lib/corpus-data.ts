@@ -422,6 +422,36 @@ export type AnyRow = DKJRow | KSKRow | TempoRow;
 
 import { supabase } from './supabase';
 
+const camelCaseMap: Record<string, string> = {
+  issample: 'isSample',
+  verificationstatus: 'verificationStatus',
+  nextaction: 'nextAction',
+  halamankreditnotes: 'halamanKreditNotes',
+  judulnaskah: 'judulNaskah',
+  judulbukusetelahterbit: 'judulBukuSetelahTerbit',
+  judulberubah: 'judulBerubah',
+  statusterbit: 'statusTerbit',
+  jarakmenangterbit: 'jarakMenangTerbit',
+  pertanggungjawabanjuri: 'pertanggungjawabanJuri',
+  kutipanjuri: 'kutipanJuri',
+  tahunksk: 'tahunKSK',
+  statusksk: 'statusKSK',
+  juricatatan: 'juriCatatan',
+  tahuntempo: 'tahunTempo',
+  statustempo: 'statusTempo',
+  artikeltempo: 'artikelTempo',
+  kutipantempo: 'kutipanTempo',
+  linkartikel: 'linkArtikel',
+  frontcover: 'frontCover',
+  backcover: 'backCover',
+  judulbuku: 'judulBuku',
+  jumlahhalaman: 'jumlahHalaman',
+  desainersampul: 'desainerSampul',
+  linkpengumuman: 'linkPengumuman',
+  jenissayembara: 'jenisSayembara',
+  tahunmenang: 'tahunMenang'
+};
+
 export const fetchCorpusData = async (corpus: "DKJ" | "KSK" | "Tempo"): Promise<AnyRow[]> => {
   try {
     // Attempt to fetch from Supabase table 'books'
@@ -436,7 +466,14 @@ export const fetchCorpusData = async (corpus: "DKJ" | "KSK" | "Tempo"): Promise<
     }
 
     if (data && data.length > 0) {
-      return data as AnyRow[];
+      return data.map((row: any) => {
+        const mapped: any = {};
+        for (const [key, value] of Object.entries(row)) {
+          const camelKey = camelCaseMap[key] || key;
+          mapped[camelKey] = value;
+        }
+        return mapped;
+      }) as AnyRow[];
     }
     
     // If no data, fallback to static
@@ -460,7 +497,12 @@ export const fetchRow = async (corpus: "DKJ" | "KSK" | "Tempo", id: string): Pro
       .single();
 
     if (!error && data) {
-      return data as AnyRow;
+      const mapped: any = {};
+      for (const [key, value] of Object.entries(data)) {
+        const camelKey = camelCaseMap[key] || key;
+        mapped[camelKey] = value;
+      }
+      return mapped as AnyRow;
     }
   } catch (e) {
     // Fallback on error
