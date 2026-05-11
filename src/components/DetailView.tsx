@@ -117,6 +117,8 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
   const [googleBooksUrl, setGoogleBooksUrl] = useState(row.published?.googleBooksUrl || "");
   const [showEditFront, setShowEditFront] = useState(false);
   const [showEditBack, setShowEditBack] = useState(false);
+  const [activeTab, setActiveTab] = useState("front");
+  const [showEditUrl, setShowEditUrl] = useState(false);
   
   useEffect(() => {
     setFrontUrl(row.frontCover?.imageUrl || "");
@@ -129,7 +131,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
   }, [row]);
 
   useEffect(() => {
-    if (!googleBooksUrl) return;
+    if (activeTab !== "google-books" || !googleBooksUrl) return;
     
     const getBookId = (url: string) => {
       try {
@@ -155,7 +157,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
         }
       });
     }
-  }, [googleBooksUrl]);
+  }, [googleBooksUrl, activeTab]);
 
   const { data: corpusList = [] } = useQuery({
     queryKey: ['corpus', row.corpus],
@@ -368,7 +370,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
 
           {/* B. CENTER PREVIEW WORKSPACE */}
           <div className="flex-1 flex flex-col bg-muted/20 h-full overflow-hidden">
-            <Tabs defaultValue="front" className="flex-1 flex flex-col h-full overflow-hidden">
+            <Tabs defaultValue="front" className="flex-1 flex flex-col h-full overflow-hidden" onValueChange={setActiveTab}>
               <TabsList className="border-b border-border bg-card rounded-none h-10 px-4 justify-start space-x-2">
                 <TabsTrigger value="front" className="text-xs h-10 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">Front Cover</TabsTrigger>
                 <TabsTrigger value="back" className="text-xs h-10 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">Back Cover</TabsTrigger>
@@ -529,23 +531,45 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                 </TabsContent>
 
                 <TabsContent value="google-books" className="mt-0 h-full flex flex-col space-y-4 p-4">
-                  <div className="flex gap-2 items-center">
-                    <Input 
-                      placeholder="Google Books URL..." 
-                      className="text-xs h-8 flex-1" 
-                      value={googleBooksUrl} 
-                      onChange={(e) => setGoogleBooksUrl(e.target.value)} 
-                    />
-                    <Button size="sm" className="text-xs h-8" onClick={handleSaveGoogleBooksUrl}>
-                      Save
+                  <div className="flex justify-between items-center mb-2">
+                    <h3 className="text-xs font-semibold uppercase">Google Books Preview</h3>
+                    <Button size="sm" variant="outline" className="text-xs" onClick={() => setShowEditUrl(true)}>
+                      Edit URL
                     </Button>
                   </div>
                   
-                  <div className="flex-1 border border-border bg-card p-2 flex items-center justify-center min-h-[500px]">
+                  <div className="flex-1 border border-border bg-card p-2 flex items-center justify-center min-h-[500px] relative">
                     {googleBooksUrl ? (
                       <div id="viewerCanvas" className="w-full h-full min-h-[500px]"></div>
                     ) : (
                       <div className="text-xs text-muted-foreground">Input Google Books URL to preview.</div>
+                    )}
+                    
+                    {showEditUrl && (
+                      <div className="absolute inset-0 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4 z-10">
+                        <div className="w-full max-w-[350px] space-y-4 p-4 bg-card border border-border shadow-lg">
+                          <div className="flex justify-between items-center border-b border-border pb-2">
+                            <h3 className="text-xs font-semibold uppercase">Update Google Books URL</h3>
+                            <Button size="icon" variant="ghost" className="w-6 h-6" onClick={() => setShowEditUrl(false)}>
+                              <X className="w-4 h-4" />
+                            </Button>
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Google Books URL</label>
+                            <Input 
+                              placeholder="https://books.google.com/..." 
+                              className="text-xs h-8" 
+                              value={googleBooksUrl} 
+                              onChange={(e) => setGoogleBooksUrl(e.target.value)} 
+                            />
+                          </div>
+                          
+                          <Button size="sm" className="w-full text-xs" onClick={() => { handleSaveGoogleBooksUrl(); setShowEditUrl(false); }}>
+                            Save
+                          </Button>
+                        </div>
+                      </div>
                     )}
                   </div>
                 </TabsContent>
