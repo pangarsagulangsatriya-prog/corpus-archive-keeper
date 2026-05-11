@@ -162,28 +162,38 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
 
   const fallbackList = row.corpus === "DKJ" ? sampleDKJ : row.corpus === "KSK" ? sampleKSK : sampleTempo;
   const list = corpusList.length > 0 ? corpusList : fallbackList;
-  
   const [listSortOrder, setListSortOrder] = useState<"asc" | "desc">("desc");
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const sortedList = useMemo(() => {
+  const filteredAndSortedList = useMemo(() => {
     const getYear = (r: any) => {
       const y = r.tahunMenang || r.tahunKSK || r.tahunTempo || r.tahunmenang || r.tahunksk || r.tahuntempo;
       return parseInt(y, 10) || 0;
     };
-    return [...list].sort((a, b) => {
+    
+    const q = searchTerm.toLowerCase();
+    const filtered = list.filter(r => {
+      const title = ("judulBuku" in r ? r.judulBuku : r.judulNaskah) || "";
+      const author = r.pengarang || "";
+      const publisher = r.published?.penerbit || "";
+      const hay = `${title} ${author} ${publisher}`.toLowerCase();
+      return hay.includes(q);
+    });
+
+    return filtered.sort((a, b) => {
       const ya = getYear(a);
       const yb = getYear(b);
       return listSortOrder === "desc" ? yb - ya : ya - yb;
     });
-  }, [list, listSortOrder]);
+  }, [list, listSortOrder, searchTerm]);
 
-  const currentIndex = sortedList.findIndex(r => r.id === row.id);
+  const currentIndex = filteredAndSortedList.findIndex(r => r.id === row.id);
   
   const handlePrev = () => {
-    if (currentIndex > 0) setRow(list[currentIndex - 1]);
+    if (currentIndex > 0) setRow(filteredAndSortedList[currentIndex - 1]);
   };
   const handleNext = () => {
-    if (currentIndex < list.length - 1) setRow(list[currentIndex + 1]);
+    if (currentIndex < filteredAndSortedList.length - 1) setRow(filteredAndSortedList[currentIndex + 1]);
   };
 
   const handleSaveCover = async (type: 'front' | 'back', url: string, sourceUrl?: string, edition2?: any) => {
@@ -257,7 +267,12 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
         <div className="p-3 border-b border-border space-y-2">
           <div className="relative">
             <Search className="w-4 h-4 absolute left-2 top-2.5 text-muted-foreground" />
-            <Input placeholder="Cari judul / pengarang / penerbit..." className="pl-8 text-xs h-9" />
+            <Input 
+              placeholder="Cari judul / pengarang / penerbit..." 
+              className="pl-8 text-xs h-9" 
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
           </div>
           <div className="flex gap-1">
             <Button variant="outline" size="sm" className="flex-1 text-xs h-9">
@@ -281,7 +296,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
         
         {/* List of Records */}
         <div className="flex-1 overflow-auto">
-          {sortedList.map(r => {
+          {filteredAndSortedList.map(r => {
             const winYear = r.tahunMenang || r.tahunKSK || r.tahunTempo || r.tahunmenang || r.tahunksk || r.tahuntempo;
             return (
               <div 
