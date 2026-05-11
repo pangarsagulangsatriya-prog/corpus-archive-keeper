@@ -423,6 +423,12 @@ export type AnyRow = DKJRow | KSKRow | TempoRow;
 import { supabase } from './supabase';
 
 export const fetchCorpusData = async (corpus: "DKJ" | "KSK" | "Tempo"): Promise<AnyRow[]> => {
+  if (!supabase) {
+    console.warn(`Supabase client not initialized (missing env vars). Using static data for ${corpus}.`);
+    const list: AnyRow[] = corpus === "DKJ" ? sampleDKJ : corpus === "KSK" ? sampleKSK : sampleTempo;
+    return list;
+  }
+
   try {
     // Attempt to fetch from Supabase table 'books'
     const { data, error } = await supabase
@@ -451,6 +457,11 @@ export const fetchCorpusData = async (corpus: "DKJ" | "KSK" | "Tempo"): Promise<
 };
 
 export const fetchRow = async (corpus: "DKJ" | "KSK" | "Tempo", id: string): Promise<AnyRow | undefined> => {
+  if (!supabase) {
+    const list: AnyRow[] = corpus === "DKJ" ? sampleDKJ : corpus === "KSK" ? sampleKSK : sampleTempo;
+    return list.find((r) => r.id === id);
+  }
+
   try {
     const { data, error } = await supabase
       .from('books')
