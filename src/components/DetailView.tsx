@@ -393,6 +393,90 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                       </Button>
                     </div>
 
+                    {showEditFront && (
+                      <div className="w-full space-y-4 p-4 bg-card border border-border shadow-sm mb-4">
+                        <div className="flex justify-between items-center border-b border-border pb-2">
+                          <h3 className="text-xs font-semibold uppercase">Update Front Cover</h3>
+                          <Button size="icon" variant="ghost" className="w-6 h-6" onClick={() => setShowEditFront(false)}>
+                            <X className="w-4 h-4" />
+                          </Button>
+                        </div>
+                        
+                        {/* Edisi 1 */}
+                        <div className="space-y-2">
+                          <h4 className="text-xs font-semibold">Edisi 1</h4>
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Image URL</label>
+                            <Input 
+                              placeholder="URL..." 
+                              className="text-xs h-8" 
+                              value={frontUrl} 
+                              onChange={(e) => setFrontUrl(e.target.value)} 
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Source URL</label>
+                            <Input 
+                              placeholder="Source URL..." 
+                              className="text-xs h-8" 
+                              value={frontSourceUrl} 
+                              onChange={(e) => setFrontSourceUrl(e.target.value)} 
+                            />
+                          </div>
+                        </div>
+
+                        {/* Edisi 2 */}
+                        <div className="border-t border-border pt-2 space-y-2">
+                          <h4 className="text-xs font-semibold">Edisi 2 (Opsional)</h4>
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Image URL</label>
+                            <Input 
+                              placeholder="URL..." 
+                              className="text-xs h-8" 
+                              value={frontEd2.imageUrl} 
+                              onChange={(e) => setFrontEd2({...frontEd2, imageUrl: e.target.value})} 
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Source URL</label>
+                            <Input 
+                              placeholder="Source URL..." 
+                              className="text-xs h-8" 
+                              value={frontEd2.sourceUrl} 
+                              onChange={(e) => setFrontEd2({...frontEd2, sourceUrl: e.target.value})} 
+                            />
+                          </div>
+                          <div className="grid grid-cols-2 gap-2">
+                            <div className="space-y-1">
+                              <label className="text-xs text-muted-foreground">Penerbit</label>
+                              <Input 
+                                placeholder="Penerbit..." 
+                                className="text-xs h-8" 
+                                value={frontEd2.publisher} 
+                                onChange={(e) => setFrontEd2({...frontEd2, publisher: e.target.value})} 
+                              />
+                            </div>
+                            <div className="space-y-1">
+                              <label className="text-xs text-muted-foreground">Tahun</label>
+                              <Input 
+                                placeholder="Tahun..." 
+                                className="text-xs h-8" 
+                                value={frontEd2.year} 
+                                onChange={(e) => setFrontEd2({...frontEd2, year: e.target.value})} 
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <Button size="sm" className="w-full text-xs" onClick={() => {
+                          handleSaveCover('front', frontUrl, frontSourceUrl, frontEd2);
+                          setShowEditFront(false);
+                        }}>
+                          Save All
+                        </Button>
+                      </div>
+                    )}
+
                     <TabsContent value="ed1" className="flex-1 flex items-center justify-center relative">
                       <ImageViewer 
                         src={row.frontCover?.imageUrl} 
@@ -427,91 +511,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                       </div>
                     </TabsContent>
 
-                    {showEditFront && (
-                      <div className="absolute inset-0 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4 z-10">
-                        <div className="w-full max-w-[400px] space-y-4 p-4 bg-card border border-border shadow-lg max-h-[90vh] overflow-auto">
-                          <div className="flex justify-between items-center border-b border-border pb-2">
-                            <h3 className="text-xs font-semibold uppercase">Update Front Cover</h3>
-                            <Button size="icon" variant="ghost" className="w-6 h-6" onClick={() => setShowEditFront(false)}>
-                              <X className="w-4 h-4" />
-                            </Button>
-                          </div>
-                          
-                          {/* Edisi 1 */}
-                          <div className="space-y-2">
-                            <h4 className="text-xs font-semibold">Edisi 1</h4>
-                            <div className="space-y-1">
-                              <label className="text-xs text-muted-foreground">Image URL</label>
-                              <Input 
-                                placeholder="URL..." 
-                                className="text-xs h-8" 
-                                value={frontUrl} 
-                                onChange={(e) => setFrontUrl(e.target.value)} 
-                              />
-                            </div>
-                            <div className="space-y-1">
-                              <label className="text-xs text-muted-foreground">Source URL</label>
-                              <Input 
-                                placeholder="Source URL..." 
-                                className="text-xs h-8" 
-                                value={frontSourceUrl} 
-                                onChange={(e) => setFrontSourceUrl(e.target.value)} 
-                              />
-                            </div>
-                          </div>
 
-                          {/* Edisi 2 */}
-                          <div className="border-t border-border pt-2 space-y-2">
-                            <h4 className="text-xs font-semibold">Edisi 2 (Opsional)</h4>
-                            <div className="space-y-1">
-                              <label className="text-xs text-muted-foreground">Image URL</label>
-                              <Input 
-                                placeholder="URL..." 
-                                className="text-xs h-8" 
-                                value={frontEd2.imageUrl} 
-                                onChange={(e) => setFrontEd2({...frontEd2, imageUrl: e.target.value})} 
-                              />
-                            </div>
-                            <div className="space-y-1">
-                              <label className="text-xs text-muted-foreground">Source URL</label>
-                              <Input 
-                                placeholder="Source URL..." 
-                                className="text-xs h-8" 
-                                value={frontEd2.sourceUrl} 
-                                onChange={(e) => setFrontEd2({...frontEd2, sourceUrl: e.target.value})} 
-                              />
-                            </div>
-                            <div className="grid grid-cols-2 gap-2">
-                              <div className="space-y-1">
-                                <label className="text-xs text-muted-foreground">Penerbit</label>
-                                <Input 
-                                  placeholder="Penerbit..." 
-                                  className="text-xs h-8" 
-                                  value={frontEd2.publisher} 
-                                  onChange={(e) => setFrontEd2({...frontEd2, publisher: e.target.value})} 
-                                />
-                              </div>
-                              <div className="space-y-1">
-                                <label className="text-xs text-muted-foreground">Tahun</label>
-                                <Input 
-                                  placeholder="Tahun..." 
-                                  className="text-xs h-8" 
-                                  value={frontEd2.year} 
-                                  onChange={(e) => setFrontEd2({...frontEd2, year: e.target.value})} 
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <Button size="sm" className="w-full text-xs" onClick={() => {
-                            handleSaveCover('front', frontUrl, frontSourceUrl, frontEd2);
-                            setShowEditFront(false);
-                          }}>
-                            Save All
-                          </Button>
-                        </div>
-                      </div>
-                    )}
                   </Tabs>
                 </TabsContent>
                 
@@ -526,6 +526,90 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                         Edit Cover
                       </Button>
                     </div>
+
+                    {showEditBack && (
+                      <div className="w-full space-y-4 p-4 bg-card border border-border shadow-sm mb-4">
+                        <div className="flex justify-between items-center border-b border-border pb-2">
+                          <h3 className="text-xs font-semibold uppercase">Update Back Cover</h3>
+                          <Button size="icon" variant="ghost" className="w-6 h-6" onClick={() => setShowEditBack(false)}>
+                            <X className="w-4 h-4" />
+                          </Button>
+                        </div>
+                        
+                        {/* Edisi 1 */}
+                        <div className="space-y-2">
+                          <h4 className="text-xs font-semibold">Edisi 1</h4>
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Image URL</label>
+                            <Input 
+                              placeholder="URL..." 
+                              className="text-xs h-8" 
+                              value={backUrl} 
+                              onChange={(e) => setBackUrl(e.target.value)} 
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Source URL</label>
+                            <Input 
+                              placeholder="Source URL..." 
+                              className="text-xs h-8" 
+                              value={backSourceUrl} 
+                              onChange={(e) => setBackSourceUrl(e.target.value)} 
+                            />
+                          </div>
+                        </div>
+
+                        {/* Edisi 2 */}
+                        <div className="border-t border-border pt-2 space-y-2">
+                          <h4 className="text-xs font-semibold">Edisi 2 (Opsional)</h4>
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Image URL</label>
+                            <Input 
+                              placeholder="URL..." 
+                              className="text-xs h-8" 
+                              value={backEd2.imageUrl} 
+                              onChange={(e) => setBackEd2({...backEd2, imageUrl: e.target.value})} 
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Source URL</label>
+                            <Input 
+                              placeholder="Source URL..." 
+                              className="text-xs h-8" 
+                              value={backEd2.sourceUrl} 
+                              onChange={(e) => setBackEd2({...backEd2, sourceUrl: e.target.value})} 
+                            />
+                          </div>
+                          <div className="grid grid-cols-2 gap-2">
+                            <div className="space-y-1">
+                              <label className="text-xs text-muted-foreground">Penerbit</label>
+                              <Input 
+                                placeholder="Penerbit..." 
+                                className="text-xs h-8" 
+                                value={backEd2.publisher} 
+                                onChange={(e) => setBackEd2({...backEd2, publisher: e.target.value})} 
+                              />
+                            </div>
+                            <div className="space-y-1">
+                              <label className="text-xs text-muted-foreground">Tahun</label>
+                              <Input 
+                                placeholder="Tahun..." 
+                                className="text-xs h-8" 
+                                value={backEd2.year} 
+                                onChange={(e) => setBackEd2({...backEd2, year: e.target.value})} 
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <Button size="sm" className="w-full text-xs" onClick={() => {
+                          handleSaveCover('back', backUrl, backSourceUrl, backEd2);
+                          setShowEditBack(false);
+                        }}>
+                          Save All
+                        </Button>
+                      </div>
+                    )}
 
                     <TabsContent value="ed1" className="flex-1 flex items-center justify-center relative">
                       <ImageViewer 
@@ -561,91 +645,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                       </div>
                     </TabsContent>
 
-                    {showEditBack && (
-                      <div className="absolute inset-0 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4 z-10">
-                        <div className="w-full max-w-[400px] space-y-4 p-4 bg-card border border-border shadow-lg max-h-[90vh] overflow-auto">
-                          <div className="flex justify-between items-center border-b border-border pb-2">
-                            <h3 className="text-xs font-semibold uppercase">Update Back Cover</h3>
-                            <Button size="icon" variant="ghost" className="w-6 h-6" onClick={() => setShowEditBack(false)}>
-                              <X className="w-4 h-4" />
-                            </Button>
-                          </div>
-                          
-                          {/* Edisi 1 */}
-                          <div className="space-y-2">
-                            <h4 className="text-xs font-semibold">Edisi 1</h4>
-                            <div className="space-y-1">
-                              <label className="text-xs text-muted-foreground">Image URL</label>
-                              <Input 
-                                placeholder="URL..." 
-                                className="text-xs h-8" 
-                                value={backUrl} 
-                                onChange={(e) => setBackUrl(e.target.value)} 
-                              />
-                            </div>
-                            <div className="space-y-1">
-                              <label className="text-xs text-muted-foreground">Source URL</label>
-                              <Input 
-                                placeholder="Source URL..." 
-                                className="text-xs h-8" 
-                                value={backSourceUrl} 
-                                onChange={(e) => setBackSourceUrl(e.target.value)} 
-                              />
-                            </div>
-                          </div>
 
-                          {/* Edisi 2 */}
-                          <div className="border-t border-border pt-2 space-y-2">
-                            <h4 className="text-xs font-semibold">Edisi 2 (Opsional)</h4>
-                            <div className="space-y-1">
-                              <label className="text-xs text-muted-foreground">Image URL</label>
-                              <Input 
-                                placeholder="URL..." 
-                                className="text-xs h-8" 
-                                value={backEd2.imageUrl} 
-                                onChange={(e) => setBackEd2({...backEd2, imageUrl: e.target.value})} 
-                              />
-                            </div>
-                            <div className="space-y-1">
-                              <label className="text-xs text-muted-foreground">Source URL</label>
-                              <Input 
-                                placeholder="Source URL..." 
-                                className="text-xs h-8" 
-                                value={backEd2.sourceUrl} 
-                                onChange={(e) => setBackEd2({...backEd2, sourceUrl: e.target.value})} 
-                              />
-                            </div>
-                            <div className="grid grid-cols-2 gap-2">
-                              <div className="space-y-1">
-                                <label className="text-xs text-muted-foreground">Penerbit</label>
-                                <Input 
-                                  placeholder="Penerbit..." 
-                                  className="text-xs h-8" 
-                                  value={backEd2.publisher} 
-                                  onChange={(e) => setBackEd2({...backEd2, publisher: e.target.value})} 
-                                />
-                              </div>
-                              <div className="space-y-1">
-                                <label className="text-xs text-muted-foreground">Tahun</label>
-                                <Input 
-                                  placeholder="Tahun..." 
-                                  className="text-xs h-8" 
-                                  value={backEd2.year} 
-                                  onChange={(e) => setBackEd2({...backEd2, year: e.target.value})} 
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <Button size="sm" className="w-full text-xs" onClick={() => {
-                            handleSaveCover('back', backUrl, backSourceUrl, backEd2);
-                            setShowEditBack(false);
-                          }}>
-                            Save All
-                          </Button>
-                        </div>
-                      </div>
-                    )}
                   </Tabs>
                 </TabsContent>
 
