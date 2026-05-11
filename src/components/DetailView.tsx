@@ -755,15 +755,63 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                   </Tabs>
                 </TabsContent>
 
-                <TabsContent value="paratext" className="mt-0 h-full space-y-4">
-                  <div className="border border-border bg-card p-4 space-y-3">
-                    <h3 className="text-xs font-semibold uppercase text-muted-foreground">Sinopsis Penerbit</h3>
-                    <p className="text-sm leading-relaxed">{row.paratext.sinopsisPenerbit || "Tidak ada sinopsis."}</p>
-                  </div>
-                  <div className="border border-border bg-card p-4 space-y-3">
-                    <h3 className="text-xs font-semibold uppercase text-muted-foreground">Blurb</h3>
-                    <p className="text-sm leading-relaxed italic">"{row.paratext.blurb1}"</p>
-                    <p className="text-xs text-right text-muted-foreground">— {row.paratext.pemberiBlurb1}</p>
+                <TabsContent value="paratext" className="mt-0 h-full flex flex-col space-y-4 overflow-hidden">
+                  <div className="flex-1 overflow-y-auto space-y-6 pr-2">
+                    {/* SINOPSIS PENERBIT */}
+                    <div className="space-y-3">
+                      <h3 className="text-xs font-semibold uppercase text-muted-foreground border-b border-border pb-1">Sinopsis Penerbit</h3>
+                      {(() => {
+                        const sources = (row.paratext?.rawSynopsisSources || []).filter((s: any) => 
+                          ['publisher', 'bookstore', 'gramedia', 'google_books'].includes(s.sourceType)
+                        );
+                        if (sources.length === 0) {
+                          return <p className="text-sm text-muted-foreground">Belum ada raw sinopsis dari sumber ini.</p>;
+                        }
+                        return sources.map((s: any, idx: number) => (
+                          <div key={idx} className="border border-border bg-card p-4 space-y-2">
+                            <div className="flex justify-between items-center text-xs text-muted-foreground border-b border-border pb-2">
+                              <span className="font-medium text-foreground">{s.sourceName}</span>
+                              {s.sourceUrl && (
+                                <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all max-w-[60%] text-right">
+                                  {s.sourceUrl}
+                                </a>
+                              )}
+                            </div>
+                            <div className="max-h-[300px] overflow-y-auto pt-2">
+                              <p className="text-sm leading-relaxed whitespace-pre-wrap">{s.rawSynopsisFullText || "Tidak ada teks."}</p>
+                            </div>
+                          </div>
+                        ));
+                      })()}
+                    </div>
+
+                    {/* BLURB */}
+                    <div className="space-y-3">
+                      <h3 className="text-xs font-semibold uppercase text-muted-foreground border-b border-border pb-1">Blurb</h3>
+                      {(() => {
+                        const sources = (row.paratext?.rawSynopsisSources || []).filter((s: any) => 
+                          ['blurb', 'back cover', 'marketplace', 'Goodreads', 'katalog'].includes(s.sourceType)
+                        );
+                        if (sources.length === 0) {
+                          return <p className="text-sm text-muted-foreground">Belum ada raw sinopsis dari sumber ini.</p>;
+                        }
+                        return sources.map((s: any, idx: number) => (
+                          <div key={idx} className="border border-border bg-card p-4 space-y-2">
+                            <div className="flex justify-between items-center text-xs text-muted-foreground border-b border-border pb-2">
+                              <span className="font-medium text-foreground">{s.sourceName}</span>
+                              {s.sourceUrl && (
+                                <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all max-w-[60%] text-right">
+                                  {s.sourceUrl}
+                                </a>
+                              )}
+                            </div>
+                            <div className="max-h-[300px] overflow-y-auto pt-2">
+                              <p className="text-sm leading-relaxed whitespace-pre-wrap">{s.rawSynopsisFullText || "Tidak ada teks."}</p>
+                            </div>
+                          </div>
+                        ));
+                      })()}
+                    </div>
                   </div>
                 </TabsContent>
 
