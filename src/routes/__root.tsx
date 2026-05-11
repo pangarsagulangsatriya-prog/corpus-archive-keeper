@@ -4,8 +4,6 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
 import { Database, Upload, Settings as SettingsIcon, BookOpen } from "lucide-react";
 
@@ -69,54 +67,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Kanon Sastra" },
-      { name: "description", content: "Pabrik Keindahan — Corpus Tables is a research app for literary award data." },
-      { name: "author", content: "Kanon Sastra" },
-      { property: "og:title", content: "Kanon Sastra" },
-      { property: "og:description", content: "Pabrik Keindahan — Corpus Tables is a research app for literary award data." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@KanonSastra" },
-      { name: "twitter:title", content: "Kanon Sastra" },
-      { name: "twitter:description", content: "Pabrik Keindahan — Corpus Tables is a research app for literary award data." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cff56e3d-71cb-441c-b6d7-3d72421e43c7/id-preview-48b7ada3--ae974cb4-272f-4ec9-b492-70efdc94e271.lovable.app-1778473454342.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cff56e3d-71cb-441c-b6d7-3d72421e43c7/id-preview-48b7ada3--ae974cb4-272f-4ec9-b492-70efdc94e271.lovable.app-1778473454342.png" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      {
-        rel: "icon",
-        type: "image/svg+xml",
-        href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'></path><path d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'></path></svg>",
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
