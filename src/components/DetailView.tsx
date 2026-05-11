@@ -87,9 +87,6 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
             >
               <div className="flex items-center justify-between text-xs text-muted-foreground">
                 <span className="font-semibold">{r.corpus}</span>
-                <span className={`px-1 rounded-sm text-[10px] ${r.verificationStatus === 'Verified' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
-                  {r.verificationStatus}
-                </span>
               </div>
               <div className="font-semibold text-xs truncate">{"judulBuku" in r ? r.judulBuku : r.judulNaskah}</div>
               <div className="text-xs text-muted-foreground truncate">{r.pengarang}</div>
