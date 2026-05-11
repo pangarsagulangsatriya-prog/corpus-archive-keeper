@@ -19,6 +19,11 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import type { AnyRow, CoverFile } from "@/lib/corpus-data";
+import { CreateManualDialog } from "@/components/CreateManualDialog";
+import { supabase } from "@/lib/supabase";
+import { useQueryClient } from "@tanstack/react-query";
+
+
 
 type Col<T> = {
   key: string;
@@ -31,6 +36,7 @@ type Modal =
   | { kind: "cover"; title: string; cover: CoverFile }
   | { kind: "text"; title: string; text: string }
   | { kind: "evidence"; title: string; row: AnyRow }
+  | { kind: "delete"; title: string; row: AnyRow }
   | null;
 
 function StatusBadge({ status }: { status: string }) {
@@ -64,6 +70,8 @@ export function CorpusTable<T extends AnyRow>({
   const [modal, setModal] = useState<Modal>(null);
   const [year, setYear] = useState("");
   const [verif, setVerif] = useState("");
+  const queryClient = useQueryClient();
+
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase();
@@ -82,6 +90,20 @@ export function CorpusTable<T extends AnyRow>({
     setModal({ kind: "text", title, text });
   const openEvidence = (row: AnyRow) =>
     setModal({ kind: "evidence", title: `Evidence — ${row.id}`, row });
+  const openDelete = (row: AnyRow) =>
+    setModal({ kind: "delete", title: `Hapus Data — ${row.id}`, row });
+
+  const executeDelete = async (id: string) => {
+    try {
+      const { error } = await supabase.from('books').delete().eq('id', id);
+      if (error) throw error;
+      setModal(null);
+      queryClient.invalidateQueries({ queryKey: ['corpus'] });
+    } catch (err) {
+      console.error("Gagal menghapus:", err);
+      alert("Gagal menghapus data.");
+    }
+  };
 
   const buttonCols: Col<T>[] = [
     {
@@ -170,11 +192,16 @@ export function CorpusTable<T extends AnyRow>({
               ? "/ksk/$id"
               : "/tempo/$id";
         return (
-          <Link to={to} params={{ id: r.id }}>
-            <Button variant="default" size="sm">
-              Open Detail
+          <div className="flex gap-2">
+            <Link to={to} params={{ id: r.id }}>
+              <Button variant="default" size="sm">
+                Open Detail
+              </Button>
+            </Link>
+            <Button variant="outline" size="sm" className="text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700" onClick={() => openDelete(r)}>
+              Delete
             </Button>
-          </Link>
+          </div>
         );
       },
     },
@@ -213,6 +240,7 @@ export function CorpusTable<T extends AnyRow>({
         </select>
         {filtersExtra}
         <div className="ml-auto flex gap-2">
+          <CreateManualDialog />
           <Button variant="outline" size="sm">
             Import XLSX / CSV
           </Button>
@@ -320,6 +348,22 @@ export function CorpusTable<T extends AnyRow>({
                   </div>
                 </div>
               ))}
+            </div>
+          )}
+          {modal?.kind === "delete" && (
+            <div className="space-y-4">
+              <div className="text-sm text-muted-foreground">
+                Apakah Anda yakin ingin menghapus data ini? Tindakan ini tidak dapat dibatalkan.
+              </div>
+              <div className="border p-3 rounded-md bg-muted/50 text-sm">
+                <div className="font-semibold">{(modal.row as any).judulBuku || (modal.row as any).judulNaskah}</div>
+                <div className="text-muted-foreground">{modal.row.pengarang}</div>
+                <div className="text-xs text-muted-foreground mt-1">ID: {modal.row.id}</div>
+              </div>
+              <div className="flex justify-end gap-2 mt-4">
+                <Button variant="outline" onClick={() => setModal(null)}>Batal</Button>
+                <Button variant="destructive" onClick={() => executeDelete(modal.row.id)}>Hapus</Button>
+              </div>
             </div>
           )}
         </DialogContent>
