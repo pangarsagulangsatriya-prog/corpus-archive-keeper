@@ -453,6 +453,7 @@ const camelCaseMap: Record<string, string> = {
 };
 
 export const fetchCorpusData = async (corpus: "DKJ" | "KSK" | "Tempo"): Promise<AnyRow[]> => {
+  let result: AnyRow[] = [];
   try {
     // Attempt to fetch from Supabase table 'books'
     const { data, error } = await supabase
@@ -466,7 +467,7 @@ export const fetchCorpusData = async (corpus: "DKJ" | "KSK" | "Tempo"): Promise<
     }
 
     if (data && data.length > 0) {
-      return data.map((row: any) => {
+      result = data.map((row: any) => {
         const mapped: any = {};
         for (const [key, value] of Object.entries(row)) {
           const camelKey = camelCaseMap[key] || key;
@@ -474,18 +475,22 @@ export const fetchCorpusData = async (corpus: "DKJ" | "KSK" | "Tempo"): Promise<
         }
         return mapped;
       }) as AnyRow[];
+    } else {
+      console.log(`No data in Supabase for ${corpus}, using static fallback.`);
+      result = corpus === "DKJ" ? sampleDKJ : corpus === "KSK" ? sampleKSK : sampleTempo;
     }
-    
-    // If no data, fallback to static
-    console.log(`No data in Supabase for ${corpus}, using static fallback.`);
   } catch (e) {
-    // Fallback on error
+    result = corpus === "DKJ" ? sampleDKJ : corpus === "KSK" ? sampleKSK : sampleTempo;
   }
 
-  const list: AnyRow[] =
-    corpus === "DKJ" ? sampleDKJ : corpus === "KSK" ? sampleKSK : sampleTempo;
-  return list;
-};
+  // Sort by year descending (newest to oldest)
+  const getYear = (r: any) => {
+    const y = r.tahunMenang || r.tahunKSK || r.tahunTempo || r.tahunmenang || r.tahunksk || r.tahuntempo;
+    return parseInt(y, 10) || 0;
+  };
+
+  return result.sort((a, b) => getYear(b) - getYear(a));
+};;
 
 export const fetchRow = async (corpus: "DKJ" | "KSK" | "Tempo", id: string): Promise<AnyRow | undefined> => {
   try {
