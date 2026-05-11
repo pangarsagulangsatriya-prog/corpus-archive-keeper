@@ -70,22 +70,31 @@ export function CorpusTable<T extends AnyRow>({
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState<Modal>(null);
   const [year, setYear] = useState("");
-  const [verif, setVerif] = useState("");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [missingFilter, setMissingFilter] = useState("");
   const queryClient = useQueryClient();
 
 
   const filtered = useMemo(() => {
-    const q = search.toLowerCase();
     const result = rows.filter((r) => {
-      const hay = JSON.stringify(r).toLowerCase();
+      const q = search.toLowerCase();
+      const hay = `${r.judulBuku || r.judulNaskah || ""} ${r.pengarang || ""} ${r.published?.penerbit || ""}`.toLowerCase();
       if (q && !hay.includes(q)) return false;
-      if (year && !hay.includes(year)) return false;
-      if (verif && r.verificationStatus !== verif) return false;
-      if (missingFilter === "no_fc" && r.frontCover?.imageUrl) return false;
-      if (missingFilter === "no_bc" && r.backCover?.imageUrl) return false;
-      if (missingFilter === "no_pt" && (r.paratext?.sinopsisPenerbit || r.paratext?.blurb1)) return false;
+      
+      const rYear = r.tahunMenang || r.tahunKSK || r.tahunTempo || r.tahunmenang || r.tahunksk || r.tahuntempo || "";
+      if (year && !rYear.toString().includes(year)) return false;
+      
+      const hasFC = !!(r.frontCover?.imageUrl || r.frontCover?.edition2?.imageUrl);
+      const hasBC = !!(r.backCover?.imageUrl || r.backCover?.edition2?.imageUrl);
+      const hasPT = !!(r.paratext?.sinopsisPenerbit || r.paratext?.blurb1);
+      
+      if (missingFilter === "no_fc" && hasFC) return false;
+      if (missingFilter === "has_fc" && !hasFC) return false;
+      if (missingFilter === "no_bc" && hasBC) return false;
+      if (missingFilter === "has_bc" && !hasBC) return false;
+      if (missingFilter === "no_pt" && hasPT) return false;
+      if (missingFilter === "has_pt" && !hasPT) return false;
+      
       return true;
     });
 
@@ -266,25 +275,17 @@ export function CorpusTable<T extends AnyRow>({
           className="max-w-[120px]"
         />
         <select
-          value={verif}
-          onChange={(e) => setVerif(e.target.value)}
-          className="h-9 rounded-sm border border-border bg-background px-2 text-sm"
-        >
-          <option value="">All verification</option>
-          <option>Verified</option>
-          <option>Needs Manual Check</option>
-          <option>Pending</option>
-          <option>In Progress</option>
-        </select>
-        <select
           value={missingFilter}
           onChange={(e) => setMissingFilter(e.target.value)}
           className="h-9 rounded-sm border border-border bg-background px-2 text-sm"
         >
           <option value="">All Data</option>
           <option value="no_fc">No Front Cover</option>
+          <option value="has_fc">Has Front Cover</option>
           <option value="no_bc">No Back Cover</option>
+          <option value="has_bc">Has Back Cover</option>
           <option value="no_pt">No Paratext</option>
+          <option value="has_pt">Has Paratext</option>
         </select>
         {filtersExtra}
         <div className="ml-auto flex gap-2">
