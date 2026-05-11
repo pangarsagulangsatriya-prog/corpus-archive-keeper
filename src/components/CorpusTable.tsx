@@ -255,9 +255,9 @@ export function CorpusTable<T extends AnyRow>({
           Upload XLSX / CSV to start building this corpus table.
         </div>
       ) : (
-        <div className="overflow-x-auto border border-border bg-card">
+        <div className="overflow-auto border border-border bg-card max-h-[70vh]">
           <Table>
-            <TableHeader>
+            <TableHeader className="sticky top-0 bg-secondary z-10">
               <TableRow className="bg-secondary">
                 {allCols.map((c) => (
                   <TableHead key={c.key} className="whitespace-nowrap text-xs uppercase tracking-wide">
