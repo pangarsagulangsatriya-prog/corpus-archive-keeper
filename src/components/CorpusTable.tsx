@@ -72,6 +72,7 @@ export function CorpusTable<T extends AnyRow>({
   const [year, setYear] = useState("");
   const [verif, setVerif] = useState("");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
+  const [missingFilter, setMissingFilter] = useState("");
   const queryClient = useQueryClient();
 
 
@@ -82,6 +83,9 @@ export function CorpusTable<T extends AnyRow>({
       if (q && !hay.includes(q)) return false;
       if (year && !hay.includes(year)) return false;
       if (verif && r.verificationStatus !== verif) return false;
+      if (missingFilter === "no_fc" && r.frontCover?.imageUrl) return false;
+      if (missingFilter === "no_bc" && r.backCover?.imageUrl) return false;
+      if (missingFilter === "no_pt" && (r.paratext?.sinopsisPenerbit || r.paratext?.blurb1)) return false;
       return true;
     });
 
@@ -271,6 +275,16 @@ export function CorpusTable<T extends AnyRow>({
           <option>Needs Manual Check</option>
           <option>Pending</option>
           <option>In Progress</option>
+        </select>
+        <select
+          value={missingFilter}
+          onChange={(e) => setMissingFilter(e.target.value)}
+          className="h-9 rounded-sm border border-border bg-background px-2 text-sm"
+        >
+          <option value="">All Data</option>
+          <option value="no_fc">No Front Cover</option>
+          <option value="no_bc">No Back Cover</option>
+          <option value="no_pt">No Paratext</option>
         </select>
         {filtersExtra}
         <div className="ml-auto flex gap-2">

@@ -30,7 +30,7 @@ function Index() {
     { key: "pengarang", label: "Pengarang", render: (r: DKJRow) => r.pengarang },
     { key: "frontCover", label: "FC", render: (r: DKJRow) => r.frontCover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.frontCover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
     { key: "backCover", label: "BC", render: (r: DKJRow) => r.backCover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.backCover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
-    { key: "creditPage", label: "CP", render: (r: DKJRow) => (r.published?.editor || r.published?.desainerSampul) ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "paratext", label: "PT", render: (r: DKJRow) => (r.paratext?.sinopsisPenerbit || r.paratext?.blurb1) ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
   ];
 
   const kskCols = [
@@ -41,7 +41,7 @@ function Index() {
     { key: "pengarang", label: "Pengarang", render: (r: KSKRow) => r.pengarang },
     { key: "frontCover", label: "FC", render: (r: KSKRow) => r.frontCover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.frontCover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
     { key: "backCover", label: "BC", render: (r: KSKRow) => r.backCover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.backCover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
-    { key: "creditPage", label: "CP", render: (r: KSKRow) => (r.published?.editor || r.published?.desainerSampul) ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "paratext", label: "PT", render: (r: KSKRow) => (r.paratext?.sinopsisPenerbit || r.paratext?.blurb1) ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
   ];
 
   const tempoCols = [
@@ -52,7 +52,7 @@ function Index() {
     { key: "pengarang", label: "Pengarang", render: (r: TempoRow) => r.pengarang },
     { key: "frontCover", label: "FC", render: (r: TempoRow) => r.frontCover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.frontCover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
     { key: "backCover", label: "BC", render: (r: TempoRow) => r.backCover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.backCover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
-    { key: "creditPage", label: "CP", render: (r: TempoRow) => (r.published?.editor || r.published?.desainerSampul) ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "paratext", label: "PT", render: (r: TempoRow) => (r.paratext?.sinopsisPenerbit || r.paratext?.blurb1) ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
   ];
 
   const { data: dkjData = [], isLoading: isDkjLoading } = useQuery({
