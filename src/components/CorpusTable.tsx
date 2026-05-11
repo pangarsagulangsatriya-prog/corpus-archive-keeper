@@ -108,7 +108,7 @@ export function CorpusTable<T extends AnyRow>({
       const yb = getYear(b);
       return sortOrder === "desc" ? yb - ya : ya - yb;
     });
-  }, [rows, search, year, verif, sortOrder]);
+  }, [rows, search, year, sortOrder, missingFilter]);
 
   const progress = useMemo(() => {
     if (rows.length === 0) return { fc: 0, bc: 0, pt: 0, overall: 0 };
