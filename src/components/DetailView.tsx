@@ -294,10 +294,12 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                 </div>
                 <div className="font-semibold text-xs truncate">{"judulBuku" in r ? r.judulBuku : r.judulNaskah}</div>
                 <div className="text-xs text-muted-foreground truncate">{r.pengarang}</div>
-                <div className="text-xs text-muted-foreground flex justify-between">
-                  <span>{r.published?.penerbit || "—"}</span>
-                  <span>{r.published?.tahunTerbit || "—"}</span>
-                </div>
+                {(r.published?.penerbit && r.published.penerbit !== "—" || r.published?.tahunTerbit && r.published.tahunTerbit !== "—") ? (
+                  <div className="text-xs text-muted-foreground flex justify-between">
+                    <span>{r.published?.penerbit !== "—" ? r.published?.penerbit : ""}</span>
+                    <span>{r.published?.tahunTerbit !== "—" ? r.published?.tahunTerbit : ""}</span>
+                  </div>
+                ) : null}
               </div>
             );
           })}
@@ -409,7 +411,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
               
               <div className="flex-1 overflow-auto p-4 h-full">
                 <TabsContent value="front" className="mt-0 h-full flex flex-col p-4">
-                  <Tabs defaultValue="ed1" className="w-full h-full flex flex-col">
+                  <Tabs key={row.id} defaultValue={row.frontCover?.edition2?.imageUrl ? "ed2" : "ed1"} className="w-full h-full flex flex-col">
                     <div className="flex justify-between items-center mb-2">
                       <TabsList className="h-8 bg-muted/50 border border-border">
                         <TabsTrigger value="ed1" className="text-xs h-7">Edisi 1</TabsTrigger>
@@ -543,7 +545,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                 </TabsContent>
                 
                 <TabsContent value="back" className="mt-0 h-full flex flex-col p-4">
-                  <Tabs defaultValue="ed1" className="w-full h-full flex flex-col">
+                  <Tabs key={row.id} defaultValue={row.backCover?.edition2?.imageUrl ? "ed2" : "ed1"} className="w-full h-full flex flex-col">
                     <div className="flex justify-between items-center mb-2">
                       <TabsList className="h-8 bg-muted/50 border border-border">
                         <TabsTrigger value="ed1" className="text-xs h-7">Edisi 1</TabsTrigger>
