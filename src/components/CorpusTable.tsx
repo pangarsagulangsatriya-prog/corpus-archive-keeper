@@ -97,6 +97,21 @@ export function CorpusTable<T extends AnyRow>({
     });
   }, [rows, search, year, verif, sortOrder]);
 
+  const progress = useMemo(() => {
+    if (rows.length === 0) return { fc: 0, bc: 0, pt: 0, overall: 0 };
+    
+    const fc = rows.filter(r => r.frontCover?.imageUrl).length;
+    const bc = rows.filter(r => r.backCover?.imageUrl).length;
+    const pt = rows.filter(r => r.paratext?.sinopsisPenerbit || r.paratext?.blurb1).length;
+    
+    const fcPct = Math.round((fc / rows.length) * 100);
+    const bcPct = Math.round((bc / rows.length) * 100);
+    const ptPct = Math.round((pt / rows.length) * 100);
+    const overallPct = Math.round(((fcPct + bcPct + ptPct) / 300) * 100);
+    
+    return { fc: fcPct, bc: bcPct, pt: ptPct, overall: overallPct };
+  }, [rows]);
+
   const openCover = (title: string, cover: CoverFile) =>
     setModal({ kind: "cover", title, cover });
   const openText = (title: string, text: string) =>
@@ -266,6 +281,46 @@ export function CorpusTable<T extends AnyRow>({
           <Button variant="outline" size="sm">
             Export CSV
           </Button>
+        </div>
+      </div>
+
+      {/* Progress Bars */}
+      <div className="grid grid-cols-4 gap-4 border border-border bg-card p-4">
+        <div className="space-y-1">
+          <div className="flex justify-between text-xs font-semibold">
+            <span>Front Cover</span>
+            <span>{progress.fc}%</span>
+          </div>
+          <div className="w-full bg-muted h-2 rounded-full overflow-hidden">
+            <div className="bg-primary h-full" style={{ width: `${progress.fc}%` }} />
+          </div>
+        </div>
+        <div className="space-y-1">
+          <div className="flex justify-between text-xs font-semibold">
+            <span>Back Cover</span>
+            <span>{progress.bc}%</span>
+          </div>
+          <div className="w-full bg-muted h-2 rounded-full overflow-hidden">
+            <div className="bg-primary h-full" style={{ width: `${progress.bc}%` }} />
+          </div>
+        </div>
+        <div className="space-y-1">
+          <div className="flex justify-between text-xs font-semibold">
+            <span>Paratext</span>
+            <span>{progress.pt}%</span>
+          </div>
+          <div className="w-full bg-muted h-2 rounded-full overflow-hidden">
+            <div className="bg-primary h-full" style={{ width: `${progress.pt}%` }} />
+          </div>
+        </div>
+        <div className="space-y-1">
+          <div className="flex justify-between text-xs font-semibold">
+            <span>Overall</span>
+            <span>{progress.overall}%</span>
+          </div>
+          <div className="w-full bg-muted h-2 rounded-full overflow-hidden">
+            <div className="bg-green-600 h-full" style={{ width: `${progress.overall}%` }} />
+          </div>
         </div>
       </div>
 
