@@ -22,6 +22,7 @@ import type { AnyRow, CoverFile } from "@/lib/corpus-data";
 import { CreateManualDialog } from "@/components/CreateManualDialog";
 import { supabase } from "@/lib/supabase";
 import { useQueryClient } from "@tanstack/react-query";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
 
 
@@ -70,19 +71,31 @@ export function CorpusTable<T extends AnyRow>({
   const [modal, setModal] = useState<Modal>(null);
   const [year, setYear] = useState("");
   const [verif, setVerif] = useState("");
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const queryClient = useQueryClient();
 
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase();
-    return rows.filter((r) => {
+    const result = rows.filter((r) => {
       const hay = JSON.stringify(r).toLowerCase();
       if (q && !hay.includes(q)) return false;
       if (year && !hay.includes(year)) return false;
       if (verif && r.verificationStatus !== verif) return false;
       return true;
     });
-  }, [rows, search, year, verif]);
+
+    const getYear = (r: any) => {
+      const y = r.tahunMenang || r.tahunKSK || r.tahunTempo || r.tahunmenang || r.tahunksk || r.tahuntempo;
+      return parseInt(y, 10) || 0;
+    };
+
+    return result.sort((a, b) => {
+      const ya = getYear(a);
+      const yb = getYear(b);
+      return sortOrder === "desc" ? yb - ya : ya - yb;
+    });
+  }, [rows, search, year, verif, sortOrder]);
 
   const openCover = (title: string, cover: CoverFile) =>
     setModal({ kind: "cover", title, cover });
@@ -261,13 +274,26 @@ export function CorpusTable<T extends AnyRow>({
           Upload XLSX / CSV to start building this corpus table.
         </div>
       ) : (
-        <div className="overflow-auto border border-border bg-card max-h-[70vh]">
+        <div className="overflow-auto border border-border bg-card max-h-[calc(100vh-350px)]">
           <Table>
             <TableHeader className="sticky top-0 bg-secondary z-10">
               <TableRow className="bg-secondary">
                 {allCols.map((c) => (
-                  <TableHead key={c.key} className="whitespace-nowrap text-xs uppercase tracking-wide">
-                    {c.label}
+                  <TableHead 
+                    key={c.key} 
+                    className={`whitespace-nowrap text-xs uppercase tracking-wide ${c.label === "Tahun" ? "cursor-pointer select-none hover:text-primary" : ""}`}
+                    onClick={() => {
+                      if (c.label === "Tahun") {
+                        setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+                      }
+                    }}
+                  >
+                    <div className="flex items-center gap-1">
+                      {c.label}
+                      {c.label === "Tahun" && (
+                        sortOrder === "asc" ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />
+                      )}
+                    </div>
                   </TableHead>
                 ))}
               </TableRow>
