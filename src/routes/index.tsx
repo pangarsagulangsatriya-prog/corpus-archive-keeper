@@ -24,25 +24,25 @@ export const Route = createFileRoute("/")({
 function Index() {
   const dkjCols = [
     { key: "id", label: "ID", render: (r: DKJRow) => <span className="font-mono">{r.id}{r.isSample && <SampleBadge />}</span> },
-    { key: "judulNaskah", label: "Judul", render: (r: DKJRow) => r.judulNaskah },
-    { key: "tahunMenang", label: "Tahun", render: (r: DKJRow) => r.tahunMenang },
+    { key: "judulNaskah", label: "Judul", render: (r: DKJRow) => r.judulNaskah || (r as any).judulnaskah },
+    { key: "tahunMenang", label: "Tahun", render: (r: DKJRow) => r.tahunMenang || (r as any).tahunmenang },
     { key: "posisi", label: "Posisi", render: (r: DKJRow) => r.posisi },
     { key: "pengarang", label: "Pengarang", render: (r: DKJRow) => r.pengarang },
   ];
 
   const kskCols = [
     { key: "id", label: "ID", render: (r: KSKRow) => <span className="font-mono">{r.id}{r.isSample && <SampleBadge />}</span> },
-    { key: "judul", label: "Judul", render: (r: KSKRow) => r.judulBuku },
-    { key: "tahun", label: "Tahun", render: (r: KSKRow) => r.tahunKSK },
-    { key: "status", label: "Posisi", render: (r: KSKRow) => r.statusKSK },
+    { key: "judul", label: "Judul", render: (r: KSKRow) => r.judulBuku || (r as any).judulbuku },
+    { key: "tahun", label: "Tahun", render: (r: KSKRow) => r.tahunKSK || (r as any).tahunksk },
+    { key: "status", label: "Posisi", render: (r: KSKRow) => r.statusKSK || (r as any).statusksk },
     { key: "pengarang", label: "Pengarang", render: (r: KSKRow) => r.pengarang },
   ];
 
   const tempoCols = [
     { key: "id", label: "ID", render: (r: TempoRow) => <span className="font-mono">{r.id}{r.isSample && <SampleBadge />}</span> },
-    { key: "judul", label: "Judul", render: (r: TempoRow) => r.judulBuku },
-    { key: "tahun", label: "Tahun", render: (r: TempoRow) => r.tahunTempo },
-    { key: "status", label: "Posisi", render: (r: TempoRow) => r.statusTempo },
+    { key: "judul", label: "Judul", render: (r: TempoRow) => r.judulBuku || (r as any).judulbuku },
+    { key: "tahun", label: "Tahun", render: (r: TempoRow) => r.tahunTempo || (r as any).tahuntempo },
+    { key: "status", label: "Posisi", render: (r: TempoRow) => r.statusTempo || (r as any).statustempo },
     { key: "pengarang", label: "Pengarang", render: (r: TempoRow) => r.pengarang },
   ];
 
