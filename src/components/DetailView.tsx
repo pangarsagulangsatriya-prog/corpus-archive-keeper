@@ -119,6 +119,8 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
   const [showEditBack, setShowEditBack] = useState(false);
   const [activeTab, setActiveTab] = useState("front");
   const [showEditUrl, setShowEditUrl] = useState(false);
+  const [fliphtml5Url, setFliphtml5Url] = useState(row.published?.fliphtml5Url || "");
+  const [showEditFlipUrl, setShowEditFlipUrl] = useState(false);
   const [frontEd2, setFrontEd2] = useState({
     imageUrl: row.frontCover?.edition2?.imageUrl || "",
     sourceUrl: row.frontCover?.edition2?.sourceUrl || "",
@@ -138,6 +140,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
     setFrontSourceUrl(row.frontCover?.sourceUrl || "");
     setBackSourceUrl(row.backCover?.sourceUrl || "");
     setGoogleBooksUrl(row.published?.googleBooksUrl || "");
+    setFliphtml5Url(row.published?.fliphtml5Url || "");
     setFrontEd2({
       imageUrl: row.frontCover?.edition2?.imageUrl || "",
       sourceUrl: row.frontCover?.edition2?.sourceUrl || "",
@@ -232,6 +235,21 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
 
   const handleSaveGoogleBooksUrl = async () => {
     const updatedPublished = { ...row.published, googleBooksUrl };
+    const { error } = await supabase
+      .from('books')
+      .update({ published: updatedPublished })
+      .eq('id', row.id);
+      
+    if (!error) {
+      setRow({ ...row, published: updatedPublished });
+      alert("Saved!");
+    } else {
+      alert("Error: " + error.message);
+    }
+  };
+
+  const handleSaveFlipUrl = async () => {
+    const updatedPublished = { ...row.published, fliphtml5Url };
     const { error } = await supabase
       .from('books')
       .update({ published: updatedPublished })
@@ -433,6 +451,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                 <TabsTrigger value="paratext" className="text-xs h-10 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">Paratext</TabsTrigger>
                 <TabsTrigger value="credit" className="text-xs h-10 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">Credit Page</TabsTrigger>
                 <TabsTrigger value="google-books" className="text-xs h-10 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">Google Books</TabsTrigger>
+                <TabsTrigger value="fliphtml5" className="text-xs h-10 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent">FlipHTML5</TabsTrigger>
               </TabsList>
               
               <div className="flex-1 overflow-auto p-4 h-full">
@@ -802,6 +821,56 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                           </div>
                           
                           <Button size="sm" className="w-full text-xs" onClick={() => { handleSaveGoogleBooksUrl(); setShowEditUrl(false); }}>
+                            Save
+                          </Button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="fliphtml5" className="mt-0 h-full flex flex-col space-y-4 p-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <h3 className="text-xs font-semibold uppercase">FlipHTML5 Preview</h3>
+                    <Button size="sm" variant="outline" className="text-xs" onClick={() => setShowEditFlipUrl(true)}>
+                      Edit URL
+                    </Button>
+                  </div>
+                  
+                  <div className="flex-1 border border-border bg-card flex items-stretch justify-center min-h-[500px] relative">
+                    {fliphtml5Url ? (
+                      <iframe 
+                        key={fliphtml5Url}
+                        src={fliphtml5Url}
+                        className="w-full min-h-[500px] border-0"
+                        allowFullScreen
+                        title="FlipHTML5 Preview"
+                      />
+                    ) : (
+                      <div className="flex items-center justify-center w-full text-xs text-muted-foreground">Input FlipHTML5 URL to preview.</div>
+                    )}
+                    
+                    {showEditFlipUrl && (
+                      <div className="absolute inset-0 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4 z-10">
+                        <div className="w-full max-w-[350px] space-y-4 p-4 bg-card border border-border shadow-lg">
+                          <div className="flex justify-between items-center border-b border-border pb-2">
+                            <h3 className="text-xs font-semibold uppercase">Update FlipHTML5 URL</h3>
+                            <Button size="icon" variant="ghost" className="w-6 h-6" onClick={() => setShowEditFlipUrl(false)}>
+                              <X className="w-4 h-4" />
+                            </Button>
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">FlipHTML5 URL</label>
+                            <Input 
+                              placeholder="https://fliphtml5.com/..." 
+                              className="text-xs h-8" 
+                              value={fliphtml5Url} 
+                              onChange={(e) => setFliphtml5Url(e.target.value)} 
+                            />
+                          </div>
+                          
+                          <Button size="sm" className="w-full text-xs" onClick={() => { handleSaveFlipUrl(); setShowEditFlipUrl(false); }}>
                             Save
                           </Button>
                         </div>
