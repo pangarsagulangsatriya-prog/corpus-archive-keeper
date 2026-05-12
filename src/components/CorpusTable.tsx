@@ -72,8 +72,17 @@ export function CorpusTable<T extends AnyRow>({
   const [year, setYear] = useState("");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [missingFilter, setMissingFilter] = useState("");
+  const [posisiFilter, setPosisiFilter] = useState("");
   const queryClient = useQueryClient();
 
+  const uniquePositions = useMemo(() => {
+    const options = new Set<string>();
+    rows.forEach((r: any) => {
+      const p = r.posisi || r.statusKSK || r.statusTempo || r.statusksk || r.statustempo;
+      if (p) options.add(p);
+    });
+    return Array.from(options).sort();
+  }, [rows]);
 
   const filtered = useMemo(() => {
     const result = rows.filter((r) => {
@@ -83,6 +92,9 @@ export function CorpusTable<T extends AnyRow>({
       
       const rYear = r.tahunMenang || r.tahunKSK || r.tahunTempo || r.tahunmenang || r.tahunksk || r.tahuntempo || "";
       if (year && !rYear.toString().includes(year)) return false;
+
+      const rPosisi = r.posisi || r.statusKSK || r.statusTempo || r.statusksk || r.statustempo || "";
+      if (posisiFilter && rPosisi !== posisiFilter) return false;
       
       const hasFC = !!(r.frontCover?.imageUrl || r.frontCover?.edition2?.imageUrl);
       const hasBC = !!(r.backCover?.imageUrl || r.backCover?.edition2?.imageUrl);
@@ -108,7 +120,7 @@ export function CorpusTable<T extends AnyRow>({
       const yb = getYear(b);
       return sortOrder === "desc" ? yb - ya : ya - yb;
     });
-  }, [rows, search, year, sortOrder, missingFilter]);
+  }, [rows, search, year, sortOrder, missingFilter, posisiFilter]);
 
   const progress = useMemo(() => {
     if (rows.length === 0) return { fc: 0, bc: 0, pt: 0, overall: 0 };
@@ -274,6 +286,18 @@ export function CorpusTable<T extends AnyRow>({
           onChange={(e) => setYear(e.target.value)}
           className="max-w-[120px]"
         />
+        <select
+          value={posisiFilter}
+          onChange={(e) => setPosisiFilter(e.target.value)}
+          className="h-9 rounded-sm border border-border bg-background px-2 text-sm"
+        >
+          <option value="">All Positions</option>
+          {uniquePositions.map((p) => (
+            <option key={p} value={p}>
+              {p}
+            </option>
+          ))}
+        </select>
         <select
           value={missingFilter}
           onChange={(e) => setMissingFilter(e.target.value)}
