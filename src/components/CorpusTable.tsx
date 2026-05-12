@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useRef } from "react";
+import { useVirtualizer } from "@tanstack/react-virtual";
 import {
   Dialog,
   DialogContent,
@@ -121,6 +122,20 @@ export function CorpusTable<T extends AnyRow>({
       return sortOrder === "desc" ? yb - ya : ya - yb;
     });
   }, [rows, search, year, sortOrder, missingFilter, posisiFilter]);
+
+  const parentRef = useRef<HTMLDivElement>(null);
+
+  const rowVirtualizer = useVirtualizer({
+    count: filtered.length,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 50,
+    overscan: 5,
+  });
+
+  const virtualItems = rowVirtualizer.getVirtualItems();
+  const totalSize = rowVirtualizer.getTotalSize();
+  const paddingTop = virtualItems.length > 0 ? virtualItems[0].start : 0;
+  const paddingBottom = virtualItems.length > 0 ? totalSize - virtualItems[virtualItems.length - 1].end : 0;
 
   const progress = useMemo(() => {
     if (rows.length === 0) return { fc: 0, bc: 0, pt: 0, overall: 0 };
@@ -368,7 +383,7 @@ export function CorpusTable<T extends AnyRow>({
           Upload XLSX / CSV to start building this corpus table.
         </div>
       ) : (
-        <div className="overflow-auto border border-border bg-card max-h-[calc(100vh-450px)]">
+        <div ref={parentRef} className="overflow-auto border border-border bg-card max-h-[calc(100vh-450px)]">
           <Table>
             <TableHeader className="sticky top-0 bg-secondary z-10">
               <TableRow className="bg-secondary">
@@ -393,15 +408,28 @@ export function CorpusTable<T extends AnyRow>({
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filtered.map((r, index) => (
-                <TableRow key={r.id}>
-                  {allCols.map((c) => (
-                    <TableCell key={c.key} className={`align-top text-sm ${c.className ?? ""}`}>
-                      {c.render(r, index)}
-                    </TableCell>
-                  ))}
+              {paddingTop > 0 && (
+                <TableRow>
+                  <TableCell colSpan={allCols.length} style={{ height: `${paddingTop}px` }} />
                 </TableRow>
-              ))}
+              )}
+              {virtualItems.map((virtualRow) => {
+                const r = filtered[virtualRow.index];
+                return (
+                  <TableRow key={r.id}>
+                    {allCols.map((c) => (
+                      <TableCell key={c.key} className={`align-top text-sm ${c.className ?? ""}`}>
+                        {c.render(r, virtualRow.index)}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                );
+              })}
+              {paddingBottom > 0 && (
+                <TableRow>
+                  <TableCell colSpan={allCols.length} style={{ height: `${paddingBottom}px` }} />
+                </TableRow>
+              )}
             </TableBody>
           </Table>
         </div>
