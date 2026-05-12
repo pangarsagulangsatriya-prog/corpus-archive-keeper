@@ -86,7 +86,7 @@ export function CorpusTable<T extends AnyRow>({
       
       const hasFC = !!(r.frontCover?.imageUrl || r.frontCover?.edition2?.imageUrl);
       const hasBC = !!(r.backCover?.imageUrl || r.backCover?.edition2?.imageUrl);
-      const hasPT = !!(r.paratext?.sinopsisPenerbit || r.paratext?.blurb1);
+      const hasPT = !!(r.paratext?.sinopsisPenerbit || r.paratext?.blurb1 || (r.paratext?.rawSynopsisSources && r.paratext.rawSynopsisSources.length > 0));
       
       if (missingFilter === "no_fc" && hasFC) return false;
       if (missingFilter === "has_fc" && !hasFC) return false;
@@ -115,7 +115,7 @@ export function CorpusTable<T extends AnyRow>({
     
     const fc = rows.filter(r => r.frontCover?.imageUrl).length;
     const bc = rows.filter(r => r.backCover?.imageUrl).length;
-    const pt = rows.filter(r => r.paratext?.sinopsisPenerbit || r.paratext?.blurb1).length;
+    const pt = rows.filter(r => r.paratext?.sinopsisPenerbit || r.paratext?.blurb1 || (r.paratext?.rawSynopsisSources && r.paratext.rawSynopsisSources.length > 0)).length;
     
     const fcPct = Math.round((fc / rows.length) * 100);
     const bcPct = Math.round((bc / rows.length) * 100);
