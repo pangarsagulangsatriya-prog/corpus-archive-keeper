@@ -121,6 +121,9 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
   const [showEditUrl, setShowEditUrl] = useState(false);
   const [fliphtml5Url, setFliphtml5Url] = useState(row.published?.fliphtml5Url || "");
   const [showEditFlipUrl, setShowEditFlipUrl] = useState(false);
+  const [creditPageUrl, setCreditPageUrl] = useState(row.published?.creditPageUrl || "");
+  const [publisherContentImageUrl, setPublisherContentImageUrl] = useState(row.published?.publisherContentImageUrl || "");
+  const [showEditCreditUrl, setShowEditCreditUrl] = useState(false);
   const [frontEd2, setFrontEd2] = useState({
     imageUrl: row.frontCover?.edition2?.imageUrl || "",
     sourceUrl: row.frontCover?.edition2?.sourceUrl || "",
@@ -141,6 +144,8 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
     setBackSourceUrl(row.backCover?.sourceUrl || "");
     setGoogleBooksUrl(row.published?.googleBooksUrl || "");
     setFliphtml5Url(row.published?.fliphtml5Url || "");
+    setCreditPageUrl(row.published?.creditPageUrl || "");
+    setPublisherContentImageUrl(row.published?.publisherContentImageUrl || "");
     setFrontEd2({
       imageUrl: row.frontCover?.edition2?.imageUrl || "",
       sourceUrl: row.frontCover?.edition2?.sourceUrl || "",
@@ -250,6 +255,21 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
 
   const handleSaveFlipUrl = async () => {
     const updatedPublished = { ...row.published, fliphtml5Url };
+    const { error } = await supabase
+      .from('books')
+      .update({ published: updatedPublished })
+      .eq('id', row.id);
+      
+    if (!error) {
+      setRow({ ...row, published: updatedPublished });
+      alert("Saved!");
+    } else {
+      alert("Error: " + error.message);
+    }
+  };
+
+  const handleSaveCreditPageUrl = async () => {
+    const updatedPublished = { ...row.published, creditPageUrl, publisherContentImageUrl };
     const { error } = await supabase
       .from('books')
       .update({ published: updatedPublished })
@@ -815,8 +835,75 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                   </div>
                 </TabsContent>
 
-                <TabsContent value="credit" className="mt-0 h-full flex items-center justify-center">
-                  <div className="text-xs text-muted-foreground">Credit page image or text goes here.</div>
+                <TabsContent value="credit" className="mt-0 h-full flex flex-col space-y-4 p-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <h3 className="text-xs font-semibold uppercase">Credit Page</h3>
+                    <Button size="sm" variant="outline" className="text-xs" onClick={() => setShowEditCreditUrl(true)}>
+                      Edit URL
+                    </Button>
+                  </div>
+                  
+                  <div className="flex-1 border border-border bg-card flex items-stretch justify-center min-h-[500px] relative">
+                    {row.published?.publisherContentImageUrl ? (
+                      <div className="flex-1 flex items-center justify-center bg-card border border-border rounded-lg overflow-hidden">
+                        <img 
+                          src={row.published.publisherContentImageUrl} 
+                          alt="Credit Page" 
+                          className="max-h-[500px] object-contain"
+                        />
+                      </div>
+                    ) : row.published?.creditPageUrl ? (
+                      <div className="flex-1 flex flex-col items-center justify-center space-y-4">
+                        <div className="text-sm text-muted-foreground">Halaman hak cipta tersedia di Google Books.</div>
+                        <Button asChild size="sm">
+                          <a href={row.published.creditPageUrl} target="_blank" rel="noopener noreferrer">
+                            Buka Halaman Hak Cipta
+                          </a>
+                        </Button>
+                      </div>
+                    ) : (
+                      <div className="flex-1 flex items-center justify-center text-xs text-muted-foreground">
+                        Credit page image or text goes here.
+                      </div>
+                    )}
+                    
+                    {showEditCreditUrl && (
+                      <div className="absolute inset-0 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4 z-10">
+                        <div className="w-full max-w-[350px] space-y-4 p-4 bg-card border border-border shadow-lg">
+                          <div className="flex justify-between items-center border-b border-border pb-2">
+                            <h3 className="text-xs font-semibold uppercase">Update Credit Page URLs</h3>
+                            <Button size="icon" variant="ghost" className="w-6 h-6" onClick={() => setShowEditCreditUrl(false)}>
+                              <X className="w-4 h-4" />
+                            </Button>
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Credit Page URL (Google Books)</label>
+                            <Input 
+                              placeholder="https://books.google.com/..." 
+                              className="text-xs h-8" 
+                              value={creditPageUrl} 
+                              onChange={(e) => setCreditPageUrl(e.target.value)} 
+                            />
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <label className="text-xs text-muted-foreground">Direct Image URL (Optional)</label>
+                            <Input 
+                              placeholder="https://books.google.co.id/books/publisher/content..." 
+                              className="text-xs h-8" 
+                              value={publisherContentImageUrl} 
+                              onChange={(e) => setPublisherContentImageUrl(e.target.value)} 
+                            />
+                          </div>
+                          
+                          <Button size="sm" className="w-full text-xs" onClick={() => { handleSaveCreditPageUrl(); setShowEditCreditUrl(false); }}>
+                            Save
+                          </Button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </TabsContent>
 
                 <TabsContent value="google-books" className="mt-0 h-full flex flex-col space-y-4 p-4">
