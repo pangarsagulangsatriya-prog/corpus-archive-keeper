@@ -1,0 +1,1574 @@
+[
+  {
+    "id": "DKJ_2003_NOVEL_01",
+    "judulBuku": "Dadaisme",
+    "publishedTitle": "Dadaisme",
+    "pengarang": "Dewi Sartika",
+    "tahunMenang": "2003",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/id/book/show/6669931-dadaisme",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Novel dengan judul yang sebenarnya tak berkaitan langsung dengan sebuah aliran seni lukis ini seperti membentangkan serpihan-serpihan kritik atas kultur etnik, perselingkuhan, halusinasi, dunia surealis dan peristiwa tragis.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.com/books/about/Dadaisme.html?id=UJ9kAAAAMAAJ",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Prize winning novel in the 2003 novel writing contest of Dewan Kesenian Jakarta.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2003_NOVEL_02",
+    "judulBuku": "Geni Jora",
+    "publishedTitle": "Geni Jora",
+    "pengarang": "Abidah El-Khalieqy",
+    "tahunMenang": "2003",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/1489158.Geni_Jora",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Novel Geni Jora ini sarat dengan gugatan seorang perempuan muslim terhadap persoalan gender : pendidikan yang amat diskriminatif bagi perempuan, poligami, lesbianisme, dominasi laki-laki, kekerasan dalam rumah tangga (KDRT) serta seksualitas perempuan. Bentuk perlawanan itu tampil dalam sosok seorang feminis muslim, Kejora yang, sayangnya, terlalu sempurna.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.com/books/about/Geni_Jora.html?id=fmzlKMELxRAC",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Cita rasa Abidah yang puitis sangat memengaruhi dalam menulis fiksi. Tidak berlebihan jika ia dianggap sebagai salah satu novelis terbaik di Indonesia. Novel-novelnya bahkan dapat dinilai sebagai puncak sastra Islami. —Republika “Tak ada yang sia-sia dari pemberontakan. Dan tak ada yang langgeng dari ketidakadilan. Ia selalu melahirkan pemberontak dengan beragam jenis modelnya. Dan menurutku, menggerus ketidakadilan adalah dengan cermin yang dipajang di muka sang antagonis. Beri ia bayangan dari aksimu yang persis sama. Di kurun maha kacau ini, kata maaf tidak lagi memiliki kekuatan untuk mengerakkan revolusi..” Itulah prinsip yang dipegang Jora, perempuan santri tokoh utama novel Geni Jora. Dengan itu, ia melawan perlakuan-perlakuan tidak adil terhadap perempuan, yang telah dibungkus oleh budaya patriarki, dalam bahasa agama dan jubah tradisi. Dengan latar dunia pesantren di Jawa, melanglang ke alam dan budaya Timur Tengah dan Maghribi, diekspresikan melalui bahasa yang lincah, cerdas, nakal, dan jenaka, Abidah membalut pemberontakan gendernya dalam jalinan kisah cinta dan pencarian diri yang kompleks dan memikat. Dengan memanfaatkan wawasan mengenai latar material dan latar tempat di Timur Tengah, pengarang menampilkan tokoh Jora sebagai bentuk perlawanan terhadap tata nilai patriarkat. Nada sinis dengan gaya bahasa yang terkadang agak hiperbola, justru memperkuat tema yang diusungnya. Sebuah gugatan yang menuntut perlakuan yang adil terhadap kaum perempuan. —Dewan Juri Sayembara Menulis Novel DKJ 2003 Geni Jora tidak hanya memperkaya, tetapi sekaligus menambah bobot dunia fiksi Indonesia. Geni Jora menegaskan bahwa dunia fiksi perempuan pengarang Indonesia saat ini tidak hanya berbicara seputar libido dan kekerasan seksual. --Maria A. Sardjono, Pemerhati Sastra Indonesia Geni Jora menjelajah ke berbagai kota, masjid, dan situs Timur Tengah. Segera sastra Indonesia mengalami perluasan seting yang mengejutkan. --Majalah Tempo Karya-karya Abidah jauh lebih kompleks dan berbobot dibanding novel-novel lain yang berupaya lebih konsisten dan setia dengan ajaran Islam, jika kandungan ajarannya dijadikan titik tolak penilaian. --Manneke Budiman, Pemerhati Sastra dan Perempuan. [Mizan, Qanita, Novel, Fiksi, Indonesia]",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2003_NOVEL_03",
+    "judulBuku": "Tabula Rasa",
+    "publishedTitle": "Tabula Rasa",
+    "pengarang": "Ratih Kumala",
+    "tahunMenang": "2003",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/1905582.Tabula_Rasa",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Cinta tak selamanya harus memiliki. Begitu pula cinta Galih dan Raras. Dalamnya cinta Galih pada Krasnaya, gadis Rusia yang telah begitu memikatnya, membuat Galih sulit untuk jatuh cinta lagi. Bahkan kematian Krasnaya tak bisa mengubur cintanya pada gadis itu sampai kemudian dia bertemu Raras. Tetapi cintanya pada Raras bertepuk sebelah tangan. Raras ternyata tidak bisa menerima cinta Galih, ayah dari janin yang pernah dikandungnya. Cinta Raras hanya untuk Violet, sahabat wanitanya yang meninggal dunia akibat overdosis. Kisah cinta yang kompleks dan mengharukan dikemas menjadi cerita yang menarik.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads alt edition",
+        "sourceUrl": "https://www.goodreads.com/book/show/23300814",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Tabula Rasa adalah kisah serangkaian cinta kasih yang kompleks dan mengharukan. Karena segala sesuatu yang kompleks harus diuraikan sedemikian rupa untuk menjadi sederhana, maka plot Tabula Rasa pada hakikatnya merupakan serangkaian perjuangan pengarangnya untuk mencari jawaban terhadap sebuah pertanyaan yang hakiki, yaitu apa sebenarnya makna cinta kasih itu. Cinta kasih, ternyata, ti dak mungkin lepas dari persoalan tempat dan waktu; makin kompleks realitas kehidupan, makin kompleks pula cinta kasih, dan kalau perkembangan zaman menuntut kehidupan orang-orang modern menjadi kosong dan ti dak bermakna, maka cinta kasih manusia modern pun menjadi kosong dan ti dak bermakna. Budi Darma, cerpenis, novelis, dan pengamat sastra Dalam perjalanan novel Indonesia, Tabula Rasa telah menempatkan dirinya sebagai novel yang paling kaya dengan gaya penceritaan. Pencerita-aku-diaengkau-seenaknya gonta-ganti menyesuaikan diri dengan tuntutan cerita. Akibatnya, kita seperti diajak menyaksikan serangkaian fragmen yang bergerak cepat ke sana begitu fi lmis. Sebuah teknik bercerita yang berhasil memancarkan sihir. Menjerat kita pada pesona yang seperti ti ada habisnya. Secara temati k, Tabula Rasa mengangkat problem kehidupan manusia pascamodern. Ia ti dak hanya memorakporandakan batas-batas ideologi, kultur, dan ras-suku bangsa, tetapi juga keberbedaan gender. Atas nama cinta, segala batasan itu digugurhancurkan. Tabula Rasa, sungguh luar biasa. Dan kita, pembaca, bersiaplah memasuki dunia yang luar biasa itu. Maman S. Mahayana, pengamat, dan kriti kus sastra Membaca novel ini, saya seperti berada di sebuah rumah makan dengan daft ar menu yang asing. Rasa lapar saya diganti kan dengan rasa penasaran. Dan setelah menyantap makanan, saya merasa kenyang, tapi saya ingin mencoba menu lainnya yang belum saya pesan. Puthut EA, penulis",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2003_NOVEL_04",
+    "judulBuku": "Ular Keempat",
+    "publishedTitle": "Ular Keempat",
+    "pengarang": "Gus tf Sakai",
+    "tahunMenang": "2003",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/en/book/show/2559175.Ular_Keempat",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Betulkah orang-orang kampungku beribadah bukan karena Allah, melainkan karena ibadah itu telah diwariskan turun-temurun? dan betul pulakah apa yang dikatakannya, bahwa aku pergi haji ke Makkah tak lebih hanya karena kebanggaan?\n\nNovel yang menceritakan tentang pergulatan seseorang ketika menjalankan ibadah haji ini mencoba menjawab pertanyaan-pertanyaan nakal sang pengarang sebagaimana kutipan diatas. Pergulatan itu muncul karena masa lalunya yang kelabu. Disisi lain, perjalanan ibadah tersebut dibayang-bayangi oleh kekuasaan yang ingin menghentikannya. Perjalan dan pergulatan itu ternyata memunculkan kesadaran baru akan hidup : terdapat setan yang paling berbahaya didunia ini, yakni ular keempat.\n\n...mengangkat fakta sejarah mengenai kisruh perjalanan haji tahun 1970 sebagai latar cerita. Secara konvensional, urutan peristiwa disusun kronologis. Di antara itu, pengarang memanfaatkan tokoh utama untuk memasukkan alam pikiran bawah sadar berjalin kalidan dengan mitos, halusinasi, dan kisah-kisah para aulia.\n\n...struktur alur konvensional yang berangkat dari fakta sejarah menjadi alat semacam alat pembuka untuk masuk ke peristiwa surealis sebagai bagian dari kegelisahan si tokoh. Kenangan masa lalu, peristiwa masa kini, dan bayangan masa depan, seperti dibangun dalam struktur konvensional yang fleksibel yang dapat ditarik kesana kemari...\n\n( Dewan Juri Sayembara Menulis Novel DKJ 2003: Prof.Dr. Sapardi Djoko Damono, Prof. Dr. Budi Darma MA, Maman S Mahayana M.Hum. )",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2003_NOVEL_05",
+    "judulBuku": "Tanah Biru",
+    "publishedTitle": "Tanah Biru",
+    "pengarang": "Pandu Abdurrahman Hamzah",
+    "tahunMenang": "2003",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/7192606-tanah-biru",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "",
+        "scrapeStatus": "metadata_only",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 0,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2006_NOVEL_01",
+    "judulBuku": "Hubbu",
+    "publishedTitle": "Hubbu",
+    "pengarang": "Mashuri",
+    "tahunMenang": "2006",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/1737064.Hubbu",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Pemenang I Sayembara Novel Dewan Kesenian Jakarta 2006\n\nJika selama ini cerita berlatar pesantren termarginalkan dalam ranah sastra Indonesia, maka kemunculan\n\nHubbu\n\nkarya Mashuri telah mengakhiri masa keterasingan itu.\n\nAdalah Jarot, tokoh utama novel ini, yang menjadi pusat penceritaan. Dikisahkan Jarot alias Abdullah Sattar dididik keras oleh keluarganya yang berlatar belakang santri untuk menjadi penerus trah keluarga. Sejak kecil Jarot memiliki keistimewaan seperti mampu menghapal dengan cepat ayat-ayat suci Al Quran dan bersikap kritis kepada lingkungannya. Hal ini semakin meyakinkan keluarga bahwa Jarot anak yang spesial sehingga tepat menjadi penerus pesantren kebanggaan Desa Alas Abang.\n\nMenjelang dewasa, konflik psikologis mulai menerpa Jarot. Pertemuan budaya Jawa dan Islam menambah kompleksitas jati dirinya. Apalagi ketika cinta hadir dan Jarot mesti kucing-kucingan dengan tempatnya nyantri untuk bertemu gadis pujaan hati. Cinta ini mesti berakhir dengan kepergian Jarot meneruskan kuliah di Universitas Airlangga. Dunia luar semakin terbuka untuknya. Pertikaian idealisme di diri Jarot pun muncul ketika kenyataan tidak seperti yang ia duga. Terlebih saat ia bersinggungan dengan pergaulan bebas antar mahasiswa. Sementara itu datang berita dari Alas Abang, bahwa ia mesti menunaikan tugas menjadi pemimpin pesantren. Jarot pun sampai pada persimpangan kritis; memilih memikul tangggung jawab yang dibebankan keluarga di pundaknya atau mengikuti suara hati dalam menjalani hidupnya.\n\nNovel\n\nHubbu\n\nditulis dengan gaya penceritaan yang unik.\n\nHubbu\n\nsendiri dari bahasa Arab, artinya cinta. Alur cerita\n\nHubbu\n\nmelompat-lompat dinamis, menjalin cerita utuh berkelindan. Membaca\n\nHubbu\n\nseperti berdiri di berbagai tempat untuk melihat ke satu persoalan sehingga beragam prespektif dari tokoh-tokohnya dapat kita rasakan. Hanya penulis piawai yang mampu melakukan teknik bercerita semacam ini. Dan Mashuri telah membuktikannya dengan\n\nHubbu\n\n, sebuah novel yang memang pantas untuk menang.\n\nKomentar\n\n\"Dewan juri memilih Hubbu karena sangat utuh dan padu ceritanya.\"\n\n- Ahmad Tohari, sastrawan, juri Sayembara Penulisan Novel DKJ 2006",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2006_NOVEL_02",
+    "judulBuku": "Mutiara Karam",
+    "publishedTitle": "Mutiara Karam",
+    "pengarang": "Tusiran Suseno",
+    "tahunMenang": "2006",
+    "sources": [
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.com/books/about/Mutiara_karam.html?id=0HMLAQAAMAAJ",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Prize winning novel in the 2006 novel writing contest of Dewan Kesenian Jakarta.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/id/book/show/13071671-mutiara-karam",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "",
+        "scrapeStatus": "metadata_only",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "library_catalog",
+        "sourceName": "Kios Perpustakaan Jakarta",
+        "sourceUrl": "https://kios-perpustakaan.jakarta.go.id/catalogue/detail/256242",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "",
+        "scrapeStatus": "metadata_only",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2006_NOVEL_03",
+    "judulBuku": "Jukstaposisi",
+    "publishedTitle": "Jukstaposisi",
+    "pengarang": "Calvin Michel Sidjaja",
+    "tahunMenang": "2006",
+    "sources": [
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.com/books/about/Jukstaposisi.html?id=Cr6aCgAAQBAJ",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Tahukah kau? Dengarkah kau?\n\nAda cerita bahwa tuhan itu seorang anak perempuan.\n\nPada awalnya ada gelap dengan setitik Chhya.\n\nDan Chhya tidak mau ada hal lain selain dirinya.\n\nJadi dia memakan anak perempuan itu dan tertidur selamanya.\n\nDi sebuah dunia hampa tanpa tuhan, tanpa mimpi, dan tanpa dirimu.\n\nShäánno, oner twäer ividi oshävaad...\n\n==============================\n\n======\n\n\"Membalik realitas menjadi maya, menghadirkan kausa prima baru, menidurkan tuhan adalah jalinan kreatif yang memesona dalam juksta posisi, Calvin M. sidjaja hadir sebagai penulis belia yang kaya akan kemampuan.\"\n\n- Ahmad Tohari, sastrawan dan juri sayembara Novel DKJ 2006 -\n\n-GagasMedia-",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2006_NOVEL_04",
+    "judulBuku": "Glonggong",
+    "publishedTitle": "Glonggong",
+    "pengarang": "Junaedi Setiyono",
+    "tahunMenang": "2006",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/en/book/show/1697318.Glonggong",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Glonggong, tokoh utama novel ini, bukan tokoh serba bisa dalam menghadapi segala macam rintangan hidup. Ia tak pernah berjumpa dengan ayahnya yang gugur ditangan serdadu Belanda saat ia masih bayi dan hanya diasuh oleh dua orang pelayan setia. Ayah tirinya terlampau asing buatnya. Ibu yang sangat dikasihinya hidup sendiri dalam dunia sepinya hingga maut menjemput. Sementara, saudara perempuannya tanpa Ia sangka ternyata seorang gundik bangsawan.\n\nGlonggong tumbuh bersama anak-anak desa di tengah keriuhan permainan pelepah pepaya yang mereka sebut GLONGGONG. Sekalipun masih keturunan ningrat dari Keraton Yogyakarta. Ia lebih dekat dengan suka duka rakyat jelata dibandingkan kebiasaan hidup kaum bangsawan yang penuh intrik dan gelimang duniawi.\n\nMungkin inilah yang menyebabkan ia memilih bergabung dalam barisan prajurit Pangeran Diponegoro, bukan dengan keraton yang memihak Belanda. Ia lebih suka masuk hutan keluar hutan dibawah ancaman bahaya dan bahu-membahu bersama orang-orang bernurani melawan keculasan Belanda dan Keraton.\n\nSebagai prajurit ia sangat terpukul ketika suatu hari gagal mengemban tugas. Ia berjanji akan mengatasi kegagalannya sebelum menghadap Pangeran Diponegoro. Namun, waktu berjalan lebih cepat. Saat ia telah berhasil memenuhi janjinya, pada 1830 ia menyaksikan sendiri Pangeran Diponegoro ditangkap dalam sebuah pertemuan Agung di Magelang......",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.com/books/about/Glonggong.html?id=jvOhqVB60BoC",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Glonggong merupakan tokoh utama dalam novel ini. Glonggong tumbuh bersama anak-anak desa di tengah keriuhan permainan pelepah pepaya yang mereka sebut glonggong. Sekalipun masih keturunan ningrat dari Keraton Yogyakarta, ia lebih dekat dengan suka duka rakyat jelata dibandingkan kebiasaan hidup kaum bangsawan yang penuh intrik dan gelimang duniawi. Mungkin inilah yang menyebabkan ia memilih bergabung dalam barisan prajurit Pangeran Dipanegara, bukan dengan keraton yang memihak Belanda. Ia lebih suka masuk hutan keluar hutan di bawah ancaman bahaya dan bahu-membahu bersama orang-orang bernurani melawan keculasan Belanda dan keraton.\n\nIni adalah novel tentang prajurit yang berjuang. Diterbitkan oleh\n\nPenerbit Serambi Ilmu Semesta (Serambi Group)",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2006_NOVEL_05",
+    "judulBuku": "Lanang",
+    "publishedTitle": "Lanang",
+    "pengarang": "Yonathan Rahardjo",
+    "tahunMenang": "2006",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/3303766-lanang",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Doktor Dewi seorang antek korporasi asing. Berkepentingan memasok produk rekayasa genetika dari luar negeri, dia ciptakanlah hewan transgenik penyebar virus penyakit, Burung Babi Hutan. Sejak kemunculan makhluk aneh ini, area peternakan sapi perah tempat Lanang bekerja tiba-tiba terserang penyakit gaib. Ribuan sapi mati. Warga pun gempar.\n\nBersama pemerintah dan masyarakat, Lanang, dokter hewan yang cerdas, obsesif, dan melankolis, sibuk mencari tahu sebab kematian sapi perah. Seminar dan penelitian dilakukan, tapi penyakit misterius tak kunjung ketemu. Usaha ilmiah pun menemui jalan buntu. Lalu, mengemukalah isu dari seorang dukun hewan bahwa biang keladi kematian sapi adalah Burung Babi Hutan, makhluk jadi-jadian. Polemik mistikisme tradisional versus bioteknologi modern pun menambah ruwet persoalan. Akankah proyek Doktor Dewi berjalan mulus?\n\nDitulis dalam gaya thriller, plot cerita novel ini sungguh menegangkan. Karakter tokoh-tokohnya pun rumit dan penuh intrik. Dengan pendekatan konspirasi, karya ini menjadi bacaan kritis bagi yang tertarik pada isu-isu sosial, psikologi, bioteknologi, dan politik kesehatan.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "publisher",
+        "sourceName": "Alvabet",
+        "sourceUrl": "https://alvabet.co.id/index.php?Itemid=71&flypage=flypage.tpl&option=com_virtuemart&page=shop.product_details&pop=0&product_id=51",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Judul: LANANG;\n\nPenulis: Yonathan Rahardjo;\n\nKategori serial: AlvabetSastra;\n\nEditor: A. Fathoni;\n\nCetakan: I, Mei 2008;\n\nUkuran: 12,5 X 20 CM;\n\nTebal: 440 halaman;\n\nISBN: 978-979-3064-59-8\n\nHarga: Rp. 55.000,-",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2008_NOVEL_01",
+    "judulBuku": "Tanah Tabu",
+    "publishedTitle": "Tanah Tabu",
+    "pengarang": "Anindita S. Thayf",
+    "tahunMenang": "2008",
+    "sources": [
+      {
+        "sourceType": "publisher",
+        "sourceName": "Gramedia Pustaka Utama",
+        "sourceUrl": "https://gpu.id/book/82236/tanah-tabu",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Gramedia Pustaka Utama (GPU) is the biggest publishing house in Indonesia, and is a subsidiary of Kompas Gramedia, a leading mass media corporation. Established in 1974, GPU is headquartered in Jakarta and boasts a vast collection of high-quality books an",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/27410804",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Mabel percaya takdir akan berakhir buruk jika kita tidak menjaga langkah, apalagi bagi perempuan seperti dirinya. Tapi Mace, sang menantu, belum bisa melupakan trauma masa lalu. Sementara Leksi, cucu kesayangan Mabel, masih suka semaunya sendiri. Beruntung ada Pum dan Kwee yang bisa diandalkan. Bersama keduanya, si kecil Leksi belajar menjalani hidup yang keras di Tanah Tabu. Dan, pada kita semua, Mabel berpesan, “Kita harus tetap kuat... Jangan menyerah. Terus berjuang demi anak-cucu kita. Mereka harus mendapatkan kehidupan yang lebih baik.”",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads alt edition",
+        "sourceUrl": "https://www.goodreads.com/id/book/show/6468957",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "*Pemenang I Sayembara Novel DKJ 2008*\n\n\"Di ujung sabar ada perlawanan. Di batas nafsu ada kehancuran. Dan air mata hanyalah untuk yang lemah.\"\n\nMabel percaya takdir akan berakhir buruk jika kita tidak menjaga langkah, apalagi bagi perempuan seperti dirinya. Tapi Mace, sang menantu, belum bisa melupakan trauma pada masa lalu. Sementara Leksi, cucu kesayangan Mabel, masih suka semaunya sendiri. Beruntung ada ada Pum dan Kwee yang bisa diandalkan. Bersama keduanya, si kecil Leksi berlajar menjalani hidup yang keras di atas Tanah Tabu.\n\nDan, pada kita semua, Mabel berpesan, \"Kita harus tetap kuat.... Jangan menyerah. Terus berjuang demi anak-cucu kita. Mereka harus mendapatkan kehidupan yang lebih baik.\"\n\nAnindita tidak menulis sebuah novel etnografi dengan semangat eksotisme kolonial, melainkan dengan perspektif emik yang penuh empati. Melalui novel ini saya berkenalan dengan Leksi, seorang bocah Papua, yang dengan kenaifannya justru menunjukkan kritisisme cerdas; juga Mabel yang menjadi eksemplar seorang perempuan hebat tanpa perlu ribet dan genit dengan retorika la aktivis perempuan menengah-kota. -Kris Budiman, Kritikus Sastra, Juri Sayembara Novel DKJ 2008-\n\nSosok Mabel dalam novel ini menampilkan perempuan yang melawan diskriminasi dalam konteks sosio kultural dan politik masyarakatnya.\n\n--Linda Christanty, Penulis dan Jurnalis, Juri Sayembara Novel DKJ 2008-\n\nTanah Tabu menarik bukan saja karena penguasaan atas materi penulisan yang baik, maupun penyusunan komposisinya, tetapi juga urgensi masalah, yang membuatnya sangat penting.\n\n--Seno Gumira Ajidarma, Cerpenis, Novelis dan Wartawan, Juri Sayembara Novel DKJ 2008-",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.com/books/about/Tanah_tabu.html?id=pvvRs009lgEC",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Prize winning novel in the 2008 novel writing contest of DKJ.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 4,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2010_NOVEL_01",
+    "judulBuku": "Persiden",
+    "publishedTitle": "Persiden",
+    "pengarang": "Wisran Hadi",
+    "tahunMenang": "2010",
+    "sources": [
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.com/books/about/Persiden.html?id=G_RfCwAAQBAJ",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Seberapa lama kita bisa menanggung sebuah rahasia memalukan? Tak ada yang tahu mengapa Cik Inan mendadak berubah sikap, termasuk keempat saudara lelakinya. Penasaran, mereka berusaha mencari tahu penyebabnya.  Namun, tak pernah terbayang jika rahasia Cik Inan akan menyeret mereka ke masalah yang lebih rumit. Bukan hanya menyangkut kelangsungan rumah bagonjong peninggalan leluhur mereka, tetapi juga nama baik dan terutama rahasia-rahasia konyol yang tersembunyi rapat-rapat selama ini. Persiden, salah satu karya unggulan DKJ 2010. Melalui pergulatan sebuah keluarga di simpang Persiden, Wisran Hadi berusaha menyampaikan konflik tradisi yang terjadi di Sumatra Barat. Kental dengan nuansa Minangkabau, novel ini menggugat polah tingkah kita sehari-hari.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/en/book/show/17859010-persiden",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "",
+        "scrapeStatus": "metadata_only",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2010_NOVEL_02",
+    "judulBuku": "Lampuki",
+    "publishedTitle": "Lampuki",
+    "pengarang": "Arafat Nur",
+    "tahunMenang": "2010",
+    "sources": [
+      {
+        "sourceType": "publisher",
+        "sourceName": "Gramedia Pustaka Utama",
+        "sourceUrl": "https://gpu.id/book/92800/lampuki",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Gramedia Pustaka Utama (GPU) is the biggest publishing house in Indonesia, and is a subsidiary of Kompas Gramedia, a leading mass media corporation. Established in 1974, GPU is headquartered in Jakarta and boasts a vast collection of high-quality books an",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2010_NOVEL_03",
+    "judulBuku": "Jatisaba",
+    "publishedTitle": "Jatisaba",
+    "pengarang": "Ramayda Akmal",
+    "tahunMenang": "2010",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/34628967-jatisaba",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Mae kembali ke Jatisaba dengan membawa mimpi-mimpi. Ia menyebar angan tentang pekerjaan bagus, gaji besar, dan kehidupan layak di luar negeri. Mae menebar utopia, berharap orang-orang terjebak masuk dalam praktik perdagangan manusia.\n\nMae tidak punya pilihan. Mayor Tua, bosnya, menawan kebebasannya. Namun, pertemuannya dengan Gao—cinta pertamanya—sedikit banyak memengaruhi diri Mae. Bersama Gao ia bergumul dalam romantika masa lalu dan kelamnya masa depan.\n\nNamun, hidup tidak memberikan waktu. Mae harus segera mengambil keputusan; menuruti perintah Mayor Tua, atau menghilang bersama laki-laki yang begitu dicintainya.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.com/books/about/Jatisaba.html?id=YpV3qy92lekC",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "",
+        "scrapeStatus": "metadata_only",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads alt edition",
+        "sourceUrl": "https://www.goodreads.com/id/book/show/11153609-jatisaba",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "\"Inilah sebuah kisah liris berlatar pastoral yang secara lihai menguliti fenomena sindikat perdagangan orang di tengah sengketa politik lokal dan cerita cinta yang getir. Sebuah novel perdana yang menjanjikan banyak hal di masa depan.\"\n\nAnton Kurnia, Juri Sayembara Menulis Novel DKJ 2010",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2010_NOVEL_04",
+    "judulBuku": "Memoar Alang-alang",
+    "publishedTitle": "Memoar Alang-alang",
+    "pengarang": "Hendri Teja",
+    "tahunMenang": "2010",
+    "sources": [
+      {
+        "sourceType": "bookstore",
+        "sourceName": "Gramedia",
+        "sourceUrl": "https://www.gramedia.com/products/tan-sebuah-novel",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Jual Buku Tan: Sebuah Novel Karya Hendri Teja. Novel karya sastra dengan harga termurah berkualitas. Produk dijamin ✓Berkualitas ✓ Pengiriman Cepat ✨ 100% Original",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "publisher",
+        "sourceName": "Javanica",
+        "sourceUrl": "https://javanica.co.id/buku/sebuah-novel-tentang-tan-malaka/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Ia lahir dengan nama Ibrahim pada masa paceklik. Tepat ketika bundanya melahirkannya, seorang lelaki tua misterius mendatangi ayahnya, Sutan Rasyad, dan berkata bahwa kelak putranya akan membawa perubahan besar di dunia. Pada usia yang masih muda, gelar datuk pamuncak telah disandangnya.Gairahnya yang besar akan pengetahuan mendorongnya berlayar ke Nederland. Tercampak dari tanah adat adalah konsekuensi yang harus ditanggungnya. Di negeri penjajah ia hidup fakir dan mengalami diskriminasi rasial karena kulitnya cokelat.Semangat revolusioner yang membakar Eropa mengubahnya menjadi seorang pejuang kemerdekaan. Ditemani Fenny van de Snijder, perempuan kulit putih yang dicintainya, ia melawan penjajahan melalui tulisan.Di sana ia lebih dikenal dengan nama pena: Tan Malaka!  Dari kota-kota di Nederland, Tan lantas bergerilya ke Sumatera dan Jawa, mengobarkan semangat perlawanan terhadap kaum penjajah. Ia harus berhadapan dengan para kapitalis perkebunan, sindikat pengusaha gula, dan Gubernur Jenderal Hindia.Dalam kejaran polisi intelijen pemerintah kolonial, Tan bergerak di bawah tanah untuk mencegah malapetaka pertama dalam sejarah Hindia abad ke-20.  Tan adalah sebuah novel sejarah yang mengungkap sisik-melik kehidupan Tan Malaka, salah satu sosok terpenting dalam kemerdekaan Republik Indonesia, bapak bangsa yang terlupakan.  Judul: TAN Penulis: Hendri Teja Halaman: 427 hlm Ukuran: 14 x 21 cm ISBN: 978-602-6799-06-7 Penerbit: Javanica",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2012_NOVEL_01",
+    "judulBuku": "Semusim, dan Semusim Lagi",
+    "publishedTitle": "Semusim, dan Semusim Lagi",
+    "pengarang": "Andina Dwifatma",
+    "tahunMenang": "2012",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/17786176",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "-- Pemenang Sayembara Menulis Novel Dewan Kesenian Jakarta 2012 --\n\n“...ditulis dengan teknik penceritaan yang intens, serius, eksploratif, dan mencekam.”\n\n(Dewan Juri Sayembara Menulis Novel Dewan Kesenian Jakarta 2012)\n\nSurat Kertas Hijau\n\nSegala kedaraannya tersaji hijau muda\n\nMelayang di lembaran surat musim bunga\n\nBerita dari jauh\n\nSebelum kapal angkat sauh\n\nSegala kemontokan menonjol di kata-kata\n\nMenepis dalam kelakar sonder dusta\n\nHarum anak dara\n\nMengimbau dari seberang benua\n\nMari, Dik, tak lama hidup ini\n\nSemusim dan semusim lagi\n\nBurung pun berpulangan\n\nMari, Dik, kekal bisa semua ini\n\nPeluk goreskan di tempat ini\n\nSebelum kapal dirapatkan\n\nSitor Situmorang, 1953\n\nDari sebuah sajak, seorang penulis memindahkan suatu baris dan menjadikannya suatu judul, lantas melanjutkannya dengan kalimat demi kalimat, yang akhirnya terbentuk menjadi roman ini. Saya kira itulah cara yang baik untuk merayakan keberadaan kata, di tengah dunia yang lebih sering tak sadar bahwa kata itu ada, sehingga menyia-nyiakannya. Namun menulis bukanlah satu-satunya cara, karena masih ada cara lain untuk merayakannya, yakni membacanya. —Seno Gumira Ajidarma",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.com/books/about/Semusim_dan_Semusim_Lagi.html?id=WVVFDwAAQBAJ",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "\"Segala kedaraannya tersaji hijau muda Melayang di lembaran surat musim bunga Berita dari jauh Sebelum kapal angkat sauh Segala kemontokan menonjol di kata-kata Menepis dalam kelakar sonder dusta Harum anak dara Mengimbau dari seberang benua Mari, Dik, tak lama hidup ini Semusim dan semusim lagi Burung pun berpulangan Mari, Dik, kekal bisa semua ini Peluk goreskan di tempat ini Sebelum kapal dirapatkan\"",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "publisher",
+        "sourceName": "Gramedia Pustaka Utama",
+        "sourceUrl": "https://gpu.id/book/93612/semusim-dan-semusim-lagi",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Gramedia Pustaka Utama (GPU) is the biggest publishing house in Indonesia, and is a subsidiary of Kompas Gramedia, a leading mass media corporation. Established in 1974, GPU is headquartered in Jakarta and boasts a vast collection of high-quality books an",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 3,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2012_NOVEL_02",
+    "judulBuku": "Dasamuka",
+    "publishedTitle": "Dasamuka",
+    "pengarang": "Junaedi Setiyono",
+    "tahunMenang": "2012",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/35138739-dasamuka",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "The story of Dasamuka, a historical novel by Junaedi Setiyono, unfolds in the Yogyakarta Sultanate, a region in Central Java, Indonesia. Set between 1811 and 1824, the narrative addresses not only Dutch colonialization but also the British interval in Dutch rule between 1811 and 1816. The Indonesian word dasamuka translates as ten faces, dasa meaning ten and muka meaning face. The author uses the word to metaphorically describe one of his main characters, a young, ambitious, talented nobleman whose diverse character traits enable him to maneuver among the many challenges life compels him to confront. Setiyono's narrator, Willem Kappers, is a Scottish scholar from the University of Edinburgh. Jilted by his fiancée, Kappers decides to move as far away from Scotland as he can. Since he has an uncle residing in the Yogyakarta Sultanate, he signs up for a research project of Dr. John Casper Leyden, a world-renowned Scottish scientist with a special interest in the Dutch East Indies. The voice of Kappers enables Setiyono to spotlight many issues that even today remain taboo subjects for Javanese. Kappers arrives on the island of Java in August 1811 by way of a Royal Navy warship sent to seize the island for Britain from the then reigning Dutch. Kappers's assignment is to learn the significance of the word bronjong, which describes an ancient form of capital punishment decreed by a Javanese court of law. His research brings him into close contact with the Javanese people, royalty as well as commoners. Since Kappers finds employment in the local colonial government office, the reader also becomes privy to the internal colonial modus operandi. During his fourteen-year sojourn in the sultanate, Kappers becomes a close friend of Den Wahyana, a Javanese nobleman who is politically engaged. Den Wahyana not only brings Kappers into the inner circle of Prince Diponegoro II, the leader of a group of controversial individuals known as the Tegalreja Group, but also introduces him to religious leaders, families of the palace staff, and Dasamuka. Through these relationships, Kappers becomes ensnared in the kidnapping of one of the sultan's concubines, who is also Dasamuka's wife. Recounting the couple's escape, Setiyono's lyrical voice transports the reader to the lush landscape of Central Java and into its rich culture, steeped in mysticism and religious doctrine. Setiyono brings the most powerful human emotions--love, betrayal, and greed--to the page as Kappers experiences an infatuation with a Javanese woman, indignation over the 1812 plunder of the Keraton by the British Army, and the fierce resistance of the Javanese people against colonial oppression and their own corrupt aristocracy. An engrossing read, Dasamuka invites us into a far-off culture while simultaneously revealing little-known historical facts told from opposing viewpoints.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads Indonesian edition",
+        "sourceUrl": "https://www.goodreads.com/book/show/23342716-dasamuka",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Pada Juni 1812, keraton Ngayogyakarta Hadiningrat diserbu dan dengan gampang di taklukkan oleh balatentara Inggris. Penguasanya, Sultan Hamengkubuwana II, ditawan, dan khasanah keraton dijarah dan diangkuti. Perampokan itu disaksikan dan dicatat oleh Willem, seorang bangsa Skot yang datang ke pulau Jawa karena tak hendak bunuh diri di Edinburgh sana.\n\nWillem ternyata mampu untuk terus melanjutkan hidupnya di kesultanan Ngayogyakarta Hadiningrat, Hidup yang ingin segera diakhirinya. Alih-alih menemui kematian, akademisi dari Edinburgh University itu mengalami liku-liku kehidupan di bawah kekuasaan empat Sultan selama dua belas tahun dia berada di wilayah kesultanan.\n\nLiku-liku kehidupan yang paling mendebarkannya adalah ketika dia dilibatkan dalam upaya pembunuhan Sultan Hamengkubuwono IV. Liku-liku kehidupan yang paling mengesankannya adalah pertemuannya dengan pemilik Puri Tegalreja, Kanjeng Pangeran Aria Dipanegara, sang pencetus Perang Jawa.\n\nSemua liku-liku kehidupan yang dijalaninya selama berada di tanah Jawa, sangat dipengaruhi oleh keberadaan seorang tokoh misterius yang dikenal dengan nama Dasamuka...",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.com/books/about/Dasamuka.html?id=BlmltAEACAAJ",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "The story of Dasamuka, a historical novel by Junaedi Setiyono, unfolds in the Yogyakarta Sultanate, a region in Central Java, Indonesia. Set between 1811 and 1824, the narrative addresses not only Dutch colonialization but also the British interval in Dutch rule between 1811 and 1816.\n\nThe Indonesian word dasamuka translates as ten faces, dasa meaning ten and muka meaning face. The author uses the word to metaphorically describe one of his main characters, a young, ambitious, talented nobleman whose diverse character traits enable him to maneuver among the many challenges life compels him to confront.\n\nSetiyono's narrator, Willem Kappers, is a Scottish scholar from the University of Edinburgh. Jilted by his fiancée, Kappers decides to move as far away from Scotland as he can. Since he has an uncle residing in the Yogyakarta Sultanate, he signs up for a research project of Dr. John Casper Leyden, a world-renowned Scottish scientist with a special interest in the Dutch East Indies. The voice of Kappers enables Setiyono to spotlight many issues that even today remain taboo subjects for Javanese.\n\nKappers arrives on the island of Java in August 1811 by way of a Royal Navy warship sent to seize the island for Britain from the then reigning Dutch. Kappers's assignment is to learn the significance of the word bronjong, which describes an ancient form of capital punishment decreed by a Javanese court of law. His research brings him into close contact with the Javanese people, royalty as well as commoners. Since Kappers finds employment in the local colonial government office, the reader also becomes privy to the internal colonial modus operandi.\n\nDuring his fourteen-year sojourn in the sultanate, Kappers becomes a close friend of Den Wahyana, a Javanese nobleman who is politically engaged. Den Wahyana not only brings Kappers into the inner circle of Prince Diponegoro II, the leader of a group of controversial individuals known as the Tegalreja Group, but also introduces him to religious leaders, families of the palace staff, and Dasamuka. Through these relationships, Kappers becomes ensnared in the kidnapping of one of the sultan's concubines, who is also Dasamuka's wife.\n\nRecounting the couple's escape, Setiyono's lyrical voice transports the reader to the lush landscape of Central Java and into its rich culture, steeped in mysticism and religious doctrine. Setiyono brings the most powerful human emotions--love, betrayal, and greed--to the page as Kappers experiences an infatuation with a Javanese woman, indignation over the 1812 plunder of the Keraton by the British Army, and the fierce resistance of the Javanese people against colonial oppression and their own corrupt aristocracy.\n\nAn engrossing read, Dasamuka invites us into a far-off culture while simultaneously revealing little-known historical facts told from opposing viewpoints.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "publisher",
+        "sourceName": "Dalang Publishing",
+        "sourceUrl": "https://indonesian.dalangpublishing.com/selamatan-peluncuran-buku-dasamuka",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "",
+        "scrapeStatus": "metadata_only",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "publisher",
+        "sourceName": "Penerbit Ombak",
+        "sourceUrl": "https://penerbitombak.com/product/dasamuka/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "",
+        "scrapeStatus": "metadata_only",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 3,
+      "targetReached": true
+    }
+  },
+  {
+    "id": "DKJ_2012_NOVEL_03",
+    "judulBuku": "Kei",
+    "publishedTitle": "Kei",
+    "pengarang": "Erni Aladjai",
+    "tahunMenang": "2012",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads English edition",
+        "sourceUrl": "https://www.goodreads.com/book/show/23338066-kei",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "A young Muslim woman and Protestant man find love during a religious conflict that threatens to consume the Pacific islands of Kei.\n\nAt the end of Suharto's New Order, the Kei people hold on to their traditions as they flee the violence that divides Muslim from Christian and destroys the villages. Namira, a Muslim girl, works as a volunteer in a refugee camp when she meets Sala, a young Protestant man. Grounded in the islander's belief of \"We drink from the same spring and eat from the same land, the land of Kei,\" the two fall in love amid the chaos that will soon separate them.\n\nErni Aladjai earned her degree in French literature from the Hasannudin University in Sulawesi. She has worked as a journalist and news editor, and managed a learning institution. Her novel, Kei, took first place in the 2011 Jakarta Arts Council novel competition. Erni is also the author of Pesan Cinta dari Hujan (Messages of Love from the Rain, Insist Press, 2010) and Ning di Bawah Gerhana (Ning Under Eclipse, Bumen Pustaka Emas, 2013).",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads Indonesian edition",
+        "sourceUrl": "https://www.goodreads.com/id/book/show/18367554-kei",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Mari kuceritakan kisah sedih tentang kehilangan. Rasa sakit yang merupa serta perih yang menjejakkan duka. Namun, jangan terlalu bersedih, karena aku akan menceritakan pula tentang harapan. Tentang cinta yang tetap menyetia meski takdir hampir kehilangan pegangan.\n\nMari kuceritakan tentang orang-orang yang bertemu di bawah langit sewarna biru. Orang-orang yang memilih marah, lalu saling menorehkan luka. Juga kisah orang-orang yang memilih berjalan bersisian, dengan tangan tetap saling memegang.\n\nMari, mari kuceritakan tentang marah, tentang sedih, tentang langit dan senja yang tak searah, juga tentang cinta yang selalu ada dalam tiap cerita.\n\n***\n\n“Kei dituturkan lewat penokohan yang dinamis dan mendalam, pengelolaan alur yang intens dan kompleks tanpa menjadikan jalan cerita hilang. Latar yang dipilih pengarang berpadu secara selaras dengan konflik utama dalam cerita.”\n\nPidato A.S. Laksana — Sastrawan dan Juri Sayembara Menulis Novel Dewan Kesenian Jakarta 2012",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "publisher",
+        "sourceName": "GagasMedia",
+        "sourceUrl": "https://gagasmedia.net/k-e-i/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Penulis: Erni AladjaiUkuran: 13 x 19 cmTebal: x + 254 hlmPenerbit: GagasMediaISBN: 979-780-649-9Harga: Rp40.000,- Mari kuceritakan kisah sedih tentang kehilangan. Rasa sakit yang merupa serta perih yang menjejakkan duka. Namun, jangan terlalu bersedih, karena aku akan menceritakan pula tentang harapan. Tentang cinta yang tetap menyetia meski takdir hampir kehilangan pegangan. Mari kuceritakan tentang orang-orang yang [...]",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 3,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2012_NOVEL_04",
+    "judulBuku": "Simpul Waktu",
+    "publishedTitle": "Simpul Waktu",
+    "pengarang": "Sulfiza Ariska",
+    "tahunMenang": "2012",
+    "sources": [],
+    "coverage": {
+      "validSourceCount": 0,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2012_NOVEL_05",
+    "judulBuku": "Surat Panjang Tentang Jarak Kita yang Jutaan Tahun Cahaya",
+    "publishedTitle": "Surat Panjang Tentang Jarak Kita yang Jutaan Tahun Cahaya",
+    "pengarang": "Dewi Kharisma Michellia",
+    "tahunMenang": "2012",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/en/book/show/18000754-surat-panjang-tentang-jarak-kita-yang-jutaan-tahun-cahaya",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Ada surat panjang yang terlambat sampai.\n\nTanpa nama pengirim, dan hampir basah oleh tempias hujan.\n\n*\n\nSejak kecil kita berdua merasa diri kita adalah alien-alien yang tersesat ke Bumi.\n\nPria itu sudah melupakan seorang teman masa kecilnya saat sebundel amplop itu sampai di beranda rumah.\n\nKalau kau perlu tahu, aku hanya punya satu macam mimpi. Aku ingin tinggal di rumah sederhana dengan satu orang yang benar-benar tepat. Bila memang aku harus mencurahkan seluruh perhatianku, kepada satu orang itulah hal itu akan kulakukan.\n\nIa bahkan sudah melupakan mimpi-mimpi masa kecil mereka.\n\nBerpuluh-puluh tahun lamanya, bahkan sejak kali pertama bertemu, aku telah memilihmu dalam setiap doaku. Sesuatu yang tak pernah kauketahui bahkan hingga hari ini. Dan bila kau suruh aku pergi begitu saja, di usiaku yang lebih dari empat puluh ini, aku mungkin telah terlambat untuk mencari penggantimu.\n\nDan ia tak tahu teman masa kecilnya itu masih mencintainya.\n\n*\n\nSurat-surat itu menarik pria itu ke masa lalu.\n\nHingga ia tahu, semuanya sudah terlambat.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads alt",
+        "sourceUrl": "https://goodreads.com/book/show/18000754.Surat_Panjang_Tentang_Jarak_Kita_yang_Jutaan_Tahun_Cahaya",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Ada surat panjang yang terlambat sampai.\n\nTanpa nama pengirim, dan hampir basah oleh tempias hujan.\n\n*\n\nSejak kecil kita berdua merasa diri kita adalah alien-alien yang tersesat ke Bumi.\n\nPria itu sudah melupakan seorang teman masa kecilnya saat sebundel amplop itu sampai di beranda rumah.\n\nKalau kau perlu tahu, aku hanya punya satu macam mimpi. Aku ingin tinggal di rumah sederhana dengan satu orang yang benar-benar tepat. Bila memang aku harus mencurahkan seluruh perhatianku, kepada satu orang itulah hal itu akan kulakukan.\n\nIa bahkan sudah melupakan mimpi-mimpi masa kecil mereka.\n\nBerpuluh-puluh tahun lamanya, bahkan sejak kali pertama bertemu, aku telah memilihmu dalam setiap doaku. Sesuatu yang tak pernah kauketahui bahkan hingga hari ini. Dan bila kau suruh aku pergi begitu saja, di usiaku yang lebih dari empat puluh ini, aku mungkin telah terlambat untuk mencari penggantimu.\n\nDan ia tak tahu teman masa kecilnya itu masih mencintainya.\n\n*\n\nSurat-surat itu menarik pria itu ke masa lalu.\n\nHingga ia tahu, semuanya sudah terlambat.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "publisher",
+        "sourceName": "Gramedia Pustaka Utama",
+        "sourceUrl": "https://gpu.id/book/86910/surat-panjang-tentang-jarak-kita-yang-jutaan-tahun-cahaya",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Gramedia Pustaka Utama (GPU) is the biggest publishing house in Indonesia, and is a subsidiary of Kompas Gramedia, a leading mass media corporation. Established in 1974, GPU is headquartered in Jakarta and boasts a vast collection of high-quality books an",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 3,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2014_NOVEL_01",
+    "judulBuku": "Kambing dan Hujan",
+    "publishedTitle": "Kambing dan Hujan",
+    "pengarang": "Mahfud Ikhwan",
+    "tahunMenang": "2014",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/40106696-kambing-dan-hujan",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Miftahul Abrar tumbuh dalam tradisi Islam modern. Latar belakang itu tidak membuatnya ragu mencintai Nurul Fauzia yang merupakan anak seorang tokoh Islam tradisional. Namun, seagama tidak membuat hubungan mereka baik-baik saja. Perbedaan cara beribadah dan waktu hari raya serupa jembatan putus yang memisahkan keduanya, termasuk rencana pernikahan mereka.\n\nHubungan Mif dan Fauzia menjelma tegangan antara hasrat dan norma agama. Ketika cinta harus diperjuangkan melintasi jarak kultural yang rasanya hampir mustahil mereka lalui, Mif dan Fauzia justru menemukan sekelumit rahasia yang selama ini dikubur oleh ribuan prasangka. Rahasia itu akhirnya membawa mereka pada dua pilihan: percaya akan kekuatan cinta atau menyerah pada perbedaan yang memisahkan mereka.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads alt",
+        "sourceUrl": "https://goodreads.com/book/show/25724235.Kambing___Hujan_Sebuah_Roman",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "PEMENANG SAYEMBARA NOVEL DEWAN KESENIAN JAKARTA (DKJ) 2014\n\nMiftahul Abrar tumbuh dalam tradisi Islam modern. Latar belakang itu tidak membuatnya ragu mencintai Nurul Fauzia yang merupakan anak seorang tokoh Islam tradisional. Namun, seagama tidak membuat hubungan mereka baik-baik saja. Perbedaan cara beribadah dan waktu hari raya serupa jembatan putus yang memisahkan keduanya, termasuk rencana pernikahan mereka.\n\nHubungan Mif dan Fauzia menjelma tegangan antara hasrat dan norma agama. Ketika cinta harus diperjuangkan melintasi jarak kultural yang rasanya hampir mustahil mereka lalui, Mif dan Fauzia justru menemukan sekelumit rahasia yang selama ini dikubur oleh ribuan prasangka. Rahasia itu akhirnya membawa mereka pada dua pilihan: percaya akan kekuatan cinta atau menyerah pada perbedaan yang memisahkan mereka.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "publisher",
+        "sourceName": "Bentang Pustaka",
+        "sourceUrl": "https://bentangpustaka.com/buku/kambing-dan-hujan/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "",
+        "scrapeStatus": "blocked_or_unavailable",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2014_NOVEL_02",
+    "judulBuku": "Di Tanah Lada",
+    "publishedTitle": "Di Tanah Lada",
+    "pengarang": "Ziggy Zezsyazeoviennazabrizkie",
+    "tahunMenang": "2014",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/219765224-di-tanah-lada",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Salva, sering disapa Ava. Namun, Papanya ingin menamainya Saliva, yang berarti ludah, sebab mengganggapnya tidak berguna. Dari kamus pemberian Kakek Kia, Ava mencari setiap makna dari kata-kata yang ditemukan sehari-hari. Ketika keluarga Ava pindah ke Rusun Nero setelah Kakek Kia meninggal, Ava berjumpa dengan P-anak Lelaki yang pandai bermain gitar. perjumpaan Ava dengan P, dan petualangan keduanya akan membawa pembaca ke banyak pojok gelap dan muara yang mengejutkan\n\nPada edisi kali ini, novel Di Tanah Lada dilengkapi dengan sebuah catatan, banyak ilustrasi, dan satu kemungkinan akhir cerita lain.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads alt",
+        "sourceUrl": "https://www.goodreads.com/book/show/58527608-di-tanah-lada",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Namanya Salva. Panggilannya Ava. Namun papanya memanggil dia Saliva atau ludah karena menganggapnya tidak berguna. Ava sekeluarga pindah ke Rusun Nero setelah Kakek Kia meninggal. Kakek Kia, ayahnya Papa, pernah memberi Ava kamus sebagai hadiah ulang tahun yang ketiga. Sejak itu Ava menjadi anak yang pintar berbahasa Indonesia. Sayangnya, kebanyakan orang dewasa lebih menganggap penting anak yang pintar berbahasa Inggris. Setelah pindah ke Rusun Nero, Ava bertemu dengan anak laki-laki bernama P. Iya, namanya hanya terdiri dari satu huruf P. Dari pertemuan itulah, petualangan Ava dan P bermula hingga sampai pada akhir yang mengejutkan.\n\nDitulis dengan alur yang penuh kejutan dan gaya bercerita yang unik, sudah selayaknya para juri sayembara memilih novel\n\nDi Tanah Lada\n\nsebagai salah satu juaranya.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "fliphtml5",
+        "sourceName": "FlipHTML5",
+        "sourceUrl": "https://fliphtml5.com/fdufi/avne/Di_Tanah_Lada_by_Ziggy_Zezsyazeoviennazabrizkie/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Mencari Di Tanah Lada by Ziggy Zezsyazeoviennazabrizkie? Periksa semua  PDFs online dari penulis Perpustakaan SMK St Louis Surabaya. Suka Di Tanah Lada by Ziggy Zezsyazeoviennazabrizkie? Bagikan dan download Di Tanah Lada by Ziggy Zezsyazeoviennazabrizkie gratis. Unggah PDF Anda di FlipHTML5 dan buat PDF online seperti: Di Tanah Lada by Ziggy Zezsyazeoviennazabrizkie.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "publisher",
+        "sourceName": "Gramedia Pustaka Utama",
+        "sourceUrl": "https://gpu.id/book/89342/di-tanah-lada",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Gramedia Pustaka Utama (GPU) is the biggest publishing house in Indonesia, and is a subsidiary of Kompas Gramedia, a leading mass media corporation. Established in 1974, GPU is headquartered in Jakarta and boasts a vast collection of high-quality books an",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 4,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2014_NOVEL_03",
+    "judulBuku": "Napas Mayat",
+    "publishedTitle": "Napas Mayat",
+    "pengarang": "Bagus Dwi Hananto",
+    "tahunMenang": "2014",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/25488502-napas-mayat",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Pemenang III Sayembara Menulis Novel Dewan Kesenian Jakarta 2014\n\nAku memotongnya dengan sangat rapi, membuang lemak yang tidak dipakai sehingga hanya tersisa beberapa potong daging besar saja dari kaki, dada, dan tangan. Semua jeroan dari bagian bawah sampai jantung kujadikan satu. Kupotong-potong dan kutambah bumbu dapur dan berbagai sayur mulai dari wortel, kol, buncis, dan kesukaanku kacang polong; menjadi sup mangkuk besar, siap buat disantap. Berporsi-porsi mangkuk aku ciduk dari panci sup. Berkali-kali sampai lenyap ditelan mulut.\n\nInilah salah satu novel juara sayembara menulis paling prestisius di Indonesia.\n\nAda sesuatu di dalam novel ini yang telah membuat para juri memilihnya menjadi salah satu pemenang. Sesuatu yang kompleks, brutal, menyimpan dendam, sekaligus keindahan.\n\nNapas Mayat mempertanyakan Tuhan, cinta, dan arti kemanusiaan di zaman sekarang.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "publisher",
+        "sourceName": "Gramedia Pustaka Utama",
+        "sourceUrl": "https://gpu.id/book/88874/napas-mayat",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Gramedia Pustaka Utama (GPU) is the biggest publishing house in Indonesia, and is a subsidiary of Kompas Gramedia, a leading mass media corporation. Established in 1974, GPU is headquartered in Jakarta and boasts a vast collection of high-quality books an",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2014_NOVEL_04",
+    "judulBuku": "Puya ke Puya",
+    "publishedTitle": "Puya ke Puya",
+    "pengarang": "Faisal Oddang",
+    "tahunMenang": "2014",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/26879907-puya-ke-puya",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Surga diciptakan karena...\n\nSetelah puluhan tahun kau menunggu, kini kau telah berjalan ke surga. Ketika hampir tiba, ketika kutanyakan 'kenapa surga diciptakan?' kau hanya bisa diam. Untuk apa kau berjalan? Kau juga tidak tahu. Dasar manusia!\n\nKau hidup hanya untuk mati? Jika seperti itu, betapa kasihan kau, saya dan leluhur kau yang lain, tentu sangat kecewa. Tak pantas kau berjalan ke tempat suci ini--tak pantas kau menjadi orang Toraja yang kami banggakan.\n\nPulanglah, pulanglah dulu, tanyakan kepada kawa kau yang lain, tanyakan kepada semua orang:\n\nKenapa surga diciptakan?",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2016_NOVEL_01",
+    "judulBuku": "Semua Ikan di Langit",
+    "publishedTitle": "Semua Ikan di Langit",
+    "pengarang": "Ziggy Zezsyazeoviennazabrizkie",
+    "tahunMenang": "2016",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/en/book/show/33848032-semua-ikan-di-langit",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "\"Pekerjaan saya memang kedengaran membosankan— mengelilingi tempat yang itu-itu saja, diisi kaki-kaki berkeringat dan orang-orang berisik, diusik cicak-cicak kurang ajar, mendengar lagu aneh tentang tahu berbentuk bulat dan digoreng tanpa persiapan sebelumnya—tapi saya menggemarinya. Saya senang mengetahui cerita manusia dan kecoa dan tikus dan serangga yang mampir. Saya senang melihat-lihat isi tas yang terbuka, membaca buku yang dibalik-balik di kursi belakang, turut mendengarkan musik yang dinyanyikan di kepala seorang penumpang… bahkan kadang-kadang, menyaksikan aksi pencurian.\n\nTrayek saya memang hanya melewati Dipatiukur-Leuwipanjang, sebelum akhirnya bertemu Beliau, dan memulai trayek baru: mengelilingi angkasa, melintasi dimensi ruang dan waktu.\"",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "fliphtml5",
+        "sourceName": "FlipHTML5",
+        "sourceUrl": "https://fliphtml5.com/izjcm/qpjr/Semua_Ikan_Di_Langit_Karya_Ziggy._Z/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Mencari Semua Ikan Di Langit Karya Ziggy. Z? Periksa semua  PDFs online dari penulis hmpspgmiuinmataram. Suka Semua Ikan Di Langit Karya Ziggy. Z? Bagikan dan download Semua Ikan Di Langit Karya Ziggy. Z gratis. Unggah PDF Anda di FlipHTML5 dan buat PDF online seperti: Semua Ikan Di Langit Karya Ziggy. Z.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2016_NOVEL_02",
+    "judulBuku": "Lengking Burung Kasuari",
+    "publishedTitle": "Lengking Burung Kasuari",
+    "pengarang": "Nunuk Y. Kusmiana",
+    "tahunMenang": "2016",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://goodreads.com/book/show/34630175.Lengking_Burung_Kasuari",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "“Tukang potong kep sedang mencari kepala anak-anak.”\n\nAku bergeming. Tak merasa perlu gemetar seperti ketika pertama kali me - ngetahui kep itu artinya apa. “Ah, yang macam beginian cuma cerita omong kosong saja,” aku menyahut begitu dengan nada tak acuh.\n\nSendy jadi tersinggung. Ia mendelik, mengangkat kepalanya, dan memelototiku, “Baik, kalau tidak percaya. Coba saja kalau tidak percaya. Lihat akibatnya nanti.”\n\n“Jembatannya sudah jadi. Tidak perlu lagi kepala anak-anak,” aku menantangnya.\n\n“Perlu kepala anak-anak,” Sendy ngotot. “Tetap perlu.”\n\n“Mau ditanam di mana lagi?”\n\n“Di bawah jembatan. Memang mau di mana lagi?”\n\n“Kenapa kamu tidak takut sama dia?” tanyaku. “Kamu anak-anak juga, sama seperti aku.”\n\n“Tidak sama. Tukang potong kep suka kepala anak-anak berambut lurus.”\n\nDibuka dengan ‘tukang potong kep’, kisah tentang tentara Jawa dan keluarganya yang tinggal di Papua tahun 1970 mengalir dari sudut pandang anak berusia tujuh tahun. Asih, tokoh utama dalam cerita ini, dengan berani sekaligus lugu, memotret kehidupan Jayapura, Papua di awal masa integrasi. Dibalut kisah masa kecil yang menyenangkan, permasalahan domestik hingga politik ditampilkan oleh penulis tanpa mengurangi rasa manis kehidupan anak-anak hingga akhir cerita.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads alt",
+        "sourceUrl": "https://www.goodreads.com/en/book/show/34630175-lengking-burung-kasuari",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "“Tukang potong kep sedang mencari kepala anak-anak.”\n\nAku bergeming. Tak merasa perlu gemetar seperti ketika pertama kali me - ngetahui kep itu artinya apa. “Ah, yang macam beginian cuma cerita omong kosong saja,” aku menyahut begitu dengan nada tak acuh.\n\nSendy jadi tersinggung. Ia mendelik, mengangkat kepalanya, dan memelototiku, “Baik, kalau tidak percaya. Coba saja kalau tidak percaya. Lihat akibatnya nanti.”\n\n“Jembatannya sudah jadi. Tidak perlu lagi kepala anak-anak,” aku menantangnya.\n\n“Perlu kepala anak-anak,” Sendy ngotot. “Tetap perlu.”\n\n“Mau ditanam di mana lagi?”\n\n“Di bawah jembatan. Memang mau di mana lagi?”\n\n“Kenapa kamu tidak takut sama dia?” tanyaku. “Kamu anak-anak juga, sama seperti aku.”\n\n“Tidak sama. Tukang potong kep suka kepala anak-anak berambut lurus.”\n\nDibuka dengan ‘tukang potong kep’, kisah tentang tentara Jawa dan keluarganya yang tinggal di Papua tahun 1970 mengalir dari sudut pandang anak berusia tujuh tahun. Asih, tokoh utama dalam cerita ini, dengan berani sekaligus lugu, memotret kehidupan Jayapura, Papua di awal masa integrasi. Dibalut kisah masa kecil yang menyenangkan, permasalahan domestik hingga politik ditampilkan oleh penulis tanpa mengurangi rasa manis kehidupan anak-anak hingga akhir cerita.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "bookstore",
+        "sourceName": "Grobmart",
+        "sourceUrl": "https://www.grobmart.com/Buku/Buku-Novel-dan-Sastra/Lengking-Burung-Kasuari-9786020339825",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "",
+        "scrapeStatus": "metadata_only",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2016_NOVEL_03",
+    "judulBuku": "Tanah Surga Merah",
+    "publishedTitle": "Tanah Surga Merah",
+    "pengarang": "Arafat Nur",
+    "tahunMenang": "2016",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/48931894",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Pengorbanan dan cinta Murad yang luar biasa terhadap Aceh, ternyata tetap tidak bisa membuatnya diterima di tanah kelahirannya sendiri. Di mana pun dia berada, nyawanya selalu terancam.\n\nSetelah menembak seorang anggota dewan, Murad menjadi buronan yang paling dicari. Selain pembunuh, dia juga dikecam sebagai penjahat paling kejam dan berbahaya. Dia juga diyakini hendak mengacau pemilihan umum dan merongrong Pemerintahan Aceh Baru. Banyak pihak kalang-kabut memburu Murad. Beberapa kali dia sempat dipukuli dan nyaris tertangkap oleh orang-orang Partai Merah yang melacak tanpa henti.\n\nMurad terpaksa melarikan diri ke sebuah kampung paling terpencil dalam rimba yang tidak terdapat dalam peta. Di sana pulalah dia terperangkap dalam dunia asing dan ganjil, sambil tetap bertahan dengan menyamar sebagai teungku pandai agama.\n\nKetika penyamarannya nyaris terbongkar, Jemala, gadis yang diam-diam jatuh hati padanya, dengan gagah menyelamatkan Murad sesaat sebelum musuh tiba. Gadis itu melarikannya ke hutan belantara yang tidak pernah terjamah manusia. Di sanalah Murad dan Jemala menemukan sepetak surga yang membuat mereka terpana....",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads alt",
+        "sourceUrl": "https://www.goodreads.com/book/show/33822543-tanah-surga-merah",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Konflik politik di Nangroe Aceh Darussalam (NAD) bukan sekadar latar novel ini, tetapi juga inti cerita. Meski menjadikan gejolak politik lokal sebagai pokok cerita, naskah ini tidak terperangkap pada reportase jurnalistik. Ia menghadirkan seorang mantan tentara Gerakan Aceh Merdeka (GAM) yang pulang ke kampungnya dan menemukan kenyataan-kenyataan yang tidak sepenuhnya bisa ia terima. Ada harapan yang tidak terpenuhi tetapi juga ada keajaiban yang datang tanpa diminta. Disampaikan dengan gaya reportase yang tidak kering, novel ini dengan sabar membangun peristiwa demi peristiwa tentang tema-tema lokal yang sangat politis. Pengalaman romantis yang membayang samar di akhir naskah ini adalah sejumput harapan di tengah segala yang begitu mengekang. Benturan antara banyak kepentingan dan karakter, dengan amunisi konflik politik lokal, bukan hanya membuat naskah ini sebagai naskah novel politis tetapi juga memberi humor yang baik.... (Dewan Juri Sayembara Novel Dewan Kesenian Jakarta 2016)",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "publisher",
+        "sourceName": "Gramedia Pustaka Utama",
+        "sourceUrl": "https://gpu.id/book/92801/tanah-surga-merah",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Gramedia Pustaka Utama (GPU) is the biggest publishing house in Indonesia, and is a subsidiary of Kompas Gramedia, a leading mass media corporation. Established in 1974, GPU is headquartered in Jakarta and boasts a vast collection of high-quality books an",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 3,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2016_NOVEL_04",
+    "judulBuku": "Curriculum Vitae",
+    "publishedTitle": "Curriculum Vitae",
+    "pengarang": "Benny Arnas",
+    "tahunMenang": "2016",
+    "sources": [],
+    "coverage": {
+      "validSourceCount": 0,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2016_NOVEL_05",
+    "judulBuku": "24 Jam Bersama Gaspar",
+    "publishedTitle": "24 Jam Bersama Gaspar",
+    "pengarang": "Sabda Armandio",
+    "tahunMenang": "2016",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/34300076-24-jam-bersama-gaspar",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Tiga lelaki, tiga perempuan, dan satu motor berencana merampok toko emas. Semua karena sebuah kotak hitam.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads alt",
+        "sourceUrl": "https://www.goodreads.com/book/show/55593093",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Tiga lelaki, tiga perempuan, dan satu motor berencana merampok toko emas. Semua karena sebuah kotak hitam.\n\n“Ringan dan menyenangkan. Ia menghadirkan individu-individu yang sepintas tampak sepele namun sesungguhnya kaya dan mengayakan: mengandung kesadaran, sekaligus kritik atas konvensi cerita detektif. Dialog tokoh-tokohnya tampak berbobot, mengena, dengan alusi yang mengarah ke semesta dunia.” (Dewan Juri Sayembara Novel Dewan Kesenian Jakarta 2016)",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.com/books/about/24_Jam_Bersama_Gaspar.html?id=M0iGEAAAQBAJ",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Tiga lelaki, tiga perempuan, dan satu motor berencana merampok toko emas. Semua karena sebuah kotak hitam.\n\n“Ringan dan menyenangkan. Ia menghadirkan individu-individu yang sepintas tampak sepele namun sesungguhnya kaya dan mengayakan: mengandung kesadaran, sekaligus kritik atas konvensi cerita detektif. Dialog tokoh-tokohnya tampak berbobot, mengena, dengan alusi yang mengarah ke semesta dunia.” (Dewan Juri Sayembara Novel Dewan Kesenian Jakarta 2016)",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 3,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2018_NOVEL_01",
+    "judulBuku": "Orang-Orang Oetimu",
+    "publishedTitle": "Orang-Orang Oetimu",
+    "pengarang": "Felix K. Nesi",
+    "tahunMenang": "2018",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/en/book/show/49703003-orang-orang-oetimu",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Oetimu: suatu wilayah kecil di pelosok Nusa Tenggara Timur. Masa itu adalah paruh kedua 1990an, dan kejadian-kejadian di wilayah Indonesia selebihnya mau tak mau berdampak kepada kehidupan sosial orang-orang di kampung yang terpencil itu. Kolonialisme Indonesia di Timor Timur kian disorot dunia internasional, sementara warisan kekerasan antara militer Indonesia dan gerilyawan Fretilin ikut menyebar ke wilayah sekitarnya, demonstrasi menentang Soeharto kian marak di kalangan mahasiswa, dan Brazil berhadap-hadapan dengan Prancis di final Piala Dunia.\n\nNovel mengasyikkan yang menggambarkan masyarakat Timor Barat dengan segala kepelikannya, di mana gereja, negara, dan tentara berperan besar dalam kehidupan sosial. O ya, juga sopi dan seks.\n\n***\n\n“Sebuah contoh fiksi etnografis yang digarap dengan baik”\n\n—Pertanggungjawaban Dewan Juri Sayembara Novel DKJ 2018",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "bookstore",
+        "sourceName": "Perjamuan Buku",
+        "sourceUrl": "https://perjamuanbuku.com/product/orang-orang-oetimu/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Perjamuan Buku (PB) adalah toko buku radikal independen yang menyediakan buku-buku dan materi pilihan, terutama dalam bahasa Indonesia.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2018_NOVEL_02",
+    "judulBuku": "Anak Gembala yang Tertidur Panjang di Akhir Zaman",
+    "publishedTitle": "Anak Gembala yang Tertidur Panjang di Akhir Zaman",
+    "pengarang": "Ahmad Mustafa",
+    "tahunMenang": "2018",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/48497661-anak-gembala-yang-tertidur-panjang-di-akhir-zaman",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Novel Anak Gembala yang Tertidur Panjang di Akhir Zaman menuturkan kisah Rara Wilis dan Suko Djatmoko. Alurnya maju dan mundur, mencakup masa lebih dari tiga dekade, menembus dan mengaburkan batas antara realitas serta mimpi, bermain-main dalam kabar gaib serta penafsirannya, melompat-lompat di antara bahasan seks dan teologi, iman dan skeptisme, pelacur dan Tuhan, hikayat babi dan epos Mahabharata.\n\nLebih dari itu, novel ini diangkat dari kisah nyata. Maka benarlah, sesungguhnya kehidupan manusia sering kali lebih ganjil dari cerita fiksi mana pun.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "publisher",
+        "sourceName": "Shira Media",
+        "sourceUrl": "https://shiramedia.com/product/anak-gembala-yang-tertidur-panjang-di-akhir-zaman/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "",
+        "scrapeStatus": "metadata_only",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2018_NOVEL_03",
+    "judulBuku": "Balada Supri",
+    "publishedTitle": "Balada Supri",
+    "pengarang": "Mochamad Nasrullah",
+    "tahunMenang": "2018",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/en/book/show/50034690-balada-supri",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Maaf jika aku menemuimu begitu lama.\n\nBerikan aku alasan yang masuk akal!\n\nSalah seorang angkatan memopor kepalaku hingga aku hilang ingatan.\n\nAku percaya.\n\nDan beruntung aku disembuhkan oleh Si Nenek yang hutannya telah dibabat untuk jalan tol dan perkebunan sehingga ia harus menyadarkan orang-orang kota yang bertindak seenak dengkul mereka.\n\nPasti kau dimarah-marahi habis-habisan karena tidak membuatkannya kopi pahit?\n\nHampir setiap hari.\n\nBagaimana kau tahu aku di sini?\n\nAku diantar oleh Kuntilanak, bagaimana bapakku?\n\nIa mati bahagia.\n\n***\n\n\"Naskah ini ditulis dengan jenaka dan mengisahkan jatuh-bangunnya sebuah keluarga empat generasi dalam gaya realisme magis. Melalui lintas generasi kita dibawa pada gambar lebih besar berbagai peristiwa yang pernah terjadi di Indonesia, menyeret para tokoh ke dalam pusaran dan dampaknya pada kehidupan anak-cucu generasi selanjutnya. Metafora-metaforanya menggelitik dengan dialog yang cair dan alami. Tokoh-tokohnya tidak terjebak ke dalam stereotipe atau karikatur, memaparkan dengan jelas pergulatan batin dan adaptasi mereka di tengah berbagai perubahan.\"\n\n- Pertanggungjawaban Dewan Juri Sayembaya Novel DKJ 2018",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "bookstore",
+        "sourceName": "Mojokstore",
+        "sourceUrl": "https://mojokstore.com/product/balada-supri/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Pemenang III Sayembara Novel DKJ 2018\n\n“Naskah ini ditulis dengan jenaka dan mengisahkan jatuh-bangunnya sebuah keluarga empat generasi dalam gaya realisme magis. Melalui lintas generasi kita dibawa pada gambar lebih besar berbagai peristiwa yang pernah terjadi di Indonesia, menyeret para tokoh ke dalam pusaran dan dampaknya pada kehidupan anak-cucu generasi selanjutnya. Metafora-metaforanya menggelitik dengan dialog yang cair dan alami. Tokoh-tokohnya tidak terjebak ke dalam stereotipe atau karikatur, memaparkan dengan jelas pergulatan batin dan adaptasi mereka di tengah berbagai perubahan.”\n\n– Pertanggungjawaban Dewan Juri Sayembara Novel DKJ 2018",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2019_NOVEL_01",
+    "judulBuku": "Aib dan Nasib",
+    "publishedTitle": "Aib dan Nasib",
+    "pengarang": "Minanto",
+    "tahunMenang": "2019",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/54311290-aib-dan-nasib",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Pemenang Pertama Sayembara Novel Dewan Kesenian Jakarta 2019\n\n“Malah aku heran, kenapa TV-TV tidak datang ke Tegalurung buat siaran berita. Padahal kukira setiap hari pastilah ada berita kriminal, apalagi di Tegalurung. Tidak pagi tidak siang tidak sore tidak malam.”\n\nKehidupan warga desa Tegalurung rasanya akan membuyarkan gambaran tipikal kehidupan pedesaan di benak kita. Alih-alih damai dan harmonis, kita dapati aneka rupa konflik dari orang-orang yang dipertemukan dalam nasib dan terjalin oleh aib—konflik-konflik yang bersumber dari permasalahan-permasalahan lama seperti asmara dan kemiskinan, maupun dari permasalahan-permasalahan baru seperti media sosial dan politik elektoral tingkat lokal.\n\nDisusun dalam bentuk fragmen-fragmen episodik dengan alur maju-mundur, gairah eksperimentasi bentuk novel\n\nAib dan Nasib\n\nakan memberi pembaca pengalaman naratif yang tak terlupakan.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "publisher",
+        "sourceName": "Marjin Kiri",
+        "sourceUrl": "https://marjinkiri.id/product/aib-dan-nasib/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Minanto",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "media_review",
+        "sourceName": "Suara Mahasiswa UI",
+        "sourceUrl": "https://suaramahasiswa.com/aib-dan-nasib-tentang-ketidaktahuan",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Baca artikel lengkap di suaramahasiswa.com",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 3,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2019_NOVEL_02",
+    "judulBuku": "Sang Keris",
+    "publishedTitle": "Sang Keris",
+    "pengarang": "Panji Sukma",
+    "tahunMenang": "2019",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/id/book/show/50621920-sang-keris",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Kejayaan hanya bisa diraih dengan ilmu, perang, dan laku batin. Sedangkan kematian adalah jalan yang harus ditempuh dengan terhormat. Matilah dengan keris tertancap di dadamu sebagai seorang ksatria, bukan mati dengan tombak tertancap di punggungmu karena lari dari medan laga. Peradaban telah banyak berkisah tentang kekuasaan. Kekuasaan melahirkan para manusia\n\npinilih,\n\ndan manusia\n\npinilih\n\nselalu menggenggam sebuah pusaka.\n\nInilah novel pemenang kedua sayembara menulis paling prestisius. Cerita sebuah keris sekaligus rentetan sejarah sebuah bangsa. Sebuah keris yang merekam jejak masa lampau, saksi atas banyak peristiwa penting, dan sebuah ramalan akan Indonesia di masa depan.\n\n***\n\n“Novel beralur non-linier ini memecah dirinya dalam banyak bab panjang dan pendek, beberapa dapat berdiri sebagai cerita tersendiri ... memperlihatkan keberanian untuk menguji-coba bentuk dan isi.”\n\n—Pertanggungjawaban Juri Sayembara Novel Dewan Kesenian Jakarta 2019\n\n“\n\nSang Keris\n\nkarya Panji Sukma akan dibaca, dicerna, dan dinikmati masyarakat secara luas, akan masuk pada kelompok novel unggulan Indonesia.”\n\n—Ahmad Tohari\n\n“Pembaca akan dihantarkan dalam alur cerita dan ruang kosmis, serta tanpa sadar dituntun masuk dalam ruang kedalaman semadi.”\n\n—Basuki Teguh Yuwono",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "blog_review",
+        "sourceName": "Resensi Kiky / ilarizky",
+        "sourceUrl": "https://resensi.ilarizky.com/2021/11/resensi-buku-sang-keris-panji-sukma.html",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "blog buku, resensi buku, review buku, review novel bagus, buku indonesia, blog buku indonesia",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2019_NOVEL_03",
+    "judulBuku": "Haniyah dan Ala di Rumah Teteruga",
+    "publishedTitle": "Haniyah dan Ala di Rumah Teteruga",
+    "pengarang": "Erni Aladjai",
+    "tahunMenang": "2019",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/book/show/56856644-haniyah-dan-ala-di-rumah-teteruga",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Haniyah mencintai pohon-pohon cengkih, karena tanaman ini bisa berbagi kehidupan dengan tanaman-tanaman lainnya.\n\n...\n\n\"Tubuhmu harum cengkih,\" kata Ala.\n\n\"Saya dilahirkan dan mati di dalam hutan cengkih.\"\n\n...\n\nDi luar Rumah Teteruga, angin utara berembus dingin, kering, dan kencang, menggoyangkan ranting-ranting pohon gandaria dan matoa, menimbulkan suara gesekan di dinding rumah. Ala teringat kata-kata Ido, \"Ada orang-orang yang tumbuh kejam dalam kehidupan ini, mereka tidak digelayuti rasa bersalah dan memiliki hasrat melahap yang tak pernah surut, mereka sungguh menakutkan ketimbang hantu dan hewan-hewan buas.\"\n\n***\n\nDengan pelukisan suasana dan tradisi lokal yang kuat, pemberian karakter yang wajar dan hidup, naskah ini mengedepankan warga desa yang sederhana dalam hidupnya, di tengah pelbagai masalah yang merundung mereka. Novel etnografis ini tidak terjebak untuk sok eksotis, tetapi tampil wajar, termasuk tuturan bahasa Indonesia rasa lokal khas masyarakat setempat.\n\n-Catatan juri Sayembara Novel Dewan Kesenian Jakarta 2019",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.co.id/books?id=ryAZEAAAQBAJ",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "PEMENANG KETIGA SAYEMBARA NOVEL DKJ 2019 . Haniyah mencintai pohon-pohon cengkih, karena tanaman ini bisa berbagi kehidupan dengan tanaman-tanaman lainnya.  ÒTubuhmu harum cengkih,Ó kata Ala.  ÒSaya dilahirkan dan mati di dalam hutan cengkih.Ó  ---  Di luar Rumah Teteruga, angin utara berembus dingin, kering, dan kencang, menggoyangkan ranting-ranting pohon gandaria dan matoa, menimbulkan suara gesekan di dinding rumah. Ala teringat kata-kata Ido, ÒAda orang-orang yang tumbuh kejam dalam kehidupan ini, mereka tidak digelayuti rasa bersalah dan memiliki hasrat melahap yang tak pernah surut, mereka sungguh menakutkan ketimbang hantu dan hewan-hewan buas.Ó  Dengan pelukisan suasana dan tradisi lokal yang kuat, pemerian karakter yang wajar dan hidup, naskah ini mengedepankan warga desa yang sederhana dalam hidupnya, di tengah pelbagai masalah yang merundung mereka. Novel etnografis ini tidak terjebak untuk sok eksotis, tetapi tampil wajar, termasuk tuturan bahasa Indonesia rasa lokal khas masyarakat setempat.  ÑCatatan juri Sayembara Novel Dewan Kesenian Jakarta 2019",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 2,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2021_NOVEL_01",
+    "judulBuku": "Kereta Semar Lembu",
+    "publishedTitle": "Kereta Semar Lembu",
+    "pengarang": "Zaky Yamani",
+    "tahunMenang": "2021",
+    "sources": [
+      {
+        "sourceType": "publisher",
+        "sourceName": "Gramedia Pustaka Utama",
+        "sourceUrl": "https://gpu.id/book/93840/kereta-semar-lembu",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Gramedia Pustaka Utama (GPU) is the biggest publishing house in Indonesia, and is a subsidiary of Kompas Gramedia, a leading mass media corporation. Established in 1974, GPU is headquartered in Jakarta and boasts a vast collection of high-quality books an",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2021_NOVEL_02",
+    "judulBuku": "Berat",
+    "publishedTitle": "Berat",
+    "pengarang": "Amalia Yunus",
+    "tahunMenang": "2021",
+    "sources": [
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.co.id/books?id=B4fQEAAAQBAJ",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Dokter bilang, hidupmu paling lama dua tahun lagi kalau situasimu masih sama: morbidly obese. Kamu terhenyak, kemudian bertanya-tanya sendiri apakah hidupmu selama ini layak dipertahankan. Kamu terlalu letih. Kamu sudah nyaris putus asa ketika sesuatu meletik. Bagaimana jik itu mungkin dan kamu bisa menjalani hidup sebagaimana orang lain: jalan ke penatu, nongkrong di kafe seusai nonton film, dan menjalin pertemanan?\n\nProgram realitas XXXL membukakan kesempatan. Pacarmu, yang selama ini hadir untukmu, tidak setuju. Ia tidak mau dirimu dijadikan bahan drama dan olok-olok seluruh negeri. Ia mengancam, mundur dari acara itu atau hubungan kalian putus.\n\nBuku persembahan penerbit baNANA\n\n#baNANA",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2021_NOVEL_03",
+    "judulBuku": "Lantak La (Dramaturgi Anonim-Anonim)",
+    "publishedTitle": "Lantak La (Dramaturgi Anonim-Anonim)",
+    "pengarang": "Beri Hanna (Syawal Pebrian)",
+    "tahunMenang": "2021",
+    "sources": [
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.co.id/books?id=Jry9EAAAQBAJ",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Amarah mendorong Tagak Sikandung Batin mengembara sampai membelah laut dan mengawini paus. Keyakinan bahwa semua Binatang bisa terbang menggerakkan para penyihir membtungi kaki kuda-kuda. Kerugian bahwa tak bisa beroleh kuda-kuda berkaki utuh untuk ditukarkan dengan dengan budak memantik Sigindo Rujumlamo memerangi para penyihir dengan pasukan gajah. Kegemaran pada perempuan bertubuh besar membuat Sultan Hayinam selalu mencari cara agar Hasrat terpenuhi. Pencarian mendapatkan tuhan sejati menyebabkan Kaum Haret, yang pintar menyamar, berganti-ganti sesembahan, dan yang paling mereka sukai adalah yang bisa terbang.\n\nDi tengah silang sengkarut, muncul Tuan Padam yang bisa memadamkan api yang menyala dari orang-orang yang membaca Kitab Tapak Kuda. Pula, seorang perempuan muda jelita turun dari langit dengan kuda terbang dengan satu tujuan, menghabisi laki-laki yang nantinya mengawininya.\n\nMasuklah ke Lantak La, sebuah dunia di mana yang khayali dan yang sehari-hari bertabrakan dan membuatmu ingin bergabung dengan kaum penyihir.\n\nBuku persembahan penerbit baNANA\n\n#baNANA",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2023_NOVEL_01",
+    "judulBuku": "Tersesat Setelah Terlahir Kembali",
+    "publishedTitle": "Tersesat Setelah Terlahir Kembali",
+    "pengarang": "Yoga Zen",
+    "tahunMenang": "2023",
+    "sources": [
+      {
+        "sourceType": "goodreads",
+        "sourceName": "Goodreads",
+        "sourceUrl": "https://www.goodreads.com/en/book/show/223639068-tersesat-setelah-terlahir-kembali",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Juara 1 Sayembara Novel Dewan Kesenian Jakarta 2023\n\nDi hamparan tanah matrilineal pedalaman Sumatra, seorang lelaki asing dituntut mengikuti tradisi maskulin berburu babi. Tradisi itu kemudian menuntun si lelaki kepada obsesi dan kegilaan; melemparkannya kepada situasi asing dan baru; menjumpai mitos yang dikultuskan masyarakat setempat; dan menguak peristiwa pembantaian di masa silam. Di antara gegar budaya dan kegagalan beradaptasi, si lelaki juga berupaya menjawab dilema dari makna cinta yang sesungguhnya.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "publisher",
+        "sourceName": "Marjin Kiri",
+        "sourceUrl": "https://marjinkiri.id/product/tersesat-setelah-terlahir-kembali/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Yoga Zen",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      },
+      {
+        "sourceType": "media_review",
+        "sourceName": "KlikPositif / review linked on Goodreads",
+        "sourceUrl": "https://klikpositif.com/bila-kau-terobsesi-pada-rumah-tua-dan-orang-gila-yang-menghuninya/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "\"Kau memang memimpikannya. Jangan berpura-pura bodoh tidak mengingatnya; suara tembakan, desing peluru, orang-orang tertawa dan menangis, derap langkah kaki yang",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 3,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2023_NOVEL_02",
+    "judulBuku": "Leiden (2020–1920)",
+    "publishedTitle": "Leiden (2020–1920)",
+    "pengarang": "Hasbunallah Haris",
+    "tahunMenang": "2023",
+    "sources": [
+      {
+        "sourceType": "publisher",
+        "sourceName": "Gramedia Pustaka Utama",
+        "sourceUrl": "https://gpu.id/book/95104/leiden-2020-1920",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Gramedia Pustaka Utama (GPU) is the biggest publishing house in Indonesia, and is a subsidiary of Kompas Gramedia, a leading mass media corporation. Established in 1974, GPU is headquartered in Jakarta and boasts a vast collection of high-quality books an",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2023_NOVEL_03",
+    "judulBuku": "Tukang Intip",
+    "publishedTitle": "Tukang Intip",
+    "pengarang": "Ida Fitri",
+    "tahunMenang": "2023",
+    "sources": [
+      {
+        "sourceType": "publisher",
+        "sourceName": "Marjin Kiri",
+        "sourceUrl": "https://marjinkiri.id/product/paya-nie/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Ida Fitri",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2025_NOVEL_01",
+    "judulBuku": "Superbia O",
+    "publishedTitle": "Superbia O",
+    "pengarang": "Fajar Satriyo",
+    "tahunMenang": "2025",
+    "sources": [
+      {
+        "sourceType": "official_announcement",
+        "sourceName": "DKJ",
+        "sourceUrl": "https://dkj.or.id/50-tahun-merawat-mimpi-catatan-hangat-malam-anugerah-sayembara-novel-dkj-2025/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Setengah abad sudah, Sayembara Novel DKJ menjadi saksi bisu bagi ribuan jemari yang mengetikkan kegelisahan, cinta, dan kritik di atas kertas.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2025_NOVEL_02",
+    "judulBuku": "KARMILA, Cerita-Cerita Menjadi Dewasa dari Sendangan",
+    "publishedTitle": "KARMILA, Cerita-Cerita Menjadi Dewasa dari Sendangan",
+    "pengarang": "Dadang Ari Murtono",
+    "tahunMenang": "2025",
+    "sources": [
+      {
+        "sourceType": "official_announcement",
+        "sourceName": "DKJ",
+        "sourceUrl": "https://dkj.or.id/50-tahun-merawat-mimpi-catatan-hangat-malam-anugerah-sayembara-novel-dkj-2025/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Setengah abad sudah, Sayembara Novel DKJ menjadi saksi bisu bagi ribuan jemari yang mengetikkan kegelisahan, cinta, dan kritik di atas kertas.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2025_NOVEL_03",
+    "judulBuku": "Dor! Dor! Dor!",
+    "publishedTitle": "Dor! Dor! Dor!",
+    "pengarang": "Ahmad Muttagin",
+    "tahunMenang": "2025",
+    "sources": [
+      {
+        "sourceType": "official_announcement",
+        "sourceName": "DKJ",
+        "sourceUrl": "https://dkj.or.id/50-tahun-merawat-mimpi-catatan-hangat-malam-anugerah-sayembara-novel-dkj-2025/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Setengah abad sudah, Sayembara Novel DKJ menjadi saksi bisu bagi ribuan jemari yang mengetikkan kegelisahan, cinta, dan kritik di atas kertas.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2015_PUISI_01",
+    "judulBuku": "Sergius Mencari Bacchus",
+    "publishedTitle": "Sergius Mencari Bacchus",
+    "pengarang": "Norman Erikson Pasaribu",
+    "tahunMenang": "2015",
+    "sources": [
+      {
+        "sourceType": "google_books",
+        "sourceName": "Google Books",
+        "sourceUrl": "https://books.google.co.id/books?id=XIAMzgEACAAJ",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "\"Norman Erikson Pasaribu adalah suara ajaib dan cerdas yang baru-baru ini naik ke permukaan dunia sastra: puisi-puisinya adalah perayaan atas sejarah dan kemungkinan baru pada puisi. Patut diperhitungkan.\" -Christos Tsiolkas, pengarang The Slap",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2015_PUISI_02",
+    "judulBuku": "Kawitan",
+    "publishedTitle": "Kawitan",
+    "pengarang": "Ni Made Purnama Sari",
+    "tahunMenang": "2015",
+    "sources": [
+      {
+        "sourceType": "publisher",
+        "sourceName": "Gramedia Pustaka Utama",
+        "sourceUrl": "https://gpu.id/book/93292/kawitan",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Gramedia Pustaka Utama (GPU) is the biggest publishing house in Indonesia, and is a subsidiary of Kompas Gramedia, a leading mass media corporation. Established in 1974, GPU is headquartered in Jakarta and boasts a vast collection of high-quality books an",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2015_PUISI_03",
+    "judulBuku": "Ibu Mendulang, Anak Berlari",
+    "publishedTitle": "Ibu Mendulang, Anak Berlari",
+    "pengarang": "Cyntha Hariadi",
+    "tahunMenang": "2015",
+    "sources": [
+      {
+        "sourceType": "publisher",
+        "sourceName": "Gramedia Pustaka Utama",
+        "sourceUrl": "https://gpu.id/book/86223/ibu-mendulang-anak-berlari",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Gramedia Pustaka Utama (GPU) is the biggest publishing house in Indonesia, and is a subsidiary of Kompas Gramedia, a leading mass media corporation. Established in 1974, GPU is headquartered in Jakarta and boasts a vast collection of high-quality books an",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2021_PUISI_01",
+    "judulBuku": "Tidak ada",
+    "publishedTitle": "Tidak ada",
+    "pengarang": "—",
+    "tahunMenang": "2021",
+    "sources": [],
+    "coverage": {
+      "validSourceCount": 0,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2021_PUISI_02",
+    "judulBuku": "Korpus Ovarium: 3 Elegi Kepada Timor",
+    "publishedTitle": "Korpus Ovarium: 3 Elegi Kepada Timor",
+    "pengarang": "Royyan Julian",
+    "tahunMenang": "2021",
+    "sources": [
+      {
+        "sourceType": "web_article",
+        "sourceName": "Litera",
+        "sourceUrl": "https://www.litera.co.id/2021/12/22/lomba-puisi-dkj-tanpa-juara-pertama/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "JAKARTA (litera) – Dewan juri Sayembara Manuskrip Puisi DKJ 2021 memenangkan tiga karya terbaik, dan tanpa juara pertama. Juara kedua terdiri dari dua manuskrip, yaitu Korpus Ovarium: 3 Elegi Kepada Timor karya Royyan Julian, dan Sehimpun Nasihat Masuk Hutan karya Fariq Alfaruqi. Dewan Juri yang terdiri dari penyair Nezar Patria, Mario F. Lawi, dan Dorothea Rosa Herliany, juga memenangkan manuskrip berjudul Sapi dan Hantu karya Dadang Ari Murtono sebagai juara ketiga. Hasil sayembara yang diadakan oleh Dewan Kesenian Jakarta (DKJ) itu diumumkan secara daring dengan tajuk Malam Anugerah Sayembara Manuskrip Puisi Dewan Kesenian Jakarta, Rabu malam,…",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2021_PUISI_03",
+    "judulBuku": "Sehimpun Nasihat Masuk Hutan",
+    "publishedTitle": "Sehimpun Nasihat Masuk Hutan",
+    "pengarang": "Fariq Alfaruqi",
+    "tahunMenang": "2021",
+    "sources": [
+      {
+        "sourceType": "web_article",
+        "sourceName": "Litera",
+        "sourceUrl": "https://www.litera.co.id/2021/12/22/lomba-puisi-dkj-tanpa-juara-pertama/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "JAKARTA (litera) – Dewan juri Sayembara Manuskrip Puisi DKJ 2021 memenangkan tiga karya terbaik, dan tanpa juara pertama. Juara kedua terdiri dari dua manuskrip, yaitu Korpus Ovarium: 3 Elegi Kepada Timor karya Royyan Julian, dan Sehimpun Nasihat Masuk Hutan karya Fariq Alfaruqi. Dewan Juri yang terdiri dari penyair Nezar Patria, Mario F. Lawi, dan Dorothea Rosa Herliany, juga memenangkan manuskrip berjudul Sapi dan Hantu karya Dadang Ari Murtono sebagai juara ketiga. Hasil sayembara yang diadakan oleh Dewan Kesenian Jakarta (DKJ) itu diumumkan secara daring dengan tajuk Malam Anugerah Sayembara Manuskrip Puisi Dewan Kesenian Jakarta, Rabu malam,…",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2021_PUISI_04",
+    "judulBuku": "Sapi dan Hantu",
+    "publishedTitle": "Sapi dan Hantu",
+    "pengarang": "Dadang Ari Murtono",
+    "tahunMenang": "2021",
+    "sources": [
+      {
+        "sourceType": "web_article",
+        "sourceName": "Litera",
+        "sourceUrl": "https://www.litera.co.id/2021/12/22/lomba-puisi-dkj-tanpa-juara-pertama/",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "JAKARTA (litera) – Dewan juri Sayembara Manuskrip Puisi DKJ 2021 memenangkan tiga karya terbaik, dan tanpa juara pertama. Juara kedua terdiri dari dua manuskrip, yaitu Korpus Ovarium: 3 Elegi Kepada Timor karya Royyan Julian, dan Sehimpun Nasihat Masuk Hutan karya Fariq Alfaruqi. Dewan Juri yang terdiri dari penyair Nezar Patria, Mario F. Lawi, dan Dorothea Rosa Herliany, juga memenangkan manuskrip berjudul Sapi dan Hantu karya Dadang Ari Murtono sebagai juara ketiga. Hasil sayembara yang diadakan oleh Dewan Kesenian Jakarta (DKJ) itu diumumkan secara daring dengan tajuk Malam Anugerah Sayembara Manuskrip Puisi Dewan Kesenian Jakarta, Rabu malam,…",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2023_PUISI_01",
+    "judulBuku": "Selamat Malam, Kawan!",
+    "publishedTitle": "Selamat Malam, Kawan!",
+    "pengarang": "Muhaimin Nurrizqy",
+    "tahunMenang": "2023",
+    "sources": [
+      {
+        "sourceType": "marketplace",
+        "sourceName": "Shopee",
+        "sourceUrl": "https://shopee.co.id/Buku-Puisi-Selamat-Malam-Kawan%21-Muhaimin-Nurrizqy-Teroka-Press-i.53027980.29009197500",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "",
+        "scrapeStatus": "metadata_only",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 0,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2023_PUISI_02",
+    "judulBuku": "Suatu Hari di Batas Ilmu Pengetahuan",
+    "publishedTitle": "Suatu Hari di Batas Ilmu Pengetahuan",
+    "pengarang": "Heru Joni Putra",
+    "tahunMenang": "2023",
+    "sources": [
+      {
+        "sourceType": "marketplace",
+        "sourceName": "Shopee",
+        "sourceUrl": "https://shopee.co.id/Suatu-Hari-di-Batas-Ilmu-Pengetahuan-Heru-Joni-Putra-i.53027980.49902038650",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "",
+        "scrapeStatus": "metadata_only",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 0,
+      "targetReached": false
+    }
+  },
+  {
+    "id": "DKJ_2023_PUISI_03",
+    "judulBuku": "Gentayangan Puitika",
+    "publishedTitle": "Gentayangan Puitika",
+    "pengarang": "Amos Ursia",
+    "tahunMenang": "2023",
+    "sources": [
+      {
+        "sourceType": "author_page",
+        "sourceName": "Kalam Sastra",
+        "sourceUrl": "https://kalamsastra.id/kontributor/amos-ursia",
+        "rawSynopsisContributor": "",
+        "rawSynopsisFullText": "Kalam adalah platform yang terbuka bagi para penulis, penyair, penerjemah, dan kritikus yang ingin berkontribusi dalam memperkaya khazanah sastra Indonesia. Kami menerima karya-karya sastra dalam bentuk puisi, prosa, esai, serta ulasan yang berkaitan dengan sastra. Kami percaya bahwa sastra adalah cara yang ampuh untuk menyampaikan gagasan, merayakan keanekaragaman bahasa, dan menjembatani berbagai budaya.",
+        "scrapeStatus": "raw_collected",
+        "validationNote": "Auto-scraped via V3 pipeline."
+      }
+    ],
+    "coverage": {
+      "validSourceCount": 1,
+      "targetReached": false
+    }
+  }
+]

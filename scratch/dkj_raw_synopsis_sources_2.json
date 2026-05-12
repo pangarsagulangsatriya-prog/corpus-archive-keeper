@@ -1,0 +1,972 @@
+[
+  {
+    "id": "DKJ_2003_NOVEL_01",
+    "judul": "Dadaisme",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/id/book/show/6669931-dadaisme",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads page with description."
+  },
+  {
+    "id": "DKJ_2003_NOVEL_01",
+    "judul": "Dadaisme",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.com/books/about/Dadaisme.html?id=UJ9kAAAAMAAJ",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 2,
+    "notes": "Google Books metadata/snippet."
+  },
+  {
+    "id": "DKJ_2003_NOVEL_02",
+    "judul": "Geni Jora",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/1489158.Geni_Jora",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads page with description."
+  },
+  {
+    "id": "DKJ_2003_NOVEL_02",
+    "judul": "Geni Jora",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.com/books/about/Geni_Jora.html?id=fmzlKMELxRAC",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Google Books description."
+  },
+  {
+    "id": "DKJ_2003_NOVEL_03",
+    "judul": "Tabula Rasa",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/1905582.Tabula_Rasa",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads page with description."
+  },
+  {
+    "id": "DKJ_2003_NOVEL_03",
+    "judul": "Tabula Rasa",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads alt edition",
+    "sourceUrl": "https://www.goodreads.com/book/show/23300814",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 3,
+    "notes": "Goodreads alternate edition with blurb."
+  },
+  {
+    "id": "DKJ_2003_NOVEL_04",
+    "judul": "Ular Keempat",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/en/book/show/2559175.Ular_Keempat",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads page with detailed description/jury note."
+  },
+  {
+    "id": "DKJ_2003_NOVEL_05",
+    "judul": "Tanah Biru",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/7192606-tanah-biru",
+    "sourceHasSynopsisLikelihood": "low",
+    "priority": 3,
+    "notes": "Goodreads metadata candidate; synopsis not confirmed."
+  },
+  {
+    "id": "DKJ_2006_NOVEL_01",
+    "judul": "Hubbu",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/1737064.Hubbu",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2006_NOVEL_02",
+    "judul": "Mutiara Karam",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.com/books/about/Mutiara_karam.html?id=0HMLAQAAMAAJ",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 2,
+    "notes": "Google Books metadata/snippet."
+  },
+  {
+    "id": "DKJ_2006_NOVEL_02",
+    "judul": "Mutiara Karam",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/id/book/show/13071671-mutiara-karam",
+    "sourceHasSynopsisLikelihood": "low",
+    "priority": 3,
+    "notes": "Goodreads has reviews/metadata; synopsis uncertain."
+  },
+  {
+    "id": "DKJ_2006_NOVEL_02",
+    "judul": "Mutiara Karam",
+    "sourceType": "library_catalog",
+    "sourceName": "Kios Perpustakaan Jakarta",
+    "sourceUrl": "https://kios-perpustakaan.jakarta.go.id/catalogue/detail/256242",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Katalog terbit/cetakan; sinopsis perlu cek detail katalog/OPAC."
+  },
+  {
+    "id": "DKJ_2006_NOVEL_03",
+    "judul": "Jukstaposisi",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.com/books/about/Jukstaposisi.html?id=Cr6aCgAAQBAJ",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Google Books description."
+  },
+  {
+    "id": "DKJ_2006_NOVEL_04",
+    "judul": "Glonggong",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/en/book/show/1697318.Glonggong",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2006_NOVEL_04",
+    "judul": "Glonggong",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.com/books/about/Glonggong.html?id=jvOhqVB60BoC",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Google Books description."
+  },
+  {
+    "id": "DKJ_2006_NOVEL_05",
+    "judul": "Lanang",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/3303766-lanang",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2006_NOVEL_05",
+    "judul": "Lanang",
+    "sourceType": "publisher",
+    "sourceName": "Alvabet",
+    "sourceUrl": "https://alvabet.co.id/index.php?Itemid=71&flypage=flypage.tpl&option=com_virtuemart&page=shop.product_details&pop=0&product_id=51",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Halaman produk penerbit; cek apakah ada deskripsi/sinopsis."
+  },
+  {
+    "id": "DKJ_2008_NOVEL_01",
+    "judul": "Tanah Tabu",
+    "sourceType": "publisher",
+    "sourceName": "Gramedia Pustaka Utama",
+    "sourceUrl": "https://gpu.id/book/82236/tanah-tabu",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 1,
+    "notes": "Publisher page from master link."
+  },
+  {
+    "id": "DKJ_2008_NOVEL_01",
+    "judul": "Tanah Tabu",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/27410804",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2008_NOVEL_01",
+    "judul": "Tanah Tabu",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads alt edition",
+    "sourceUrl": "https://www.goodreads.com/id/book/show/6468957",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads alt edition with jury blurbs."
+  },
+  {
+    "id": "DKJ_2008_NOVEL_01",
+    "judul": "Tanah Tabu",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.com/books/about/Tanah_tabu.html?id=pvvRs009lgEC",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 2,
+    "notes": "Google Books metadata."
+  },
+  {
+    "id": "DKJ_2010_NOVEL_01",
+    "judul": "Persiden",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.com/books/about/Persiden.html?id=G_RfCwAAQBAJ",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 2,
+    "notes": "Google Books candidate."
+  },
+  {
+    "id": "DKJ_2010_NOVEL_01",
+    "judul": "Persiden",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/en/book/show/17859010-persiden",
+    "sourceHasSynopsisLikelihood": "low",
+    "priority": 3,
+    "notes": "Goodreads metadata/reviews; synopsis uncertain."
+  },
+  {
+    "id": "DKJ_2010_NOVEL_02",
+    "judul": "Lampuki",
+    "sourceType": "publisher",
+    "sourceName": "Gramedia Pustaka Utama",
+    "sourceUrl": "https://gpu.id/book/92800/lampuki",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Bagian Summary GPU."
+  },
+  {
+    "id": "DKJ_2010_NOVEL_03",
+    "judul": "Jatisaba",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/34628967-jatisaba",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2010_NOVEL_03",
+    "judul": "Jatisaba",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.com/books/about/Jatisaba.html?id=YpV3qy92lekC",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 2,
+    "notes": "Google Books metadata/preview."
+  },
+  {
+    "id": "DKJ_2010_NOVEL_03",
+    "judul": "Jatisaba",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads alt edition",
+    "sourceUrl": "https://www.goodreads.com/id/book/show/11153609-jatisaba",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Goodreads alt edition/jury blurb."
+  },
+  {
+    "id": "DKJ_2010_NOVEL_04",
+    "judul": "Memoar Alang-alang / Tan: Sebuah Novel",
+    "sourceType": "bookstore",
+    "sourceName": "Gramedia",
+    "sourceUrl": "https://www.gramedia.com/products/tan-sebuah-novel",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Judul terbit berubah menjadi Tan: Sebuah Novel; cek deskripsi produk."
+  },
+  {
+    "id": "DKJ_2010_NOVEL_04",
+    "judul": "Memoar Alang-alang / Tan: Sebuah Novel",
+    "sourceType": "publisher",
+    "sourceName": "Javanica",
+    "sourceUrl": "https://javanica.co.id/buku/sebuah-novel-tentang-tan-malaka/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Halaman penerbit untuk Tan: Sebuah Novel."
+  },
+  {
+    "id": "DKJ_2012_NOVEL_01",
+    "judul": "Semusim, dan Semusim Lagi",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/17786176",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2012_NOVEL_01",
+    "judul": "Semusim, dan Semusim Lagi",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.com/books/about/Semusim_dan_Semusim_Lagi.html?id=WVVFDwAAQBAJ",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Google Books description/preview."
+  },
+  {
+    "id": "DKJ_2012_NOVEL_01",
+    "judul": "Semusim, dan Semusim Lagi",
+    "sourceType": "publisher",
+    "sourceName": "Gramedia Pustaka Utama",
+    "sourceUrl": "https://gpu.id/book/93612/semusim-dan-semusim-lagi",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Bagian Summary GPU."
+  },
+  {
+    "id": "DKJ_2012_NOVEL_02",
+    "judul": "Dasamuka",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/35138739-dasamuka",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads English edition description."
+  },
+  {
+    "id": "DKJ_2012_NOVEL_02",
+    "judul": "Dasamuka",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads Indonesian edition",
+    "sourceUrl": "https://www.goodreads.com/book/show/23342716-dasamuka",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads Indonesian description."
+  },
+  {
+    "id": "DKJ_2012_NOVEL_02",
+    "judul": "Dasamuka",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.com/books/about/Dasamuka.html?id=BlmltAEACAAJ",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Google Books description."
+  },
+  {
+    "id": "DKJ_2012_NOVEL_02",
+    "judul": "Dasamuka",
+    "sourceType": "publisher",
+    "sourceName": "Dalang Publishing",
+    "sourceUrl": "https://indonesian.dalangpublishing.com/selamatan-peluncuran-buku-dasamuka",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Berisi konteks peluncuran dan sampul belakang; bukan halaman sinopsis standar."
+  },
+  {
+    "id": "DKJ_2012_NOVEL_02",
+    "judul": "Dasamuka",
+    "sourceType": "publisher",
+    "sourceName": "Penerbit Ombak",
+    "sourceUrl": "https://penerbitombak.com/product/dasamuka/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Halaman penerbit; cek deskripsi produk."
+  },
+  {
+    "id": "DKJ_2012_NOVEL_03",
+    "judul": "Kei",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads English edition",
+    "sourceUrl": "https://www.goodreads.com/book/show/23338066-kei",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads English description."
+  },
+  {
+    "id": "DKJ_2012_NOVEL_03",
+    "judul": "Kei: Kutemukan Cinta di Tengah Perang",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads Indonesian edition",
+    "sourceUrl": "https://www.goodreads.com/id/book/show/18367554-kei",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads Indonesian description."
+  },
+  {
+    "id": "DKJ_2012_NOVEL_03",
+    "judul": "Kei",
+    "sourceType": "publisher",
+    "sourceName": "GagasMedia",
+    "sourceUrl": "https://gagasmedia.net/k-e-i/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Halaman publisher; cek deskripsi."
+  },
+  {
+    "id": "DKJ_2012_NOVEL_05",
+    "judul": "Surat Panjang Tentang Jarak Kita yang Jutaan Tahun Cahaya",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/en/book/show/18000754-surat-panjang-tentang-jarak-kita-yang-jutaan-tahun-cahaya",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2012_NOVEL_05",
+    "judul": "Surat Panjang Tentang Jarak Kita yang Jutaan Tahun Cahaya",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads alt",
+    "sourceUrl": "https://goodreads.com/book/show/18000754.Surat_Panjang_Tentang_Jarak_Kita_yang_Jutaan_Tahun_Cahaya",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2012_NOVEL_05",
+    "judul": "Surat Panjang Tentang Jarak Kita yang Jutaan Tahun Cahaya",
+    "sourceType": "publisher",
+    "sourceName": "Gramedia Pustaka Utama",
+    "sourceUrl": "https://gpu.id/book/86910/surat-panjang-tentang-jarak-kita-yang-jutaan-tahun-cahaya",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Halaman GPU."
+  },
+  {
+    "id": "DKJ_2014_NOVEL_01",
+    "judul": "Kambing dan Hujan",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/40106696-kambing-dan-hujan",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2014_NOVEL_01",
+    "judul": "Kambing dan Hujan",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads alt",
+    "sourceUrl": "https://goodreads.com/book/show/25724235.Kambing___Hujan_Sebuah_Roman",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads alt edition with DKJ note."
+  },
+  {
+    "id": "DKJ_2014_NOVEL_01",
+    "judul": "Kambing dan Hujan",
+    "sourceType": "publisher",
+    "sourceName": "Bentang Pustaka",
+    "sourceUrl": "https://bentangpustaka.com/buku/kambing-dan-hujan/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Halaman publisher; cek sinopsis."
+  },
+  {
+    "id": "DKJ_2014_NOVEL_02",
+    "judul": "Di Tanah Lada",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/219765224-di-tanah-lada",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2014_NOVEL_02",
+    "judul": "Di Tanah Lada",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads alt",
+    "sourceUrl": "https://www.goodreads.com/book/show/58527608-di-tanah-lada",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads alt edition."
+  },
+  {
+    "id": "DKJ_2014_NOVEL_02",
+    "judul": "Di Tanah Lada",
+    "sourceType": "fliphtml5",
+    "sourceName": "FlipHTML5",
+    "sourceUrl": "https://fliphtml5.com/fdufi/avne/Di_Tanah_Lada_by_Ziggy_Zezsyazeoviennazabrizkie/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Single file; paratext/back/front matter dapat dicek."
+  },
+  {
+    "id": "DKJ_2014_NOVEL_02",
+    "judul": "Di Tanah Lada",
+    "sourceType": "publisher",
+    "sourceName": "Gramedia Pustaka Utama",
+    "sourceUrl": "https://gpu.id/book/89342/di-tanah-lada",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Bagian Summary GPU."
+  },
+  {
+    "id": "DKJ_2014_NOVEL_03",
+    "judul": "Napas Mayat",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/25488502-napas-mayat",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2014_NOVEL_03",
+    "judul": "Napas Mayat",
+    "sourceType": "publisher",
+    "sourceName": "Gramedia Pustaka Utama",
+    "sourceUrl": "https://gpu.id/book/88874/napas-mayat",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Bagian Summary GPU."
+  },
+  {
+    "id": "DKJ_2014_NOVEL_04",
+    "judul": "Puya ke Puya",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/26879907-puya-ke-puya",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2016_NOVEL_01",
+    "judul": "Semua Ikan di Langit",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/en/book/show/33848032-semua-ikan-di-langit",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2016_NOVEL_01",
+    "judul": "Semua Ikan di Langit",
+    "sourceType": "fliphtml5",
+    "sourceName": "FlipHTML5",
+    "sourceUrl": "https://fliphtml5.com/izjcm/qpjr/Semua_Ikan_Di_Langit_Karya_Ziggy._Z/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Single file; paratext/back/front matter dapat dicek."
+  },
+  {
+    "id": "DKJ_2016_NOVEL_02",
+    "judul": "Lengking Burung Kasuari",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://goodreads.com/book/show/34630175.Lengking_Burung_Kasuari",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2016_NOVEL_02",
+    "judul": "Lengking Burung Kasuari",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads alt",
+    "sourceUrl": "https://www.goodreads.com/en/book/show/34630175-lengking-burung-kasuari",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads alt."
+  },
+  {
+    "id": "DKJ_2016_NOVEL_02",
+    "judul": "Lengking Burung Kasuari",
+    "sourceType": "bookstore",
+    "sourceName": "Grobmart",
+    "sourceUrl": "https://www.grobmart.com/Buku/Buku-Novel-dan-Sastra/Lengking-Burung-Kasuari-9786020339825",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Halaman toko; cek description."
+  },
+  {
+    "id": "DKJ_2016_NOVEL_03",
+    "judul": "Tanah Surga Merah",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/48931894",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2016_NOVEL_03",
+    "judul": "Tanah Surga Merah",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads alt",
+    "sourceUrl": "https://www.goodreads.com/book/show/33822543-tanah-surga-merah",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads jury blurb."
+  },
+  {
+    "id": "DKJ_2016_NOVEL_03",
+    "judul": "Tanah Surga Merah",
+    "sourceType": "publisher",
+    "sourceName": "Gramedia Pustaka Utama",
+    "sourceUrl": "https://gpu.id/book/92801/tanah-surga-merah",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Bagian Summary GPU."
+  },
+  {
+    "id": "DKJ_2016_NOVEL_05",
+    "judul": "24 Jam Bersama Gaspar",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/34300076-24-jam-bersama-gaspar",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads short description."
+  },
+  {
+    "id": "DKJ_2016_NOVEL_05",
+    "judul": "24 Jam Bersama Gaspar",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads alt",
+    "sourceUrl": "https://www.goodreads.com/book/show/55593093",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads alt with jury blurb."
+  },
+  {
+    "id": "DKJ_2016_NOVEL_05",
+    "judul": "24 Jam Bersama Gaspar",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.com/books/about/24_Jam_Bersama_Gaspar.html?id=M0iGEAAAQBAJ",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Google Books description."
+  },
+  {
+    "id": "DKJ_2018_NOVEL_01",
+    "judul": "Orang-Orang Oetimu",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/en/book/show/49703003-orang-orang-oetimu",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2018_NOVEL_01",
+    "judul": "Orang-Orang Oetimu",
+    "sourceType": "bookstore",
+    "sourceName": "Perjamuan Buku",
+    "sourceUrl": "https://perjamuanbuku.com/product/orang-orang-oetimu/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Halaman toko; cek description."
+  },
+  {
+    "id": "DKJ_2018_NOVEL_02",
+    "judul": "Anak Gembala yang Tertidur Panjang di Akhir Zaman",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/48497661-anak-gembala-yang-tertidur-panjang-di-akhir-zaman",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2018_NOVEL_02",
+    "judul": "Anak Gembala yang Tertidur Panjang di Akhir Zaman",
+    "sourceType": "publisher",
+    "sourceName": "Shira Media",
+    "sourceUrl": "https://shiramedia.com/product/anak-gembala-yang-tertidur-panjang-di-akhir-zaman/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Halaman penerbit."
+  },
+  {
+    "id": "DKJ_2018_NOVEL_03",
+    "judul": "Balada Supri",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/en/book/show/50034690-balada-supri",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2018_NOVEL_03",
+    "judul": "Balada Supri",
+    "sourceType": "bookstore",
+    "sourceName": "Mojokstore",
+    "sourceUrl": "https://mojokstore.com/product/balada-supri/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Halaman toko memuat deskripsi/blurb."
+  },
+  {
+    "id": "DKJ_2019_NOVEL_01",
+    "judul": "Aib dan Nasib",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/54311290-aib-dan-nasib",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2019_NOVEL_01",
+    "judul": "Aib dan Nasib",
+    "sourceType": "publisher",
+    "sourceName": "Marjin Kiri",
+    "sourceUrl": "https://marjinkiri.id/product/aib-dan-nasib/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Halaman publisher."
+  },
+  {
+    "id": "DKJ_2019_NOVEL_01",
+    "judul": "Aib dan Nasib",
+    "sourceType": "media_review",
+    "sourceName": "Suara Mahasiswa UI",
+    "sourceUrl": "https://suaramahasiswa.com/aib-dan-nasib-tentang-ketidaktahuan",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Bukan sinopsis resmi; dapat dipakai sumber tambahan."
+  },
+  {
+    "id": "DKJ_2019_NOVEL_02",
+    "judul": "Sang Keris",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/id/book/show/50621920-sang-keris",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2019_NOVEL_02",
+    "judul": "Sang Keris",
+    "sourceType": "blog_review",
+    "sourceName": "Resensi Kiky / ilarizky",
+    "sourceUrl": "https://resensi.ilarizky.com/2021/11/resensi-buku-sang-keris-panji-sukma.html",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Blog review; ada bagian Sinopsis Buku."
+  },
+  {
+    "id": "DKJ_2019_NOVEL_03",
+    "judul": "Haniyah dan Ala di Rumah Teteruga",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/book/show/56856644-haniyah-dan-ala-di-rumah-teteruga",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2019_NOVEL_03",
+    "judul": "Haniyah dan Ala di Rumah Teteruga",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.co.id/books?id=ryAZEAAAQBAJ",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Google Books preview/description."
+  },
+  {
+    "id": "DKJ_2021_NOVEL_01",
+    "judul": "Kereta Semar Lembu",
+    "sourceType": "publisher",
+    "sourceName": "Gramedia Pustaka Utama",
+    "sourceUrl": "https://gpu.id/book/93840/kereta-semar-lembu",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Bagian Summary GPU."
+  },
+  {
+    "id": "DKJ_2021_NOVEL_02",
+    "judul": "Berat / Bagaimana Cara Mengurangi Berat Badan",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.co.id/books?id=B4fQEAAAQBAJ",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Judul terbit berbeda; cek description."
+  },
+  {
+    "id": "DKJ_2021_NOVEL_03",
+    "judul": "Lantak La (Dramaturgi Anonim-Anonim)",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.co.id/books?id=Jry9EAAAQBAJ",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Cek description Google Books."
+  },
+  {
+    "id": "DKJ_2023_NOVEL_01",
+    "judul": "Tersesat Setelah Terlahir Kembali",
+    "sourceType": "goodreads",
+    "sourceName": "Goodreads",
+    "sourceUrl": "https://www.goodreads.com/en/book/show/223639068-tersesat-setelah-terlahir-kembali",
+    "sourceHasSynopsisLikelihood": "high",
+    "priority": 2,
+    "notes": "Goodreads description."
+  },
+  {
+    "id": "DKJ_2023_NOVEL_01",
+    "judul": "Tersesat Setelah Terlahir Kembali",
+    "sourceType": "publisher",
+    "sourceName": "Marjin Kiri",
+    "sourceUrl": "https://marjinkiri.id/product/tersesat-setelah-terlahir-kembali/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Halaman publisher."
+  },
+  {
+    "id": "DKJ_2023_NOVEL_01",
+    "judul": "Tersesat Setelah Terlahir Kembali",
+    "sourceType": "media_review",
+    "sourceName": "KlikPositif / review linked on Goodreads",
+    "sourceUrl": "https://klikpositif.com/bila-kau-terobsesi-pada-rumah-tua-dan-orang-gila-yang-menghuninya/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 4,
+    "notes": "Review source mentioned in Goodreads text."
+  },
+  {
+    "id": "DKJ_2023_NOVEL_02",
+    "judul": "Leiden 2020–1920",
+    "sourceType": "publisher",
+    "sourceName": "Gramedia Pustaka Utama",
+    "sourceUrl": "https://gpu.id/book/95104/leiden-2020-1920",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Bagian Summary GPU."
+  },
+  {
+    "id": "DKJ_2023_NOVEL_03",
+    "judul": "Tukang Intip / Paya Nie",
+    "sourceType": "publisher",
+    "sourceName": "Marjin Kiri",
+    "sourceUrl": "https://marjinkiri.id/product/paya-nie/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Tukang Intip terbit sebagai Paya Nie."
+  },
+  {
+    "id": "DKJ_2025_NOVEL_01",
+    "judul": "Superbia O",
+    "sourceType": "official_announcement",
+    "sourceName": "DKJ",
+    "sourceUrl": "https://dkj.or.id/50-tahun-merawat-mimpi-catatan-hangat-malam-anugerah-sayembara-novel-dkj-2025/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Belum ketemu halaman buku/sinopsis."
+  },
+  {
+    "id": "DKJ_2025_NOVEL_02",
+    "judul": "KARMILA, Cerita-Cerita Menjadi Dewasa dari Sendangan",
+    "sourceType": "official_announcement",
+    "sourceName": "DKJ",
+    "sourceUrl": "https://dkj.or.id/50-tahun-merawat-mimpi-catatan-hangat-malam-anugerah-sayembara-novel-dkj-2025/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Belum ketemu halaman buku/sinopsis."
+  },
+  {
+    "id": "DKJ_2025_NOVEL_03",
+    "judul": "Dor! Dor! Dor!",
+    "sourceType": "official_announcement",
+    "sourceName": "DKJ",
+    "sourceUrl": "https://dkj.or.id/50-tahun-merawat-mimpi-catatan-hangat-malam-anugerah-sayembara-novel-dkj-2025/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Belum ketemu halaman buku/sinopsis."
+  },
+  {
+    "id": "DKJ_2015_PUISI_01",
+    "judul": "Sergius Mencari Bacchus",
+    "sourceType": "google_books",
+    "sourceName": "Google Books",
+    "sourceUrl": "https://books.google.co.id/books?id=XIAMzgEACAAJ",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Google Books entry; cek description bila tersedia."
+  },
+  {
+    "id": "DKJ_2015_PUISI_02",
+    "judul": "Kawitan",
+    "sourceType": "publisher",
+    "sourceName": "Gramedia Pustaka Utama",
+    "sourceUrl": "https://gpu.id/book/93292/kawitan",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Halaman GPU."
+  },
+  {
+    "id": "DKJ_2015_PUISI_03",
+    "judul": "Ibu Mendulang, Anak Berlari",
+    "sourceType": "publisher",
+    "sourceName": "Gramedia Pustaka Utama",
+    "sourceUrl": "https://gpu.id/book/86223/ibu-mendulang-anak-berlari",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Halaman GPU."
+  },
+  {
+    "id": "DKJ_2021_PUISI_02",
+    "judul": "Korpus Ovarium: 3 Elegi Kepada Timor",
+    "sourceType": "web_article",
+    "sourceName": "Litera",
+    "sourceUrl": "https://www.litera.co.id/2021/12/22/lomba-puisi-dkj-tanpa-juara-pertama/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Bukan sinopsis buku resmi; keterangan manuskrip dari artikel."
+  },
+  {
+    "id": "DKJ_2021_PUISI_03",
+    "judul": "Sehimpun Nasihat Masuk Hutan",
+    "sourceType": "web_article",
+    "sourceName": "Litera",
+    "sourceUrl": "https://www.litera.co.id/2021/12/22/lomba-puisi-dkj-tanpa-juara-pertama/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Bukan sinopsis buku resmi; keterangan manuskrip dari artikel."
+  },
+  {
+    "id": "DKJ_2021_PUISI_04",
+    "judul": "Sapi dan Hantu",
+    "sourceType": "web_article",
+    "sourceName": "Litera",
+    "sourceUrl": "https://www.litera.co.id/2021/12/22/lomba-puisi-dkj-tanpa-juara-pertama/",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Bukan sinopsis buku resmi; keterangan manuskrip dari artikel."
+  },
+  {
+    "id": "DKJ_2023_PUISI_01",
+    "judul": "Selamat Malam, Kawan!",
+    "sourceType": "marketplace",
+    "sourceName": "Shopee",
+    "sourceUrl": "https://shopee.co.id/Buku-Puisi-Selamat-Malam-Kawan%21-Muhaimin-Nurrizqy-Teroka-Press-i.53027980.29009197500",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Marketplace; cek deskripsi."
+  },
+  {
+    "id": "DKJ_2023_PUISI_02",
+    "judul": "Suatu Hari di Batas Ilmu Pengetahuan",
+    "sourceType": "marketplace",
+    "sourceName": "Shopee",
+    "sourceUrl": "https://shopee.co.id/Suatu-Hari-di-Batas-Ilmu-Pengetahuan-Heru-Joni-Putra-i.53027980.49902038650",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Marketplace; cek deskripsi."
+  },
+  {
+    "id": "DKJ_2023_PUISI_03",
+    "judul": "Gentayangan Puitika",
+    "sourceType": "author_page",
+    "sourceName": "Kalam Sastra",
+    "sourceUrl": "https://kalamsastra.id/kontributor/amos-ursia",
+    "sourceHasSynopsisLikelihood": "medium",
+    "priority": 3,
+    "notes": "Konteks penulis/karya; belum halaman buku."
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "DKJ_2010_NOVEL_02",
+    "judul": "Lampuki",
+    "sourceType": "publisher",
+    "sourceName": "Gramedia Pustaka Utama",
+    "sourceUrl": "https://gpu.id/book/92800/lampuki",
+    "selectorHint": "",
+    "rawSynopsisContributor": "",
+    "rawSynopsisFullText": "",
+    "scrapeStatus": "ready_to_scrape"
+  },
+  {
+    "id": "DKJ_2012_NOVEL_01",
+    "judul": "Semusim, dan Semusim Lagi",
+    "sourceType": "publisher",
+    "sourceName": "Gramedia Pustaka Utama",
+    "sourceUrl": "https://gpu.id/book/93612/semusim-dan-semusim-lagi",
+    "selectorHint": "",
+    "rawSynopsisContributor": "",
+    "rawSynopsisFullText": "",
+    "scrapeStatus": "ready_to_scrape"
+  },
+  {
+    "id": "DKJ_2014_NOVEL_02",
+    "judul": "Di Tanah Lada",
+    "sourceType": "publisher",
+    "sourceName": "Gramedia Pustaka Utama",
+    "sourceUrl": "https://gpu.id/book/89342/di-tanah-lada",
+    "selectorHint": "",
+    "rawSynopsisContributor": "",
+    "rawSynopsisFullText": "",
+    "scrapeStatus": "ready_to_scrape"
+  },
+  {
+    "id": "DKJ_2019_NOVEL_01",
+    "judul": "Aib dan Nasib",
+    "sourceType": "publisher",
+    "sourceName": "Marjin Kiri",
+    "sourceUrl": "https://marjinkiri.id/product/aib-dan-nasib/",
+    "selectorHint": "",
+    "rawSynopsisContributor": "",
+    "rawSynopsisFullText": "",
+    "scrapeStatus": "ready_to_scrape"
+  },
+  {
+    "id": "DKJ_2023_NOVEL_01",
+    "judul": "Tersesat Setelah Terlahir Kembali",
+    "sourceType": "publisher",
+    "sourceName": "Marjin Kiri",
+    "sourceUrl": "https://marjinkiri.id/product/tersesat-setelah-terlahir-kembali/",
+    "selectorHint": "",
+    "rawSynopsisContributor": "",
+    "rawSynopsisFullText": "",
+    "scrapeStatus": "ready_to_scrape"
+  },
+  {
+    "id": "DKJ_2023_NOVEL_03",
+    "judul": "Paya Nie",
+    "sourceType": "publisher",
+    "sourceName": "Marjin Kiri",
+    "sourceUrl": "https://marjinkiri.id/product/paya-nie/",
+    "selectorHint": "",
+    "rawSynopsisContributor": "",
+    "rawSynopsisFullText": "",
+    "scrapeStatus": "ready_to_scrape"
+  }
+]

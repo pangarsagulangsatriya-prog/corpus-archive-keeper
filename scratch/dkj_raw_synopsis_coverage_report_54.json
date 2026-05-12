@@ -1,0 +1,12 @@
+{
+  "totalBooks": 54,
+  "totalSources": 97,
+  "booksWithNoSources": [
+    "DKJ_2012_NOVEL_04",
+    "DKJ_2016_NOVEL_04",
+    "DKJ_2021_PUISI_01"
+  ],
+  "booksReachingTarget5": [
+    "DKJ_2012_NOVEL_02"
+  ]
+}
