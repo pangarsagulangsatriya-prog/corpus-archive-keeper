@@ -223,6 +223,12 @@ export function ImportMarkdownDialog() {
         judulBuku: row.judul_buku_terbit || row.judul_naskah,
         pengarang: row.penulis || row.pengarang,
         statusTerbit: row.status_terbit_label || row.status_terbit,
+        verificationStatus: row.verification_status,
+        nextAction: row.next_action,
+      };
+
+      // Handle JSONB fields
+      result.published = {
         penerbit: row.first_edition_publisher || row.penerbit,
         tahunTerbit: row.first_edition_year || row.tahun_terbit,
         isbn: row.first_edition_isbn_13 || row.isbn,
@@ -230,12 +236,6 @@ export function ImportMarkdownDialog() {
         jumlahHalaman: row.first_edition_pages || row.halaman,
         editor: row.editor_penyunting || row.editor,
         desainerSampul: row.desainer_sampul,
-        verificationStatus: row.verification_status,
-        nextAction: row.next_action,
-      };
-
-      // Handle JSONB fields
-      result.published = {
         editions: bookEditions,
         google_books_url: row.google_books_url,
         fliphtml5_url: row.fliphtml5_url,
