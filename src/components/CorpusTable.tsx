@@ -252,6 +252,7 @@ export function CorpusTable<T extends AnyRow>({
     {
       key: "detail",
       label: "Detail",
+      className: "w-[130px]",
       render: (r) => {
         const to =
           corpusPath === "dkj"
@@ -384,13 +385,13 @@ export function CorpusTable<T extends AnyRow>({
         </div>
       ) : (
         <div ref={parentRef} className="overflow-auto border border-border bg-card max-h-[calc(100vh-450px)]">
-          <Table>
+          <Table className="table-fixed">
             <TableHeader className="sticky top-0 bg-secondary z-10">
               <TableRow className="bg-secondary">
                 {allCols.map((c) => (
                   <TableHead 
                     key={c.key} 
-                    className={`whitespace-nowrap text-xs uppercase tracking-wide ${c.label === "Tahun" ? "cursor-pointer select-none hover:text-primary" : ""}`}
+                    className={`whitespace-nowrap text-xs uppercase tracking-wide ${c.className ?? ""} ${c.label === "Tahun" ? "cursor-pointer select-none hover:text-primary" : ""}`}
                     onClick={() => {
                       if (c.label === "Tahun") {
                         setSortOrder(sortOrder === "asc" ? "desc" : "asc");
