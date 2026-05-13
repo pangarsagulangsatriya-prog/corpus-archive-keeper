@@ -129,7 +129,7 @@ export function CorpusTable<T extends AnyRow>({
       const yb = getYear(b);
       return sortOrder === "desc" ? yb - ya : ya - yb;
     });
-  }, [rows, search, year, sortOrder, missingFilter, posisiFilter]);
+  }, [rows, search, year, sortOrder, posisiFilter, tahunTerbitFilter, fcFilter, bcFilter, ptFilter]);
 
   const parentRef = useRef<HTMLDivElement>(null);
 
