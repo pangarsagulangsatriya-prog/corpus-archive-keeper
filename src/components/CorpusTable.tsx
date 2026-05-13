@@ -23,7 +23,7 @@ import type { AnyRow, CoverFile } from "@/lib/corpus-data";
 import { CreateManualDialog } from "@/components/CreateManualDialog";
 import { supabase } from "@/lib/supabase";
 import { useQueryClient } from "@tanstack/react-query";
-import { ChevronUp, ChevronDown } from "lucide-react";
+import { ChevronUp, ChevronDown, Trash2 } from "lucide-react";
 
 
 
@@ -266,8 +266,8 @@ export function CorpusTable<T extends AnyRow>({
                 Open Detail
               </Button>
             </Link>
-            <Button variant="outline" size="sm" className="text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700" onClick={() => openDelete(r)}>
-              Delete
+            <Button variant="outline" size="icon" className="text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700 h-8 w-8" onClick={() => openDelete(r)} title="Delete">
+              <Trash2 className="w-4 h-4" />
             </Button>
           </div>
         );
