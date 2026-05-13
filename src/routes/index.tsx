@@ -28,10 +28,10 @@ function Index() {
     { key: "tahunMenang", label: "Tahun", render: (r: DKJRow) => r.tahunMenang || (r as any).tahunmenang },
     { key: "posisi", label: "Posisi", render: (r: DKJRow) => r.posisi },
     { key: "pengarang", label: "Pengarang", render: (r: DKJRow) => r.pengarang },
-    { key: "statusTerbit", label: "Status", render: (r: DKJRow) => {
-      const status = r.statusTerbit || (r as any).status_terbit;
-      if (status === 'published' || status === 'Terbit') return <span className="text-green-500 font-bold">Terbit</span>;
-      return <span className="text-muted-foreground">Belum Terbit</span>;
+    { key: "tahunTerbit", label: "Thn Terbit", render: (r: DKJRow) => {
+      const year = r.published?.tahunTerbit || (r as any).tahun_terbit;
+      if (year && year !== '—') return <span className="text-green-500 font-bold">{year}</span>;
+      return <span className="text-muted-foreground">—</span>;
     }},
     { key: "frontCover", label: "FC", render: (r: DKJRow) => r.frontCover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.frontCover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
     { key: "backCover", label: "BC", render: (r: DKJRow) => r.backCover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.backCover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
