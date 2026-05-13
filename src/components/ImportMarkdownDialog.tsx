@@ -227,15 +227,17 @@ export function ImportMarkdownDialog() {
         nextAction: row.next_action,
       };
 
+      const firstEd = bookEditions[0] || {};
+
       // Handle JSONB fields
       result.published = {
-        penerbit: row.first_edition_publisher || row.penerbit,
-        tahunTerbit: row.first_edition_year || row.tahun_terbit,
-        isbn: row.first_edition_isbn_13 || row.isbn,
-        harga: row.first_edition_price_rp || row.harga,
-        jumlahHalaman: row.first_edition_pages || row.halaman,
-        editor: row.editor_penyunting || row.editor,
-        desainerSampul: row.desainer_sampul,
+        penerbit: row.first_edition_publisher || row.penerbit || firstEd.publisher,
+        tahunTerbit: row.first_edition_year || row.tahun_terbit || firstEd.year,
+        isbn: row.first_edition_isbn_13 || row.isbn || firstEd.isbn_13 || firstEd.isbn_10,
+        harga: row.first_edition_price_rp || row.harga || firstEd.price_rp,
+        jumlahHalaman: row.first_edition_pages || row.halaman || firstEd.pages,
+        editor: row.editor_penyunting || row.editor || firstEd.editor_penyunting,
+        desainerSampul: row.desainer_sampul || firstEd.designer_cover,
         editions: bookEditions,
         google_books_url: row.google_books_url,
         fliphtml5_url: row.fliphtml5_url,
