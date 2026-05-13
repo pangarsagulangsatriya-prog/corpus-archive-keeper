@@ -31,7 +31,7 @@ function Index() {
     { key: "tahunTerbit", label: "Thn Terbit", className: "w-[90px]", render: (r: DKJRow) => {
       const year = r.published?.tahunTerbit || (r as any).tahun_terbit;
       if (year && year !== '—') return <span className="text-green-500 font-bold">{year}</span>;
-      return <span className="text-muted-foreground">—</span>;
+      return <span className="text-muted-foreground">Belum Terbit</span>;
     }},
     { key: "frontCover", label: "FC", className: "w-[40px] text-center", render: (r: DKJRow) => r.frontCover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.frontCover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
     { key: "backCover", label: "BC", className: "w-[40px] text-center", render: (r: DKJRow) => r.backCover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.backCover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
