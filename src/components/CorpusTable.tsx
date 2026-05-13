@@ -330,7 +330,7 @@ export function CorpusTable<T extends AnyRow>({
         <div className="ml-auto flex gap-2">
           <CreateManualDialog />
           <Button variant="outline" size="sm">
-            Import XLSX / CSV
+            Import XLSX / CSV / MD
           </Button>
           <Button variant="outline" size="sm">
             Export CSV

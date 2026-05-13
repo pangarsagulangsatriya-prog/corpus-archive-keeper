@@ -55,6 +55,38 @@ function Index() {
     { key: "paratext", label: "PT", render: (r: TempoRow) => (r.paratext?.sinopsisPenerbit || r.paratext?.blurb1 || (r.paratext?.rawSynopsisSources && r.paratext.rawSynopsisSources.length > 0)) ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
   ];
 
+  const badanBahasaCols = [
+    { key: "id", label: "ID", render: (r: any) => <span className="font-mono">{r.id}{r.issample && <SampleBadge />}</span> },
+    { key: "judul", label: "Judul", render: (r: any) => r.judulbuku || r.judulBuku },
+    { key: "tahun", label: "Tahun", render: (r: any) => r.tahunmenang || r.tahunMenang },
+    { key: "status", label: "Posisi", render: (r: any) => r.posisi },
+    { key: "pengarang", label: "Pengarang", render: (r: any) => r.pengarang },
+    { key: "frontCover", label: "FC", render: (r: any) => r.frontcover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.frontcover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "backCover", label: "BC", render: (r: any) => r.backcover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.backcover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "paratext", label: "PT", render: (r: any) => (r.paratext?.sinopsisPenerbit || r.paratext?.blurb1 || (r.paratext?.rawSynopsisSources && r.paratext.rawSynopsisSources.length > 0)) ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
+  ];
+
+  const lontarCols = [
+    { key: "id", label: "ID", render: (r: any) => <span className="font-mono">{r.id}{r.issample && <SampleBadge />}</span> },
+    { key: "judul", label: "Judul", render: (r: any) => r.judulbuku || r.judulBuku },
+    { key: "pengarang", label: "Pengarang", render: (r: any) => r.pengarang },
+    { key: "status", label: "Status", render: (r: any) => r.research?.statusLontar || r.statusLontar },
+    { key: "frontCover", label: "FC", render: (r: any) => r.frontcover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.frontcover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "backCover", label: "BC", render: (r: any) => r.backcover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.backcover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "paratext", label: "PT", render: (r: any) => (r.paratext?.sinopsisPenerbit || r.paratext?.blurb1 || (r.paratext?.rawSynopsisSources && r.paratext.rawSynopsisSources.length > 0)) ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
+  ];
+
+  const hpiCols = [
+    { key: "id", label: "ID", render: (r: any) => <span className="font-mono">{r.id}{r.issample && <SampleBadge />}</span> },
+    { key: "judul", label: "Judul", render: (r: any) => r.judulbuku || r.judulBuku },
+    { key: "tahun", label: "Tahun", render: (r: any) => r.tahunmenang || r.tahunMenang },
+    { key: "status", label: "Posisi", render: (r: any) => r.research?.statusHPI || r.statushpi },
+    { key: "pengarang", label: "Pengarang", render: (r: any) => r.pengarang },
+    { key: "frontCover", label: "FC", render: (r: any) => r.frontcover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.frontcover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "backCover", label: "BC", render: (r: any) => r.backcover?.edition2?.imageUrl ? <span className="text-blue-500 font-bold" title="Edisi 2">✓</span> : r.backcover?.imageUrl ? <span className="text-green-500 font-bold" title="Edisi 1">✓</span> : <span className="text-muted-foreground">○</span> },
+    { key: "paratext", label: "PT", render: (r: any) => (r.paratext?.sinopsisPenerbit || r.paratext?.blurb1 || (r.paratext?.rawSynopsisSources && r.paratext.rawSynopsisSources.length > 0)) ? <span className="text-green-500 font-bold">✓</span> : <span className="text-muted-foreground">○</span> },
+  ];
+
   const { data: dkjData = [], isLoading: isDkjLoading } = useQuery({
     queryKey: ['corpus', 'DKJ'],
     queryFn: () => fetchCorpusData('DKJ')
@@ -68,6 +100,21 @@ function Index() {
   const { data: tempoData = [], isLoading: isTempoLoading } = useQuery({
     queryKey: ['corpus', 'Tempo'],
     queryFn: () => fetchCorpusData('Tempo')
+  });
+
+  const { data: badanBahasaData = [], isLoading: isBadanBahasaLoading } = useQuery({
+    queryKey: ['corpus', 'BADAN_BAHASA'],
+    queryFn: () => fetchCorpusData('BADAN_BAHASA')
+  });
+
+  const { data: lontarData = [], isLoading: isLontarLoading } = useQuery({
+    queryKey: ['corpus', 'LONTAR_TRANSLATION'],
+    queryFn: () => fetchCorpusData('LONTAR_TRANSLATION')
+  });
+
+  const { data: hpiData = [], isLoading: isHpiLoading } = useQuery({
+    queryKey: ['corpus', 'ANUGERAH_BUKU_PUISI_HPI'],
+    queryFn: () => fetchCorpusData('ANUGERAH_BUKU_PUISI_HPI')
   });
 
   return (
@@ -91,6 +138,9 @@ function Index() {
             <TabsTrigger value="dkj">Korpus DKJ</TabsTrigger>
             <TabsTrigger value="ksk">Korpus KSK</TabsTrigger>
             <TabsTrigger value="tempo">Korpus Tempo</TabsTrigger>
+            <TabsTrigger value="badan_bahasa">Badan Bahasa</TabsTrigger>
+            <TabsTrigger value="lontar">Lontar</TabsTrigger>
+            <TabsTrigger value="hpi">HPI</TabsTrigger>
           </TabsList>
           <TabsContent value="dkj">
             {isDkjLoading ? <div className="p-4 text-sm text-muted-foreground">Loading...</div> : <CorpusTable<DKJRow> rows={dkjData as DKJRow[]} corpusPath="dkj" extraColumns={dkjCols} />}
@@ -100,6 +150,15 @@ function Index() {
           </TabsContent>
           <TabsContent value="tempo">
             {isTempoLoading ? <div className="p-4 text-sm text-muted-foreground">Loading...</div> : <CorpusTable<TempoRow> rows={tempoData as TempoRow[]} corpusPath="tempo" extraColumns={tempoCols} />}
+          </TabsContent>
+          <TabsContent value="badan_bahasa">
+            {isBadanBahasaLoading ? <div className="p-4 text-sm text-muted-foreground">Loading...</div> : <CorpusTable<any> rows={badanBahasaData} corpusPath="badan_bahasa" extraColumns={badanBahasaCols} />}
+          </TabsContent>
+          <TabsContent value="lontar">
+            {isLontarLoading ? <div className="p-4 text-sm text-muted-foreground">Loading...</div> : <CorpusTable<any> rows={lontarData} corpusPath="lontar" extraColumns={lontarCols} />}
+          </TabsContent>
+          <TabsContent value="hpi">
+            {isHpiLoading ? <div className="p-4 text-sm text-muted-foreground">Loading...</div> : <CorpusTable<any> rows={hpiData} corpusPath="hpi" extraColumns={hpiCols} />}
           </TabsContent>
         </Tabs>
       </main>

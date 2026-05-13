@@ -22,8 +22,14 @@ interface ParsedRow {
 
 interface ImportSummary {
   total: number;
+  books: number;
+  editions: number;
+  evidenceLogs: number;
   missingId: number;
   duplicateId: number;
+  conflicts: number;
+  lowConfidence: number;
+  readyToImport: number;
   jsonbValid: boolean;
   errors: string[];
 }
@@ -58,6 +64,71 @@ const dbColumnMap: Record<string, string> = {
   backCover: 'backcover'
 };
 
+function normalizeHeader(header: string): string {
+  return header
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '_')
+    .replace(/[^\w]/g, '');
+}
+
+function parsePipeTable(tableText: string): any[] {
+  const lines = tableText.trim().split(/\r?\n/);
+  if (lines.length < 3) return [];
+
+  const headers = lines[0].split('|').map(s => s.trim());
+  if (headers[0] === '') headers.shift();
+  if (headers[headers.length - 1] === '') headers.pop();
+  
+  const normalizedHeaders = headers.map(normalizeHeader);
+  const dataLines = lines.slice(2);
+  
+  return dataLines.map(line => {
+    const values = line.split('|').map(s => s.trim());
+    if (values[0] === '') values.shift();
+    if (values[values.length - 1] === '') values.pop();
+    
+    const obj: any = {};
+    normalizedHeaders.forEach((header, i) => {
+      obj[header] = values[i] || '';
+    });
+    return obj;
+  });
+}
+
+function findTables(text: string): string[] {
+  const lines = text.split(/\r?\n/);
+  const tables: string[] = [];
+  let currentTable: string[] = [];
+  let inTable = false;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    const isTableLine = line.startsWith('|') && line.endsWith('|');
+    
+    if (isTableLine) {
+      if (!inTable) {
+        if (i + 1 < lines.length && lines[i + 1].trim().match(/^\|[-|\s:]+\|$/)) {
+          inTable = true;
+          currentTable = [line];
+        }
+      } else {
+        currentTable.push(line);
+      }
+    } else {
+      if (inTable) {
+        tables.push(currentTable.join('\n'));
+        currentTable = [];
+        inTable = false;
+      }
+    }
+  }
+  if (inTable && currentTable.length > 0) {
+    tables.push(currentTable.join('\n'));
+  }
+  return tables;
+}
+
 export function ImportMarkdownDialog() {
   const [open, setOpen] = useState(false);
   const [file, setFile] = useState<File | null>(null);
@@ -90,77 +161,156 @@ export function ImportMarkdownDialog() {
 
   const parseMarkdown = (text: string) => {
     const errors: string[] = [];
+    const tables = findTables(text);
+    console.log(`Found ${tables.length} tables.`);
     
-    // Find heading ## BOOKS_IMPORT_JSON
-    const headingIndex = text.indexOf("BOOKS_IMPORT_JSON");
-    if (headingIndex === -1) {
-      setImportError("Tidak menemukan heading 'BOOKS_IMPORT_JSON' di dalam file.");
-      return;
-    }
-
-    const afterHeading = text.substring(headingIndex);
+    let books: any[] = [];
+    let editions: any[] = [];
+    let evidence: any[] = [];
     
-    // Find first ```json block
-    const jsonMatch = afterHeading.match(/```json\s+([\s\S]*?)\s+```/);
-    if (!jsonMatch || !jsonMatch[1]) {
-      setImportError("Tidak menemukan blok kode JSON setelah heading.");
+    tables.forEach(tableText => {
+      const data = parsePipeTable(tableText);
+      if (data.length === 0) return;
+      
+      const headers = Object.keys(data[0]);
+      
+      // Detect table type
+      if (headers.includes('book_id') && (headers.includes('judul_naskah') || headers.includes('judul_buku_terbit'))) {
+        if (data.length > books.length) books = data;
+      } else if (headers.includes('edition_id') || (headers.includes('edition_label') && headers.includes('publisher'))) {
+        editions = data;
+      } else if (headers.includes('publisher_evidence_url') || headers.includes('editor_evidence_url')) {
+        evidence = data;
+      }
+    });
+
+    if (books.length === 0) {
+      setImportError("Tidak menemukan tabel utama buku (Books Master).");
       return;
     }
 
-    let jsonData: any[];
-    try {
-      jsonData = JSON.parse(jsonMatch[1]);
-      if (!Array.isArray(jsonData)) throw new Error("JSON harus berupa array.");
-    } catch (err) {
-      setImportError("JSON tidak valid atau bukan array.");
-      return;
-    }
-
-    let missingIdCount = 0;
-    let jsonbValid = true;
     const ids = new Set<string>();
     let duplicateIdCount = 0;
+    let missingIdCount = 0;
+    let totalEvidenceLogs = 0;
+    let conflictsCount = 0;
+    let lowConfidenceCount = 0;
+    let readyToImportCount = 0;
 
-    const validatedData = jsonData.map((row, i) => {
-      if (!row.id) {
+    const validatedData = books.map((row, i) => {
+      const bookId = row.book_id || row.id;
+      if (!bookId) {
         missingIdCount++;
         errors.push(`Baris ${i + 1}: kehilangan 'id'.`);
       } else {
-        if (ids.has(row.id)) {
+        if (ids.has(bookId)) {
           duplicateIdCount++;
-          errors.push(`Baris ${i + 1}: duplikat id '${row.id}'.`);
+          errors.push(`Baris ${i + 1}: duplikat id '${bookId}'.`);
         }
-        ids.add(row.id);
+        ids.add(bookId);
       }
 
-      if (!row.corpus) {
-        errors.push(`Baris ${i + 1} (${row.id}): kehilangan 'corpus'.`);
+      // Find editions
+      const bookEditions = editions.filter(ed => (ed.book_id || ed.id) === bookId);
+      
+      // Find evidence
+      const bookEvidence = evidence.find(ev => ev.book_id === bookId);
+
+      // Create merged object
+      const result: any = {
+        id: bookId,
+        corpus: 'DKJ', // Default
+        judulBuku: row.judul_buku_terbit || row.judul_naskah,
+        pengarang: row.penulis || row.pengarang,
+        statusTerbit: row.status_terbit_label || row.status_terbit,
+        penerbit: row.first_edition_publisher || row.penerbit,
+        tahunTerbit: row.first_edition_year || row.tahun_terbit,
+        isbn: row.first_edition_isbn_13 || row.isbn,
+        harga: row.first_edition_price_rp || row.harga,
+        jumlahHalaman: row.first_edition_pages || row.halaman,
+        editor: row.editor_penyunting || row.editor,
+        desainerSampul: row.desainer_sampul,
+        verificationStatus: row.verification_status,
+        nextAction: row.next_action,
+      };
+
+      // Handle JSONB fields
+      result.published = {
+        editions: bookEditions,
+        google_books_url: row.google_books_url,
+        fliphtml5_url: row.fliphtml5_url,
+        source_gambar: row.source_gambar,
+        cover_evidence_url: row.cover_evidence_url,
+      };
+
+      result.paratext = {
+        sinopsis: row.sinopsis,
+        raw_sinopsis: row.raw_sinopsis,
+        blurb: row.blurb,
+        kata_promosi: row.kata_promosi,
+        label_genre: row.label_genre,
+        klaim_estetika: row.klaim_estetika,
+        kata_kunci_dominan: row.kata_kunci_dominan,
+        paratext_source_url: row.paratext_source_url,
+      };
+
+      result.research = {
+        source_confidence: row.source_confidence,
+        evidence_verdict: row.evidence_verdict,
+        metadata_notes: row.metadata_notes,
+        audit_note: row.audit_note,
+      };
+
+      // Create evidence log
+      result.evidence = [];
+      if (bookEvidence) {
+        const fieldNames = [
+          'publisher_evidence_url', 'isbn_pages_evidence_url', 'price_evidence_url', 
+          'editor_evidence_url', 'cover_evidence_url', 'primary_source_url', 'source_url', 'evidence_url'
+        ];
+        fieldNames.forEach(field => {
+          if (bookEvidence[field]) {
+            result.evidence.push({
+              field_name: field,
+              value: bookEvidence[field],
+              evidence_url: bookEvidence[field],
+              evidence_status: bookEvidence.evidence_verdict,
+              note: bookEvidence.audit_note
+            });
+          }
+        });
       }
 
-      // Check JSONB fields
-      ['frontCover', 'backCover', 'paratext', 'research', 'published'].forEach(field => {
-        if (row[field] !== undefined && typeof row[field] !== 'object') {
-          jsonbValid = false;
-          errors.push(`Baris ${i + 1}: '${field}' harus berupa object.`);
-        }
-      });
-
-      if (row.evidence !== undefined && !Array.isArray(row.evidence)) {
-        jsonbValid = false;
-        errors.push(`Baris ${i + 1}: 'evidence' harus berupa array.`);
+      totalEvidenceLogs += result.evidence.length;
+      
+      if (row.evidence_verdict === 'conflict_hold_for_credit_page' || row.evidence_verdict === 'conflict_needs_review') {
+        conflictsCount++;
+      }
+      if (row.evidence_verdict === 'import_with_low_confidence_verify' || row.source_confidence === 'Low') {
+        lowConfidenceCount++;
+      }
+      if (row.evidence_verdict === 'import_ok_with_evidence' || row.evidence_verdict === 'import_ok_but_editor_unverified') {
+        readyToImportCount++;
       }
 
-      return row;
+      return result;
     });
 
     setParsedData(validatedData);
     setSummary({
       total: validatedData.length,
+      books: validatedData.length,
+      editions: editions.length,
+      evidenceLogs: totalEvidenceLogs,
       missingId: missingIdCount,
       duplicateId: duplicateIdCount,
-      jsonbValid,
+      conflicts: conflictsCount,
+      lowConfidence: lowConfidenceCount,
+      readyToImport: readyToImportCount,
+      jsonbValid: true,
       errors
     });
+  };
   };
 
   const mapToFallbackColumns = (rows: ParsedRow[]) => {
@@ -262,15 +412,20 @@ export function ImportMarkdownDialog() {
               </div>
               <div className="p-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                 <div>
-                  <div className="text-muted-foreground text-xs uppercase">Total Baris</div>
-                  <div className="font-semibold text-lg">{summary.total}</div>
+                  <div className="text-muted-foreground text-xs uppercase">Total Books</div>
+                  <div className="font-semibold text-lg">{summary.books}</div>
                 </div>
                 <div>
-                  <div className="text-muted-foreground text-xs uppercase">JSONB Valid</div>
-                  <div className={`font-semibold text-lg flex items-center gap-1 ${summary.jsonbValid ? 'text-green-600' : 'text-red-600'}`}>
-                    {summary.jsonbValid ? <CheckCircle2 className="w-4 h-4" /> : <AlertCircle className="w-4 h-4" />}
-                    {summary.jsonbValid ? 'Yes' : 'No'}
-                  </div>
+                  <div className="text-muted-foreground text-xs uppercase">Total Editions</div>
+                  <div className="font-semibold text-lg">{summary.editions}</div>
+                </div>
+                <div>
+                  <div className="text-muted-foreground text-xs uppercase">Evidence Logs</div>
+                  <div className="font-semibold text-lg">{summary.evidenceLogs}</div>
+                </div>
+                <div>
+                  <div className="text-muted-foreground text-xs uppercase">Ready to Import</div>
+                  <div className="font-semibold text-lg text-green-600">{summary.readyToImport}</div>
                 </div>
                 <div>
                   <div className="text-muted-foreground text-xs uppercase">Missing ID</div>
@@ -279,6 +434,14 @@ export function ImportMarkdownDialog() {
                 <div>
                   <div className="text-muted-foreground text-xs uppercase">Duplicate ID</div>
                   <div className={`font-semibold text-lg ${summary.duplicateId > 0 ? 'text-red-600' : ''}`}>{summary.duplicateId}</div>
+                </div>
+                <div>
+                  <div className="text-muted-foreground text-xs uppercase">Conflicts</div>
+                  <div className={`font-semibold text-lg ${summary.conflicts > 0 ? 'text-yellow-600' : ''}`}>{summary.conflicts}</div>
+                </div>
+                <div>
+                  <div className="text-muted-foreground text-xs uppercase">Low Confidence</div>
+                  <div className={`font-semibold text-lg ${summary.lowConfidence > 0 ? 'text-orange-600' : ''}`}>{summary.lowConfidence}</div>
                 </div>
               </div>
               
