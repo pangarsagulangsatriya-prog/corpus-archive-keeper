@@ -311,7 +311,6 @@ export function ImportMarkdownDialog() {
       errors
     });
   };
-  };
 
   const mapToFallbackColumns = (rows: ParsedRow[]) => {
     return rows.map(row => {
