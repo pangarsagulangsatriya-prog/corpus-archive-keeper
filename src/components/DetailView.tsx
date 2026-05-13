@@ -389,14 +389,14 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                 onClick={() => setRow(r)}
               >
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
-                  <span className="font-semibold">{r.corpus} ({winYear || "—"})</span>
+                  <span className="font-semibold">{r.corpus} (Menang: {winYear || "—"})</span>
                 </div>
                 <div className="font-semibold text-xs truncate">{r.judulBuku || r.judulNaskah}</div>
                 <div className="text-xs text-muted-foreground truncate">{r.pengarang}</div>
                 {(r.published?.penerbit && r.published.penerbit !== "—" || r.published?.tahunTerbit && r.published.tahunTerbit !== "—") ? (
                   <div className="text-xs text-muted-foreground flex justify-between">
                     <span>{r.published?.penerbit !== "—" ? r.published?.penerbit : ""}</span>
-                    <span>{r.published?.tahunTerbit !== "—" ? r.published?.tahunTerbit : ""}</span>
+                    <span>{r.published?.tahunTerbit !== "—" ? `Terbit: ${r.published?.tahunTerbit}` : ""}</span>
                   </div>
                 ) : null}
               </div>
