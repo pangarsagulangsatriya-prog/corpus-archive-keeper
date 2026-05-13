@@ -71,9 +71,12 @@ export function CorpusTable<T extends AnyRow>({
   const [search, setSearch] = useState("");
   const [modal, setModal] = useState<Modal>(null);
   const [year, setYear] = useState("");
+  const [tahunTerbitFilter, setTahunTerbitFilter] = useState("");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
-  const [missingFilter, setMissingFilter] = useState("");
   const [posisiFilter, setPosisiFilter] = useState("");
+  const [fcFilter, setFcFilter] = useState("");
+  const [bcFilter, setBcFilter] = useState("");
+  const [ptFilter, setPtFilter] = useState("");
   const queryClient = useQueryClient();
 
   const uniquePositions = useMemo(() => {
@@ -94,6 +97,9 @@ export function CorpusTable<T extends AnyRow>({
       const rYear = r.tahunMenang || r.tahunKSK || r.tahunTempo || r.tahunmenang || r.tahunksk || r.tahuntempo || "";
       if (year && !rYear.toString().includes(year)) return false;
 
+      const rTahunTerbit = r.published?.tahunTerbit || (r as any).tahun_terbit || "";
+      if (tahunTerbitFilter && !rTahunTerbit.toString().includes(tahunTerbitFilter)) return false;
+
       const rPosisi = r.posisi || r.statusKSK || r.statusTempo || r.statusksk || r.statustempo || "";
       if (posisiFilter && rPosisi !== posisiFilter) return false;
       
@@ -101,12 +107,14 @@ export function CorpusTable<T extends AnyRow>({
       const hasBC = !!(r.backCover?.imageUrl || r.backCover?.edition2?.imageUrl);
       const hasPT = !!(r.paratext?.sinopsisPenerbit || r.paratext?.blurb1 || (r.paratext?.rawSynopsisSources && r.paratext.rawSynopsisSources.length > 0));
       
-      if (missingFilter === "no_fc" && hasFC) return false;
-      if (missingFilter === "has_fc" && !hasFC) return false;
-      if (missingFilter === "no_bc" && hasBC) return false;
-      if (missingFilter === "has_bc" && !hasBC) return false;
-      if (missingFilter === "no_pt" && hasPT) return false;
-      if (missingFilter === "has_pt" && !hasPT) return false;
+      if (fcFilter === "yes" && !hasFC) return false;
+      if (fcFilter === "no" && hasFC) return false;
+      
+      if (bcFilter === "yes" && !hasBC) return false;
+      if (bcFilter === "no" && hasBC) return false;
+      
+      if (ptFilter === "yes" && !hasPT) return false;
+      if (ptFilter === "no" && hasPT) return false;
       
       return true;
     });
@@ -314,18 +322,38 @@ export function CorpusTable<T extends AnyRow>({
             </option>
           ))}
         </select>
+        <Input
+          placeholder="Thn Terbit"
+          value={tahunTerbitFilter}
+          onChange={(e) => setTahunTerbitFilter(e.target.value)}
+          className="max-w-[100px]"
+        />
         <select
-          value={missingFilter}
-          onChange={(e) => setMissingFilter(e.target.value)}
+          value={fcFilter}
+          onChange={(e) => setFcFilter(e.target.value)}
           className="h-9 rounded-sm border border-border bg-background px-2 text-sm"
         >
-          <option value="">All Data</option>
-          <option value="no_fc">No Front Cover</option>
-          <option value="has_fc">Has Front Cover</option>
-          <option value="no_bc">No Back Cover</option>
-          <option value="has_bc">Has Back Cover</option>
-          <option value="no_pt">No Paratext</option>
-          <option value="has_pt">Has Paratext</option>
+          <option value="">FC: All</option>
+          <option value="yes">FC: Ada</option>
+          <option value="no">FC: Tidak Ada</option>
+        </select>
+        <select
+          value={bcFilter}
+          onChange={(e) => setBcFilter(e.target.value)}
+          className="h-9 rounded-sm border border-border bg-background px-2 text-sm"
+        >
+          <option value="">BC: All</option>
+          <option value="yes">BC: Ada</option>
+          <option value="no">BC: Tidak Ada</option>
+        </select>
+        <select
+          value={ptFilter}
+          onChange={(e) => setPtFilter(e.target.value)}
+          className="h-9 rounded-sm border border-border bg-background px-2 text-sm"
+        >
+          <option value="">PT: All</option>
+          <option value="yes">PT: Ada</option>
+          <option value="no">PT: Tidak Ada</option>
         </select>
         {filtersExtra}
         <div className="ml-auto flex gap-2">
