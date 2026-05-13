@@ -11,7 +11,7 @@ import { supabase } from "@/lib/supabase";
 import { 
   Search, Filter, ChevronLeft, ChevronRight, Book, FolderOpen, 
   Download, Copy, ExternalLink, Check, AlertTriangle, ZoomIn, ZoomOut, Maximize2,
-  Upload, Link as LinkIcon, X
+  Upload, Link as LinkIcon, X, Edit2, Trash2
 } from "lucide-react";
 
 // Helper components
@@ -124,6 +124,41 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
   const [creditPageUrl, setCreditPageUrl] = useState(row.published?.creditPageUrl || "");
   const [publisherContentImageUrl, setPublisherContentImageUrl] = useState(row.published?.publisherContentImageUrl || "");
   const [showEditCreditUrl, setShowEditCreditUrl] = useState(false);
+  const [showEditSynopsis, setShowEditSynopsis] = useState(false);
+  const [editingSynopsisIndex, setEditingSynopsisIndex] = useState<number | null>(null);
+  const [synopsisForm, setSynopsisForm] = useState({
+    sourceType: 'publisher',
+    sourceName: '',
+    sourceUrl: '',
+    rawSynopsisFullText: ''
+  });
+
+  const handleSaveSynopsis = async () => {
+    const updatedSources = [...(row.paratext?.rawSynopsisSources || [])];
+    
+    if (editingSynopsisIndex !== null) {
+      updatedSources[editingSynopsisIndex] = synopsisForm;
+    } else {
+      updatedSources.push(synopsisForm);
+    }
+    
+    const updatedParatext = {
+      ...(row.paratext || {}),
+      rawSynopsisSources: updatedSources
+    };
+    
+    const { error } = await supabase
+      .from('books')
+      .update({ paratext: updatedParatext })
+      .eq('id', row.id);
+      
+    if (error) {
+      alert("Failed to save synopsis: " + error.message);
+    } else {
+      setRow({ ...row, paratext: updatedParatext });
+      setShowEditSynopsis(false);
+    }
+  };
   const [frontEd2, setFrontEd2] = useState({
     imageUrl: row.frontCover?.edition2?.imageUrl || "",
     sourceUrl: row.frontCover?.edition2?.sourceUrl || "",
@@ -775,11 +810,20 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                   </Tabs>
                 </TabsContent>
 
-                <TabsContent value="paratext" className="mt-0 h-full flex flex-col space-y-4 overflow-hidden">
+                <TabsContent value="paratext" className="mt-0 h-full flex flex-col space-y-4 overflow-hidden relative">
                   <div className="flex-1 overflow-y-auto space-y-6 pr-2">
                     {/* SINOPSIS PENERBIT */}
                     <div className="space-y-3">
-                      <h3 className="text-xs font-semibold uppercase text-muted-foreground border-b border-border pb-1">Sinopsis Penerbit</h3>
+                      <div className="flex justify-between items-center border-b border-border pb-1">
+                        <h3 className="text-xs font-semibold uppercase text-muted-foreground">Sinopsis Penerbit</h3>
+                        <Button size="sm" variant="outline" className="text-xs h-6 px-2" onClick={() => {
+                          setSynopsisForm({ sourceType: 'publisher', sourceName: '', sourceUrl: '', rawSynopsisFullText: '' });
+                          setEditingSynopsisIndex(null);
+                          setShowEditSynopsis(true);
+                        }}>
+                          Tambah
+                        </Button>
+                      </div>
                       {(() => {
                         const sources = (row.paratext?.rawSynopsisSources || []).filter((s: any) => 
                           ['publisher', 'bookstore', 'gramedia', 'google_books'].includes(s.sourceType)
@@ -791,11 +835,39 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                           <div key={idx} className="border border-border bg-card p-4 space-y-2">
                             <div className="flex justify-between items-center text-xs text-muted-foreground border-b border-border pb-2">
                               <span className="font-medium text-foreground">{s.sourceName}</span>
-                              {s.sourceUrl && (
-                                <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all max-w-[60%] text-right">
-                                  {s.sourceUrl}
-                                </a>
-                              )}
+                              <div className="flex items-center space-x-2">
+                                {s.sourceUrl && (
+                                  <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all max-w-[40%] text-right">
+                                    Link
+                                  </a>
+                                )}
+                                <Button size="icon" variant="ghost" className="w-5 h-5" onClick={() => {
+                                  const originalIndex = (row.paratext?.rawSynopsisSources || []).indexOf(s);
+                                  setSynopsisForm(s);
+                                  setEditingSynopsisIndex(originalIndex);
+                                  setShowEditSynopsis(true);
+                                }}>
+                                  <Edit2 className="w-3 h-3" />
+                                </Button>
+                                <Button size="icon" variant="ghost" className="w-5 h-5 text-destructive" onClick={async () => {
+                                  const originalIndex = (row.paratext?.rawSynopsisSources || []).indexOf(s);
+                                  if (confirm("Hapus sinopsis ini?")) {
+                                    const updatedSources = [...(row.paratext?.rawSynopsisSources || [])];
+                                    updatedSources.splice(originalIndex, 1);
+                                    const updatedParatext = { ...row.paratext, rawSynopsisSources: updatedSources };
+                                    
+                                    const { error } = await supabase
+                                      .from('books')
+                                      .update({ paratext: updatedParatext })
+                                      .eq('id', row.id);
+                                      
+                                    if (error) alert("Gagal menghapus: " + error.message);
+                                    else setRow({ ...row, paratext: updatedParatext });
+                                  }
+                                }}>
+                                  <Trash2 className="w-3 h-3" />
+                                </Button>
+                              </div>
                             </div>
                             <div className="max-h-[300px] overflow-y-auto pt-2">
                               <p className="text-sm leading-relaxed whitespace-pre-wrap">{s.rawSynopsisFullText || "Tidak ada teks."}</p>
@@ -807,7 +879,16 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
 
                     {/* BLURB */}
                     <div className="space-y-3">
-                      <h3 className="text-xs font-semibold uppercase text-muted-foreground border-b border-border pb-1">Blurb</h3>
+                      <div className="flex justify-between items-center border-b border-border pb-1">
+                        <h3 className="text-xs font-semibold uppercase text-muted-foreground">Blurb</h3>
+                        <Button size="sm" variant="outline" className="text-xs h-6 px-2" onClick={() => {
+                          setSynopsisForm({ sourceType: 'blurb', sourceName: '', sourceUrl: '', rawSynopsisFullText: '' });
+                          setEditingSynopsisIndex(null);
+                          setShowEditSynopsis(true);
+                        }}>
+                          Tambah
+                        </Button>
+                      </div>
                       {(() => {
                         const sources = (row.paratext?.rawSynopsisSources || []).filter((s: any) => 
                           ['blurb', 'back cover', 'marketplace', 'Goodreads', 'katalog'].includes(s.sourceType)
@@ -819,11 +900,39 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                           <div key={idx} className="border border-border bg-card p-4 space-y-2">
                             <div className="flex justify-between items-center text-xs text-muted-foreground border-b border-border pb-2">
                               <span className="font-medium text-foreground">{s.sourceName}</span>
-                              {s.sourceUrl && (
-                                <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all max-w-[60%] text-right">
-                                  {s.sourceUrl}
-                                </a>
-                              )}
+                              <div className="flex items-center space-x-2">
+                                {s.sourceUrl && (
+                                  <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all max-w-[40%] text-right">
+                                    Link
+                                  </a>
+                                )}
+                                <Button size="icon" variant="ghost" className="w-5 h-5" onClick={() => {
+                                  const originalIndex = (row.paratext?.rawSynopsisSources || []).indexOf(s);
+                                  setSynopsisForm(s);
+                                  setEditingSynopsisIndex(originalIndex);
+                                  setShowEditSynopsis(true);
+                                }}>
+                                  <Edit2 className="w-3 h-3" />
+                                </Button>
+                                <Button size="icon" variant="ghost" className="w-5 h-5 text-destructive" onClick={async () => {
+                                  const originalIndex = (row.paratext?.rawSynopsisSources || []).indexOf(s);
+                                  if (confirm("Hapus sinopsis ini?")) {
+                                    const updatedSources = [...(row.paratext?.rawSynopsisSources || [])];
+                                    updatedSources.splice(originalIndex, 1);
+                                    const updatedParatext = { ...row.paratext, rawSynopsisSources: updatedSources };
+                                    
+                                    const { error } = await supabase
+                                      .from('books')
+                                      .update({ paratext: updatedParatext })
+                                      .eq('id', row.id);
+                                      
+                                    if (error) alert("Gagal menghapus: " + error.message);
+                                    else setRow({ ...row, paratext: updatedParatext });
+                                  }
+                                }}>
+                                  <Trash2 className="w-3 h-3" />
+                                </Button>
+                              </div>
                             </div>
                             <div className="max-h-[300px] overflow-y-auto pt-2">
                               <p className="text-sm leading-relaxed whitespace-pre-wrap">{s.rawSynopsisFullText || "Tidak ada teks."}</p>
@@ -833,6 +942,72 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                       })()}
                     </div>
                   </div>
+
+                  {/* MODAL EDIT/TAMBAH SINOPSIS */}
+                  {showEditSynopsis && (
+                    <div className="absolute inset-0 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4 z-10">
+                      <div className="w-full max-w-[400px] space-y-4 p-4 bg-card border border-border shadow-lg">
+                        <div className="flex justify-between items-center border-b border-border pb-2">
+                          <h3 className="text-xs font-semibold uppercase">
+                            {editingSynopsisIndex !== null ? "Edit Sinopsis" : "Tambah Sinopsis"}
+                          </h3>
+                          <Button size="icon" variant="ghost" className="w-6 h-6" onClick={() => setShowEditSynopsis(false)}>
+                            <X className="w-4 h-4" />
+                          </Button>
+                        </div>
+                        
+                        <div className="space-y-1">
+                          <label className="text-xs text-muted-foreground">Tipe Sumber</label>
+                          <select 
+                            className="w-full text-xs h-8 bg-background border border-input px-2" 
+                            value={synopsisForm.sourceType}
+                            onChange={(e) => setSynopsisForm({...synopsisForm, sourceType: e.target.value})}
+                          >
+                            <option value="publisher">Penerbit</option>
+                            <option value="Goodreads">Goodreads</option>
+                            <option value="marketplace">Marketplace</option>
+                            <option value="google_books">Google Books</option>
+                            <option value="bookstore">Bookstore</option>
+                            <option value="blurb">Blurb / Review</option>
+                          </select>
+                        </div>
+                        
+                        <div className="space-y-1">
+                          <label className="text-xs text-muted-foreground">Nama Sumber</label>
+                          <Input 
+                            placeholder="Contoh: Shira Media" 
+                            className="text-xs h-8" 
+                            value={synopsisForm.sourceName} 
+                            onChange={(e) => setSynopsisForm({...synopsisForm, sourceName: e.target.value})} 
+                          />
+                        </div>
+                        
+                        <div className="space-y-1">
+                          <label className="text-xs text-muted-foreground">URL Sumber</label>
+                          <Input 
+                            placeholder="https://..." 
+                            className="text-xs h-8" 
+                            value={synopsisForm.sourceUrl} 
+                            onChange={(e) => setSynopsisForm({...synopsisForm, sourceUrl: e.target.value})} 
+                          />
+                        </div>
+                        
+                        <div className="space-y-1">
+                          <label className="text-xs text-muted-foreground">Teks Sinopsis</label>
+                          <textarea 
+                            placeholder="Teks sinopsis lengkap..." 
+                            className="w-full text-xs min-h-[150px] bg-background border border-input p-2" 
+                            value={synopsisForm.rawSynopsisFullText} 
+                            onChange={(e) => setSynopsisForm({...synopsisForm, rawSynopsisFullText: e.target.value})} 
+                          />
+                        </div>
+                        
+                        <Button size="sm" className="w-full text-xs" onClick={handleSaveSynopsis}>
+                          Simpan
+                        </Button>
+                      </div>
+                    </div>
+                  )}
                 </TabsContent>
 
                 <TabsContent value="credit" className="mt-0 h-full flex flex-col space-y-4 p-4">
