@@ -181,7 +181,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
     
     const q = searchTerm.toLowerCase();
     const filtered = list.filter(r => {
-      const title = ("judulBuku" in r ? r.judulBuku : r.judulNaskah) || "";
+      const title = r.judulBuku || r.judulNaskah || "";
       const author = r.pengarang || "";
       const publisher = r.published?.penerbit || "";
       const hay = `${title} ${author} ${publisher}`.toLowerCase();
@@ -306,7 +306,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
     handleSaveCover(type, publicUrl, undefined, isEd2 ? (type === 'front' ? {...frontEd2, imageUrl: publicUrl} : {...backEd2, imageUrl: publicUrl}) : undefined);
   };
 
-  const title = "judulBuku" in row ? row.judulBuku : row.judulNaskah;
+  const title = row.judulBuku || row.judulNaskah;
 
   return (
     <div className="flex h-screen bg-background text-foreground text-sm font-sans overflow-hidden">
@@ -356,7 +356,7 @@ export function DetailView({ row: initialRow }: { row: AnyRow; backTo: string })
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
                   <span className="font-semibold">{r.corpus} ({winYear || "—"})</span>
                 </div>
-                <div className="font-semibold text-xs truncate">{"judulBuku" in r ? r.judulBuku : r.judulNaskah}</div>
+                <div className="font-semibold text-xs truncate">{r.judulBuku || r.judulNaskah}</div>
                 <div className="text-xs text-muted-foreground truncate">{r.pengarang}</div>
                 {(r.published?.penerbit && r.published.penerbit !== "—" || r.published?.tahunTerbit && r.published.tahunTerbit !== "—") ? (
                   <div className="text-xs text-muted-foreground flex justify-between">
